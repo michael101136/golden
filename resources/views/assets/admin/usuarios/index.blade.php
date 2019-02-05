@@ -50,10 +50,26 @@
                                 <span class="sr-only">Toggle Dropdown</span>
                               </button>
                               <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Eliminar</a></li>
-                                <li><a href="#">Modificar</a></li>
-                                <li><a href="#">Itinerario</a></li>
-                                <li><a href="#">Lujo</a></li>
+                                <li style="text-align: center;">
+                                  {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $itemp->id]]) !!}
+                                         {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-ls'] )  }}
+                                  {!! Form::close() !!}
+                                </li>
+                                <li>
+                                     <a href="{{ URL::route('users.show',$itemp->id)}}"> 
+                                        <i class="fa fa-pencil"></i> Modificar
+                                    </a> 
+                                </li>
+                                <li>
+                                     <a href="{{ URL::route('users.show',$itemp->id)}}"> 
+                                        <i class="fa fa-list"></i> Itinerario
+                                    </a> 
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-train"></i> Lujo
+                                    </a>
+                            </li>
                               </ul>
                             </div>
                         </td>

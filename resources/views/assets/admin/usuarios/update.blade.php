@@ -34,28 +34,27 @@
                     <div class="box-header with-border">
                       <h3 class="box-title">Usuario</h3>
                     </div>
-                   {!! Form::open(['route' => ['users.store'] , 'method' => 'POST', 'class' => 'form-horizontal']) !!}
-
+                   {!! Form::open(['route' => ['users.update',"$user->id"] , 'method' => 'PUT', 'class' => 'form-horizontal' ]) !!}
                         <div class="box-body">
                             <div class="form-group">
                             <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
 
                             <div class="col-sm-10">
-                              <input type="text" class="form-control" id="name" name="name" placeholder="nombre completo">
+                              <input type="text" class="form-control" id="name" name="name" value="{{$user->name}}">
                             </div>
                           </div>
                           <div class="form-group">
                             <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
 
                             <div class="col-sm-10">
-                              <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                              <input type="email" class="form-control" id="email" name="email" value="{{$user->email}}">
                             </div>
                           </div>
                           <div class="form-group">
                             <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
 
                             <div class="col-sm-10">
-                              <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                              <input type="password" class="form-control" id="password" name="password" value="">
                             </div>
                           </div>
                           

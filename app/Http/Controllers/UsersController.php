@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Redirect;
 class UsersController extends Controller
 {
     /**
@@ -36,7 +36,14 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        User::create([
+          'name'=>$request->name,
+          'email'=>$request->email,
+          'password'=>bcrypt( $request->input('password') ),
+        ]);
+
+        return redirect('users');
+
     }
 
     /**
@@ -47,7 +54,10 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
+
+        $user = User::find($id);
+
+        return view('assets.admin.usuarios.update',['user' => $user]);
     }
 
     /**
@@ -70,7 +80,26 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if(is_null($request->password))
+        {
+            
+            $user = User::find($id);
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->save();
+        
+        }else 
+        {
+            $user = User::find($id);
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->password = bcrypt( $request->input('password') );
+            $user->save();
+
+        }
+
+           return redirect('users');
+       
     }
 
     /**
@@ -81,6 +110,10 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+
+        $user->delete();
+
+        return redirect()->back();
     }
 }
