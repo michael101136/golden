@@ -10,7 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('logout',['as' =>'logout','uses' => 'Auth\LoginController@logout']);
 
 Route::get('/', function () {
-    return view('assets.pagina.es.inicio');
+    return view('welcome');
 });
+
+Route::resource('tours','ToursController');
+Route::resource('users','UsersController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
