@@ -19,12 +19,14 @@ class ToursController extends Controller
     public function index()
     {
          
-        $data=Tour::all();
+        $DataUno= Tour::where('tipo_tour', '=', 'uno_dia')->get();
+        $DataVarios= Tour::where('tipo_tour', '=', 'varios_dias')->get();
+
 
         $dataMultimedia=Multimedia::all();
         $dataCategoria=Categorie::all();
 
-        return view("assets.admin.tours.index",['data' => $data,'dataMultimedia' => $dataMultimedia,'dataCategoria' => $dataCategoria]);
+        return view("assets.admin.tours.index",['DataUno' => $DataUno,'DataVarios'=>$DataVarios,'dataMultimedia' => $dataMultimedia,'dataCategoria' => $dataCategoria]);
     }
 
     /**

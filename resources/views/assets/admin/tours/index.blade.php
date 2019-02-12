@@ -15,82 +15,186 @@
 
     <section class="content">
 
-      <div class="box">
-        <div class="box-header with-border">
-          <h3 class="box-title">Listado </h3>
+<div class="row">
+        <div class="col-md-12">
+         
+          <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#tab_1" data-toggle="tab">Tour horas</a></li>
+              <li><a href="#tab_2" data-toggle="tab">Tour Días</a></li>
+              
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="tab_1">
+                        
+                    <div class="box">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Listado </h3>
 
-          <div class="box-tools pull-right">
+                          <div class="box-tools pull-right">
 
-            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
-                    title="Collapse">
-              <i class="fa fa-minus"></i></button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fa fa-times"></i></button>
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+                                    title="Collapse">
+                              <i class="fa fa-minus"></i></button>
+                            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                              <i class="fa fa-times"></i></button>
+                          </div>
+                        </div>
+                        <div class="box-body">
+                             <a href="{{ URL::route('tours.create')}}" type="button" class="btn bg-olive margin">Nuevo</a>
+                             <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                      <th>Nombre</th>
+                                      <th>Imagen</th>
+                                      <th>Descripcion</th>
+                                      <th>Status</th>
+                                      <th>Precio</th>
+                                      <th>Acción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                     @foreach($DataUno as $itemp)   
+                                        <tr>
+                                              <td> {{ $itemp->name}} </td>
+                                              <td> <img style="height:60px;" src='{{$itemp->img}}'></td>
+                                              <td>{{ $itemp->description_short}}</td>
+                                              <td>{{ $itemp->status}}</td>
+                                              <td>{{ $itemp->price}}</td>
+                                              <td>
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-success">Acción</button>
+                                                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                                                      <span class="caret"></span>
+                                                      <span class="sr-only">Toggle Dropdown</span>
+                                                    </button>
+                                                    <ul class="dropdown-menu" role="menu">
+                                                      <li style="text-align: center;">
+                                                          {!! Form::open(['method' => 'DELETE','route' => ['tours.destroy', $itemp->id]]) !!}
+                                                               {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-ls'] )  }}
+                                                          {!! Form::close() !!}
+                                                      </li><br>
+                                                      <li style="text-align: center;">
+                                                          {{--  <a href="{{ URL::route('multimedia.show',$itemp->id)}}"> 
+                                                              <i class="fa fa-pencil"></i> Modificar
+                                                          </a>  --}}
+                                                           <button type="button" class="btn btn-success btn-ls" onclick="listarImagenes({{$itemp->id}});">
+                                                              <i class="fa fa-pencil"></i>
+                                                          </button>
+                                                      </li><br>
+                                                      <li style="text-align: center;">
+                                                          
+                                                           <button type="button" class="btn btn-success btn-ls" onclick="listarImagenes({{$itemp->id}});">
+                                                              Itinerarios
+                                                          </button>
+                                                      </li>
+                                                    </ul>
+                                                  </div>
+                                                    
+                                              </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <div class="box-footer">
+                          Tours
+                        </div>
+                      </div>
+
+              </div>
+    
+              <div class="tab-pane" id="tab_2">
+                
+                    <div class="box">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Listado </h3>
+
+                          <div class="box-tools pull-right">
+
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+                                    title="Collapse">
+                              <i class="fa fa-minus"></i></button>
+                            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                              <i class="fa fa-times"></i></button>
+                          </div>
+                        </div>
+                        <div class="box-body">
+                             <a href="{{ URL::route('tours.create')}}" type="button" class="btn bg-olive margin">Nuevo</a>
+                             <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                      <th>Nombre</th>
+                                      <th>Imagen</th>
+                                      <th>Descripcion</th>
+                                      <th>Status</th>
+                                      <th>Precio</th>
+                                      <th>Acción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                     @foreach($DataVarios as $itemp)   
+                                        <tr>
+                                              <td> {{ $itemp->name}} </td>
+                                              <td> <img style="height:60px;" src='{{$itemp->img}}'></td>
+                                              <td>{{ $itemp->description_short}}</td>
+                                              <td>{{ $itemp->status}}</td>
+                                              <td>{{ $itemp->price}}</td>
+                                              <td>
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-success">Acción</button>
+                                                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                                                      <span class="caret"></span>
+                                                      <span class="sr-only">Toggle Dropdown</span>
+                                                    </button>
+                                                    <ul class="dropdown-menu" role="menu">
+                                                      <li style="text-align: center;">
+                                                          {!! Form::open(['method' => 'DELETE','route' => ['tours.destroy', $itemp->id]]) !!}
+                                                               {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-ls'] )  }}
+                                                          {!! Form::close() !!}
+                                                      </li><br>
+                                                      <li style="text-align: center;">
+                                                          {{--  <a href="{{ URL::route('multimedia.show',$itemp->id)}}"> 
+                                                              <i class="fa fa-pencil"></i> Modificar
+                                                          </a>  --}}
+                                                           <button type="button" class="btn btn-success btn-ls" onclick="listarImagenes({{$itemp->id}});">
+                                                              <i class="fa fa-pencil"></i>
+                                                          </button>
+                                                      </li><br>
+                                                      <li style="text-align: center;">
+                                                          
+                                                           <button type="button" class="btn btn-success btn-ls" onclick="listarImagenes({{$itemp->id}});">
+                                                              Itinerarios
+                                                          </button>
+                                                      </li>
+                                                    </ul>
+                                                  </div>
+                                                    
+                                              </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <div class="box-footer">
+                          Tours
+                        </div>
+                      </div>
+
+
+              </div>
+           
+            </div>
           </div>
         </div>
-        <div class="box-body">
-             <a href="{{ URL::route('tours.create')}}" type="button" class="btn bg-olive margin">Nuevo</a>
-             <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                    <tr>
-                      <th>Nombre</th>
-                      <th>Imagen</th>
-                      <th>Descripcion</th>
-                      <th>Status</th>
-                      <th>Precio</th>
-                      <th>Acción</th>
-                    </tr>
-                </thead>
-                <tbody>
-                     @foreach($data as $itemp)   
-                        <tr>
-                              <td> {{ $itemp->name}} </td>
-                              <td> <img style="height:60px;" src='{{$itemp->img}}'></td>
-                              <td>{{ $itemp->description_short}}</td>
-                              <td>{{ $itemp->status}}</td>
-                              <td>{{ $itemp->price}}</td>
-                              <td>
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-success">Acción</button>
-                                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-                                      <span class="caret"></span>
-                                      <span class="sr-only">Toggle Dropdown</span>
-                                    </button>
-                                    <ul class="dropdown-menu" role="menu">
-                                      <li style="text-align: center;">
-                                          {!! Form::open(['method' => 'DELETE','route' => ['tours.destroy', $itemp->id]]) !!}
-                                               {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-ls'] )  }}
-                                          {!! Form::close() !!}
-                                      </li><br>
-                                      <li style="text-align: center;">
-                                          {{--  <a href="{{ URL::route('multimedia.show',$itemp->id)}}"> 
-                                              <i class="fa fa-pencil"></i> Modificar
-                                          </a>  --}}
-                                           <button type="button" class="btn btn-success btn-ls" onclick="listarImagenes({{$itemp->id}});">
-                                              <i class="fa fa-pencil"></i>
-                                          </button>
-                                      </li><br>
-                                      <li style="text-align: center;">
-                                          
-                                           <button type="button" class="btn btn-success btn-ls" onclick="listarImagenes({{$itemp->id}});">
-                                              Itinerarios
-                                          </button>
-                                      </li>
-                                    </ul>
-                                  </div>
-                                    
-                              </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-
-        </div>
-        <div class="box-footer">
-          Tours
-        </div>
+        
       </div>
 
+
+
+  
     </section>
 
     <div class="modal fade" id="sliderImagenes">
