@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Tour;
+use DB;
+use App\language;
+use App\Categorie;
+use App\Multimedia;
 
 class ToursController extends Controller
 {
@@ -13,7 +18,13 @@ class ToursController extends Controller
      */
     public function index()
     {
-        return view("assets.admin.tours.index");
+         
+        $data=Tour::all();
+
+        $dataMultimedia=Multimedia::all();
+        $dataCategoria=Categorie::all();
+
+        return view("assets.admin.tours.index",['data' => $data,'dataMultimedia' => $dataMultimedia,'dataCategoria' => $dataCategoria]);
     }
 
     /**
@@ -23,7 +34,10 @@ class ToursController extends Controller
      */
     public function create()
     {
-        //
+
+        $dataMultimedia=Multimedia::all();
+        $dataCategoria=Categorie::all();
+        return view("assets.admin.tours.create",['dataMultimedia' =>$dataMultimedia ,'dataCategoria' =>$dataCategoria]);
     }
 
     /**
@@ -34,7 +48,33 @@ class ToursController extends Controller
      */
     public function store(Request $request)
     {
-        //
+           
+           $Tour = new Tour;
+           $Tour->name = $request->name;
+           $Tour->price = $request->precio;
+           $Tour->description_short =$request->description_corta;
+           $Tour->description_complete =$request->description_completa;
+           $Tour->organization =$request->textOrganizacion;
+           $Tour->status = $request->status;
+           $Tour->slug =str_replace(' ', '-', $request->name);
+           $Tour->multimedia_id = $request->dataMultimedia;
+           $Tour->save();
+
+           $id=DB::table('tours')->max('id');
+
+           $inserted = DB::table('categories_has_tours')
+                        ->insert([
+                            'categorie_id' => $request->dataCategoria,
+                            'tour_id' =>$id
+                        ]); 
+
+
+
+           return response()->json(['id'=> $id]);
+
+
+
+
     }
 
     /**
@@ -79,6 +119,96 @@ class ToursController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $itemCategoria = Tour::where('id', '=',$id)->get()[0];
+        Tour::destroy($id);
+
+        $destinationPath = '/'.$itemCategoria->img;
+
+        if(file_exists(public_path($destinationPath)))
+            {
+
+            unlink(public_path($destinationPath));
+
+            }else{
+
+            }
+
+        return redirect()->route('tours.index')
+                        ->with('success','Member deleted successfully');
+
     }
+
+    public function cargarImagens(Request $request)
+    {
+            $path = public_path().'/admin/uploads/tour/';
+             $files = $request->file('file');
+             foreach($files as $file)
+             {
+                $fileName = time().'.'.$file->getClientOriginalName();
+                $size = $file->getClientSize();
+                $ruta = 'admin/uploads/tour/'.$fileName;
+                $file->move($path, $fileName);
+
+                Tour::find($request->idTour)->update(['img' => $ruta]);
+
+                                                                               
+             }
+    }
+
+    public function listarImagenesToursUpdate($id)
+    {
+           $data = Tour::where('id',$id)->get();
+
+     
+           return response()->json(['data'=> $data]);
+    }
+
+     public function updateTourCampos(Request $request)
+    {
+        $Tour = Tour::find($request->idTourUpdate);
+        $Tour->name = $request->name;
+        $Tour->price = $request->precio;
+        $Tour->description_short =$request->description_corta;
+        $Tour->description_complete =$request->description_completa;
+        $Tour->organization =$request->textOrganizacion;
+        $Tour->status = $request->status;
+        $Tour->slug =str_replace(' ', '-', $request->name);
+        $Tour->multimedia_id = $request->dataMultimedia;
+        $Tour->save();
+
+
+
+        DB::table('categories_has_tours')->where('tour_id', $request->idTourUpdate)->delete();
+
+        DB::table('categories_has_tours')
+                        ->insert([
+                            'categorie_id' => $request->dataCategoria,
+                            'tour_id' =>$request->idTourUpdate
+                        ]); 
+
+        return "correcto";
+          
+    }
+
+    public function TourUpdateCategoria(Request $request)
+    {
+            return $request->all();
+    }
+
+    // public function updateImagenTours(Request $request)
+    // {
+    //          $path = public_path().'/admin/uploads/tour/';
+    //          $files = $request->file('file');
+    //          foreach($files as $file)
+    //          {
+    //             $fileName = time().'.'.$file->getClientOriginalName();
+    //             $size = $file->getClientSize();
+    //             $ruta = 'admin/uploads/tour/'.$fileName;
+    //             $file->move($path, $fileName);
+
+    //             Tour::find($request->idTour)->update(['img' => "michael"]);
+    //          }
+    // }
+
+
 }

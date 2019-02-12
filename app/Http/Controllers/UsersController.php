@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use App\language;
+
 class UsersController extends Controller
 {
     /**
@@ -11,6 +13,12 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     function __construct()
+    {
+         $this->middleware(['auth' ,'roles:normal,admin']);
+    }
+    
     public function index()
     {
         $users = User::All();
@@ -25,7 +33,10 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('assets.admin.usuarios.create');
+        $languages = language::All();
+        
+
+        return view('assets.admin.usuarios.create',['languages' => $languages]);
     }
 
     /**
@@ -36,9 +47,12 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
+        
         User::create([
           'name'=>$request->name,
           'email'=>$request->email,
+          'language_id'=>$request->usuarioIdioma,
+          'privilege'=>$request->privilegio,
           'password'=>bcrypt( $request->input('password') ),
         ]);
 
@@ -56,8 +70,8 @@ class UsersController extends Controller
     {
 
         $user = User::find($id);
-
-        return view('assets.admin.usuarios.update',['user' => $user]);
+        $languages = language::All();
+        return view('assets.admin.usuarios.update',['user' => $user,'languages' => $languages]);
     }
 
     /**
@@ -86,6 +100,8 @@ class UsersController extends Controller
             $user = User::find($id);
             $user->name = $request->name;
             $user->email = $request->email;
+            $user->language_id=$request->usuarioIdioma;
+            $user->privilege=$request->privilegio;
             $user->save();
         
         }else 
@@ -93,6 +109,8 @@ class UsersController extends Controller
             $user = User::find($id);
             $user->name = $request->name;
             $user->email = $request->email;
+            $user->language_id=$request->usuarioIdioma;
+            $user->privilege=$request->privilegio;
             $user->password = bcrypt( $request->input('password') );
             $user->save();
 

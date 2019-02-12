@@ -58,7 +58,26 @@
                               <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                             </div>
                           </div>
-                          
+                          <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">Privilegio</label>
+                                <div class="col-sm-10">
+                                      <select name="privilegio" id="privilegio">
+                                          <option value="admin">Administrador</option>
+                                          <option value="normal">Normal</option>
+                                    </select>
+                                </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">Usuario</label>
+                                <div class="col-sm-10">
+                                    <select id="usuarioIdioma" name="usuarioIdioma"> 
+                                        @foreach($languages as $item)
+                                          <option value="{{$item->id}}"> {{ $item->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                          </div>
+                        
                         </div>
                         <div class="box-footer">
                           <button type="submit" class="btn btn-info pull-right">Crear</button>

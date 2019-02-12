@@ -60,16 +60,6 @@
                                         <i class="fa fa-pencil"></i> Modificar
                                     </a> 
                                 </li>
-                                <li>
-                                     <a href="{{ URL::route('users.show',$itemp->id)}}"> 
-                                        <i class="fa fa-list"></i> Itinerario
-                                    </a> 
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-train"></i> Lujo
-                                    </a>
-                            </li>
                               </ul>
                             </div>
                         </td>

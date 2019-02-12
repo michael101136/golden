@@ -57,6 +57,30 @@
                               <input type="password" class="form-control" id="password" name="password" value="">
                             </div>
                           </div>
+
+                             <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">Privilegio</label>
+                                <div class="col-sm-10">
+                                      <select name="privilegio" id="privilegio">
+                                          <option value="admin" {{ ($user->privilege == 'admin' ) ? 'selected': ''}} >Administrador</option>
+                                          <option value="normal" {{ ($user->privilege == 'normal' ) ? 'selected': ''}} >Normal</option>
+                                    </select>
+                                </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">Usuario</label>
+                                <div class="col-sm-10">
+                                    <select id="usuarioIdioma" name="usuarioIdioma"> 
+                                        @foreach($languages as $item)
+                                        
+                                         <option value="{{$item->id}}" {{ ($item->id == $user->language_id ) ? 'selected': ''}} > {{ $item->name}}</option>                                       
+                                        @endforeach
+
+                                    </select>
+                                </div>
+                          </div>
+                        
+                        </div>
                           
                         </div>
                         <div class="box-footer">

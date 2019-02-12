@@ -11,6 +11,8 @@
   <link rel="stylesheet" href=" {{ URL::asset('public/assets/dist/css/AdminLTE.min.css')}}">
   <link rel="stylesheet" href=" {{ URL::asset('public/assets/dist/css/skins/_all-skins.min.css')}}">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+   @yield('style')
+     
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -73,6 +75,20 @@
       </div>
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU</li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-pie-chart"></i>
+            <span>Categoria</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{URL::route('categories.index') }}"><i class="fa fa-circle-o"></i> Listado</a></li>
+          </ul>
+        </li>   
+
         <li class="treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Tours</span>
@@ -97,7 +113,21 @@
           <ul class="treeview-menu">
             <li><a href="{{URL::route('users.index') }}"><i class="fa fa-circle-o"></i> Listado</a></li>
           </ul>
-        </li>      
+        </li>   
+
+         <li class="treeview">
+          <a href="#">
+            <i class="fa fa-pie-chart"></i>
+            <span>Multimedia</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{URL::route('multimedia.index') }}"><i class="fa fa-circle-o"></i> Slider</a></li>
+          </ul>
+        </li>  
+
       </ul>
     </section>
   </aside>
@@ -124,6 +154,7 @@
 <script src="{{ URL::asset('public/assets/dist/fastclick/lib/fastclick.js')}}"></script>
 <script src="{{ URL::asset('public/assets/dist/js/adminlte.min.js')}} "></script>
 <script src="{{ URL::asset('public/assets/dist/js/demo.js')}}"></script>
+@yield('script')
 <script>
   $(document).ready(function () {
     $('.sidebar-menu').tree()

@@ -37,25 +37,24 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    // public function hasRoles(array $roles)
-    // {
+    public function hasRoles(array $roles)
+    {
        
-    //    //dd($usuarios);
-    //    ///dd($usuarios->abbr);
-    //    foreach ($roles as $role) 
-    //     {
+      
+       // // dd($usuarios->abbr);
+       foreach ($roles as $role) 
+        {
+                if ($this->privilege == $role)
+                {
+                    return true;
+                }       
 
-    //             if ($this->privilege == $role)
-    //             {
-    //                 return true;
-    //             }       
+        }
+       return false;
+    }
 
-    //     }
-    //    return false;
-    // }
-
-    // public function language() {
-    //     return $this->hasOne('App\Language', 'id'); // Le indicamos que se va relacionar con el atributo id
-    // }
+    public function language() {
+        return $this->hasOne('App\Language', 'id'); // Le indicamos que se va relacionar con el atributo id
+    }
 
 }

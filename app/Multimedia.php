@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Multimedia extends Model
 {
     protected $fillable = [
-      'name','description'
+      'name','description','multimedia_id'
     ];
 }
