@@ -25,6 +25,14 @@ Route::get('tour/listar/{id?}', [ 'uses' => 'ToursController@listarImagenesTours
 
 Route::resource('users','UsersController');
 Route::resource('categories','CategorieController');
+
+Route::resource('Itinerario','ItinerarioController');
+Route::post('tours/Itinerario/insertarItinerario', [ 'uses' => 'ItinerarioController@insertarItinerario' ])->name('insertarItinerario');
+Route::get('tour/itinerario/{id?}', [ 'uses' => 'ItinerarioController@listarItinerarios' ])->name('listarItinerarios');
+Route::get('tour/deleteItinerario/{id?}',[ 'uses' => 'ItinerarioController@delete_itinerario' ])->name('delete_itinerario');
+Route::post('tours/cargarImagenItinerario/', [ 'uses' => 'ItinerarioController@cargarImagenItinerario' ])->name('CargarImagenItinerario');
+
+
 Route::resource('multimedia','MultimediaController');
 Route::resource('imagen','ImageController');
 Route::get('image/listar/{id?}', [ 'uses' => 'ImageController@listarImagenes' ])->name('listarImagenes');

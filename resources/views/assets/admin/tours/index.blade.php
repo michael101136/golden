@@ -84,9 +84,9 @@
                                                       </li><br>
                                                       <li style="text-align: center;">
                                                           
-                                                           <button type="button" class="btn btn-success btn-ls" onclick="listarImagenes({{$itemp->id}});">
+                                                           <a  href="{{ URL::route('Itinerario.show',$itemp->id)}}"  type="button" class="btn btn-success btn-ls">
                                                               Itinerarios
-                                                          </button>
+                                                          </a>
                                                       </li>
                                                     </ul>
                                                   </div>
