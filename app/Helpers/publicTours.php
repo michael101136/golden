@@ -6,9 +6,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 class publicTours
 {
-	public static function tours($abbr,$estadoPublicado)
+	public static function tours($idioma,$estadoPublicado)
 	{
 		
+         
+
          $toursPublic = DB::table('languages')
 			        ->select('tours.id', DB::raw('count(*) as dias'),'tours.name','tours.description_short','tours.img','tours.price','tours.slug','categories.name as categoriesName','itineraries.department')
 			        ->join('categories', 'languages.id', '=', 'categories.language_id')
@@ -23,6 +25,41 @@ class publicTours
 		return $toursPublic;
 
 	}
+
+	public static function toursPrincipal($idioma,$estadoPublicado)
+	{
+		
+
+         $toursPublic = DB::table('languages')
+			        ->select('tours.id','tours.name','tours.description_short','tours.img','tours.price','tours.slug','categories.description as categoriesName')
+			        ->join('categories', 'languages.id', '=', 'categories.language_id')
+			        ->join('categories_has_tours as cat_t', 'cat_t.categorie_id', '=', 'categories.id')
+			        ->join('tours', 'cat_t.tour_id', '=', 'tours.id')
+			        ->where("tours.principal","=",$estadoPublicado)
+			        ->where("languages.abbr","=",$idioma)
+			        ->paginate(6);
+
+		return $toursPublic;
+
+	}
+		public static function toursRecomendadosUnDia($idioma,$estadoPublicado)
+	{
+		
+
+         $toursPublic = DB::table('languages')
+			        ->select('tours.id','tours.name','tours.description_short','tours.img','tours.price','tours.slug','categories.description as categoriesName')
+			        ->join('categories', 'languages.id', '=', 'categories.language_id')
+			        ->join('categories_has_tours as cat_t', 'cat_t.categorie_id', '=', 'categories.id')
+			        ->join('tours', 'cat_t.tour_id', '=', 'tours.id')
+			        ->where("languages.abbr","=",$idioma)
+			        ->where("tours.tipo_tour","=",'uno_dia')
+			        ->paginate(6);
+
+		return $toursPublic;
+
+	}
+
+
 	public static function toursIndex($abbr,$estadoPublicado)
 	{
 		
@@ -60,14 +97,15 @@ class publicTours
 		public static function todoTours($abbr)
 		{
 		
+         
+
          $toursPublic = DB::table('languages')
-			        ->select('tours.id', DB::raw('count(*) as dias'),'tours.name','tours.tipo_tour','tours.description_short','tours.img','tours.price','tours.slug','categories.name as categoriesName','itineraries.department')
+			        ->select('tours.id','tours.name','tours.tipo_tour','tours.description_short','tours.img','tours.price','tours.slug','categories.name as categoriesName')
 			        ->join('categories', 'languages.id', '=', 'categories.language_id')
 			        ->join('categories_has_tours as cat_t', 'cat_t.categorie_id', '=', 'categories.id')
 			        ->join('tours', 'cat_t.tour_id', '=', 'tours.id')
-			        ->leftJoin('itineraries', 'itineraries.tour_id', '=', 'tours.id')
 			        ->where("languages.abbr","=",$abbr)
-			        ->groupBy('tours.name')
+
 			        ->paginate(12);
 
 				return $toursPublic;
@@ -78,15 +116,14 @@ class publicTours
 		{
 		
          $toursPublic = DB::table('languages')
-			        ->select('tours.id', DB::raw('count(*) as dias'),'tours.name','tours.tipo_tour','tours.description_short','tours.img','tours.price','tours.slug','categories.name as categoriesName','itineraries.department')
+			        ->select('tours.id','tours.name','tours.tipo_tour','tours.description_short','tours.img','tours.price','tours.slug','categories.name as categoriesName')
 			        ->join('categories', 'languages.id', '=', 'categories.language_id')
 			        ->join('categories_has_tours as cat_t', 'cat_t.categorie_id', '=', 'categories.id')
 			        ->join('tours', 'cat_t.tour_id', '=', 'tours.id')
-			        ->leftJoin('itineraries', 'itineraries.tour_id', '=', 'tours.id')
 			        ->where("languages.abbr","=",$abbr)
 			        ->where("categories.name","=",$search)
-			        ->groupBy('tours.name')
 			        ->paginate(12);    
+
 				return $toursPublic;
 
 		}

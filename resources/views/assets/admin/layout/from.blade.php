@@ -10,6 +10,7 @@
   <link rel="stylesheet" href=" {{ URL::asset('public/assets/dist/Ionicons/css/ionicons.min.css')}}">
   <link rel="stylesheet" href=" {{ URL::asset('public/assets/dist/css/AdminLTE.min.css')}}">
   <link rel="stylesheet" href=" {{ URL::asset('public/assets/dist/css/skins/_all-skins.min.css')}}">
+  <link rel="stylesheet" href=" {{ URL::asset('public/assets/dist/css/toastr.min.css')}}">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
    @yield('style')
      
@@ -154,6 +155,8 @@
 <script src="{{ URL::asset('public/assets/dist/fastclick/lib/fastclick.js')}}"></script>
 <script src="{{ URL::asset('public/assets/dist/js/adminlte.min.js')}} "></script>
 <script src="{{ URL::asset('public/assets/dist/js/demo.js')}}"></script>
+<script src="{{ URL::asset('public/assets/dist/js/toastr.min.js')}}"></script>
+
 @yield('script')
 <script>
   $(document).ready(function () {

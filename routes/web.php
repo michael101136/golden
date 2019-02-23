@@ -10,27 +10,42 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('logout',['as' =>'logout','uses' => 'Auth\LoginController@logout']);
+
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/es');
 });
+// // Route::get('/es', function () {
+// //     return view('assets.pagina.es.inicio');
+// // });
+
+
+
+
+/*_______________ Admin _____________________________________________________________________________________________________________*/
+Route::get('logout',['as' =>'logout','uses' => 'Auth\LoginController@logout']);
+
 
 Route::resource('tours','ToursController');
 Route::post('tours/cargar/', [ 'uses' => 'ToursController@cargarImagens' ])->name('CargarImagenTour');
 Route::post('tours/updateTours/', [ 'uses' => 'ToursController@updateTourCampos' ])->name('updateTours');
 Route::post('tours/categoria/TourUpdateCategoria', [ 'uses' => 'ToursController@TourUpdateCategoria' ])->name('TourUpdateCategoria');
 Route::get('tour/listar/{id?}', [ 'uses' => 'ToursController@listarImagenesToursUpdate' ])->name('listarImagenesToursUpdate');
-// Route::post('updateImagenTours' , ['as'=>'updateImagenTours','uses'=>'ToursController@updateImagenTours']);
+Route::post('updateImagenTours' , ['as'=>'updateImagenTours','uses'=>'ToursController@updateImagenTours']);
 
 Route::resource('users','UsersController');
 Route::resource('categories','CategorieController');
 
 Route::resource('Itinerario','ItinerarioController');
+Route::get('tour/createItinerario/{id?}', [ 'uses' => 'ItinerarioController@createItinerario' ])->name('createItinerario');
 Route::post('tours/Itinerario/insertarItinerario', [ 'uses' => 'ItinerarioController@insertarItinerario' ])->name('insertarItinerario');
 Route::get('tour/itinerario/{id?}', [ 'uses' => 'ItinerarioController@listarItinerarios' ])->name('listarItinerarios');
+Route::get('tour/showItinerario/{id?}', [ 'uses' => 'ItinerarioController@showItinerario' ])->name('showItinerario');
 Route::get('tour/deleteItinerario/{id?}',[ 'uses' => 'ItinerarioController@delete_itinerario' ])->name('delete_itinerario');
 Route::post('tours/cargarImagenItinerario/', [ 'uses' => 'ItinerarioController@cargarImagenItinerario' ])->name('CargarImagenItinerario');
+Route::post('tours/updateItinerario/', [ 'uses' => 'ItinerarioController@updateItinerario' ])->name('updateItinerario');
+Route::post('tours/UpdateImagenItinerario/', [ 'uses' => 'ItinerarioController@UpdateImagenItinerario' ])->name('UpdateImagenItinerario');
+
 
 
 Route::resource('multimedia','MultimediaController');
@@ -39,17 +54,18 @@ Route::get('image/listar/{id?}', [ 'uses' => 'ImageController@listarImagenes' ])
 Route::get('image/delete/{id?}',[ 'uses' => 'ImageController@delete_img' ])->name('EliminarImagenes');
 
 
-
-
-// Route::post('image/create/','MultimediaController@create_img');
-// Route::get('image/view/{id}','MultimediaController@view_img');
-// Route::post('image/delete/{id}','MultimediaController@delete_img');
-// Route::get('video/view/{id}','MultimediaController@view_video');
-// Route::post('video/create/{id}','MultimediaController@create_video');
-// Route::get('video/see/{id}','MultimediaController@see_video');
-// Route::put('video/update/{id}','MultimediaController@update_video');
-// Route::post('video/delete/{id}','MultimediaController@delete_video');
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+/*_______________ Fin admin_____________________________________________________________________________________________________________*/
+
+Route::get('/{idioma?}', [ 'uses' => 'PublicController@index' ]);
+Route::get('{lang?}/paquetes/', [ 'uses' => 'PublicController@tours' ])->name('paquetesEs');
+Route::get('{lang?}/tours/detalle/{slug?}', ['uses' => 'PublicController@tour'])->name('detalleEsTour');
+Route::get('{lang?}/nosotros/', [ 'uses' => 'PublicController@about' ])->name('nosotrosEs');
+Route::get('{lang?}/contacto/', [ 'uses' => 'PublicController@contact' ])->name('contactoEs');
+Route::get('{lang?}/testimonio/', [ 'uses' => 'PublicController@testimony' ])->name('testimonioEs');
+
+Route::post('toursOpcionPrecio/', [ 'uses' => 'PublicController@toursOpcionPrecio' ])->name('toursOpcionPrecio');
+Route::post('toursOpcion/', [ 'uses' => 'PublicController@toursOpcion' ])->name('toursOpcion');
+Route::get('{lang?}/categoria/{search?}', [ 'uses' => 'PublicController@tours' ])->name('paquetesCategoriaES');

@@ -44,7 +44,7 @@
                   @foreach($multimedias as $itemp)
                       <tr>
                         <td>{{$itemp->name}}</td>
-                        <td>{{$itemp->description}}</td>
+                        <td>{{ str_limit($itemp->description,150) }}</td>
                         <td>{{$itemp->created_at}}</td>
                         <td>{{$itemp->updated_at}}</td>
                         <td>

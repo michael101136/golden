@@ -70,24 +70,27 @@
                                                     </button>
                                                     <ul class="dropdown-menu" role="menu">
                                                       <li style="text-align: center;">
+
                                                           {!! Form::open(['method' => 'DELETE','route' => ['tours.destroy', $itemp->id]]) !!}
                                                                {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-ls'] )  }}
                                                           {!! Form::close() !!}
+
                                                       </li><br>
                                                       <li style="text-align: center;">
-                                                          {{--  <a href="{{ URL::route('multimedia.show',$itemp->id)}}"> 
-                                                              <i class="fa fa-pencil"></i> Modificar
-                                                          </a>  --}}
+
                                                            <button type="button" class="btn btn-success btn-ls" onclick="listarImagenes({{$itemp->id}});">
                                                               <i class="fa fa-pencil"></i>
                                                           </button>
-                                                      </li><br>
+
+                                                      </li>
                                                       <li style="text-align: center;">
                                                           
-                                                           <a  href="{{ URL::route('Itinerario.show',$itemp->id)}}"  type="button" class="btn btn-success btn-ls">
-                                                              Itinerarios
-                                                          </a>
+                                                           <a  href="{{ URL::route('Itinerario.show',$itemp->id)}}" type="button"  class="btn bg-olive margin">
+                                                                ITINERARIO
+                                                           </a>
+                                                          
                                                       </li>
+
                                                     </ul>
                                                   </div>
                                                     
@@ -161,12 +164,13 @@
                                                            <button type="button" class="btn btn-success btn-ls" onclick="listarImagenes({{$itemp->id}});">
                                                               <i class="fa fa-pencil"></i>
                                                           </button>
-                                                      </li><br>
+                                                      </li>
                                                       <li style="text-align: center;">
                                                           
-                                                           <button type="button" class="btn btn-success btn-ls" onclick="listarImagenes({{$itemp->id}});">
-                                                              Itinerarios
-                                                          </button>
+                                                           <a  href="{{ URL::route('Itinerario.show',$itemp->id)}}" type="button"  class="btn bg-olive margin">
+                                                                ITINERARIO
+                                                           </a>
+
                                                       </li>
                                                     </ul>
                                                   </div>
@@ -364,25 +368,46 @@
         $('.textarea').wysihtml5()
       })
 
-     $("#btnUpdatetour").click(function (e) {
-                        e.preventDefault();
-                        var value = CKEDITOR.instances['editor1'].getData(); 
-                        $("#textOrganizacion").val(value);
-                        var data = $('#formTour').serialize();
-                        console.log(value);
-                         $.ajax({
-                                     url:'{{ route('updateTours') }}',
-                                         type: 'POST',
-                                         data:data,
-                                     success: function(data) 
-                                     {
-                                          $("#idTour").val(data.id);
-                                          // $('#slider').show();
-                                          // $('#bannerSlider').hide(); //muestro mediante id
-                                     }
-                                });
-                         });
+     $("#btnUpdatetour").click(function (e) 
+     {
+            e.preventDefault();
+            var value = CKEDITOR.instances['editor1'].getData(); 
+            $("#textOrganizacion").val(value);
+            var data = $('#formTour').serialize();
+             $.ajax({
+                         url:'{{ route('updateTours') }}',
+                             type: 'POST',
+                             data:data,
+                         success: function(data) 
+                         {
+                              $("#idTour").val(data.id);
+                         
+                               helperNotificacion();
+                               $('#sliderImagenes').modal('hide')
+                         }
+                    });
+             });
 
+function helperNotificacion()
+{
+
+       toastr.success("SE ACTUALIZO EL TOURS");
+       toastr.options = 
+       {
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration ": "300",
+                    "hideDuration": "500",
+                    "timeOut": "1000",
+        }   
+
+
+}
    
 
   function  listarImagenes(id)
@@ -400,23 +425,22 @@
                            {
 
                              
-
                              $.each(data.data,function(index,element)
                                 { 
-                                   htmlTours=htmlTours + "<tr>"+ 
-                                                             "<td>  <img  style='height: 50px;' src='/"+element.img+"'> </td>"+
-                                                             "<td> <a  onclick='eliminarImagem("+element.id+",this)' class='btn btn-danger btn-ls'> <i class='fa fa-trash'></i></a>"+  
-                                                         "</td>"+
-                                                         "<tr>";
-                                    idTour =element.id;
-                                  $("#nombreTours").val(element.name);
-                                  $("#description_cortaTours").val(element.description_short);
-                                  $("#description_completaTours").val(element.description_complete);
-                                  $("#precioTours").val(element.price);
-                                  CKEDITOR.instances['editor1'].setData(element.organization);
+                                       htmlTours=htmlTours + "<tr>"+ 
+                                                                 "<td>  <img  style='height: 50px;' src='/"+element.img+"'> </td>"+
+                                                                 "<td> <a  onclick='eliminarImagem("+element.id+",this)' class='btn btn-danger btn-ls'> <i class='fa fa-trash'></i></a>"+  
+                                                             "</td>"+
+                                                             "<tr>";
+                                      idTour =element.id;
+                                      $("#nombreTours").val(element.name);
+                                      $("#description_cortaTours").val(element.description_short);
+                                      $("#description_completaTours").val(element.description_complete);
+                                      $("#precioTours").val(element.price);
+                                      CKEDITOR.instances['editor1'].setData(element.organization);
 
-                                  $("#dataMultimedia option[value="+ element.multimedia_id +"]").attr("selected",true);
-                                  $("#status option[value="+ element.status +"]").attr("selected",true);
+                                      $("#dataMultimedia option[value="+ element.multimedia_id +"]").attr("selected",true);
+                                      $("#status option[value="+ element.status +"]").attr("selected",true);
 
 
                                 });
@@ -427,6 +451,7 @@
 
 
                            }
+
                         });
                       
                 }
@@ -466,6 +491,8 @@
 
             }
         };
+
+
 
     
     </script>

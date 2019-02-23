@@ -26,7 +26,14 @@ class ItinerarioController extends Controller
     {
     
 
-       
+        return view("assets.admin.itinerario.create");
+
+    }
+
+    public function createItinerario($id)
+    {
+
+        return view("assets.admin.itinerario.create",['id' => $id]);
 
     }
 
@@ -92,6 +99,7 @@ class ItinerarioController extends Controller
            
            $idMax=DB::table('itineraries')->max('id');
 
+
            DB::table('itineraries')
                 ->where('id', $idMax)
                 ->update([
@@ -120,9 +128,7 @@ class ItinerarioController extends Controller
     {
 
               $Image=Itinerarie::where('id', '=', $id)->first();
-            
-
-
+        
         
              if(file_exists(public_path($Image->photo)))
                {
@@ -142,26 +148,21 @@ class ItinerarioController extends Controller
     public function cargarImagenItinerario (Request $request)
     {
 
-               
-            $data=DB::table('itineraries')->where('tour_id',$request->idTours)->get();
+           $contador=Itinerarie::where('tour_id', '=',$request->idToursItinerario)->get();
 
-            if( count($data)==0)
-            {
-                 $dayMax=0; 
-            }else
-            {
 
-                $dayMax;
-            }
-           
-            foreach ($data as $itemp) 
-            {
-                $dayMax=$itemp->day;  
-            }
+           $data=Itinerarie::where('tour_id', '=',$request->idToursItinerario)->get()->last();
             
-            $dayMax=(int)$dayMax+1;
-
-
+           if(count($contador)==0)
+           {
+             $dayMax=1;
+           }else
+           {
+                $dayMax=(int)$data->day + 1;
+           }
+           
+      
+           
              $path = public_path().'/admin/uploads/itinerario/';
              $files = $request->file('file');
              foreach($files as $file)
@@ -176,13 +177,76 @@ class ItinerarioController extends Controller
                        [
                             'tour_id'     => $request->idToursItinerario, 
                             'photo'       => $ruta, 
-                            'day'         => $dayMax, 
+                            'day'         => $dayMax,
                         ]
                     );
 
                                                                                
              }
 
+    }
+
+    public function showItinerario($id)
+    {
+
+          $data=Itinerarie::where('id', '=', $id)->first();
+
+         
+           return response()->json(['data' => $data]);
+
+
+    }
+
+    public function updateItinerario(Request $request)
+    {
+
+        $category = Itinerarie::find($request->idItinerario);
+        $category->update([
+              'name'        => $request->Editarname,
+              'description' => $request->Editardescripcion, 
+              'department'  => $request->Editardepartamento,
+              'province' => $request->Editarprovincia,
+              'district' => $request->Editardistrito,
+              'altitud'  => $request->Editaraltitud,
+              'latitud'  => $request->Editarlongitud
+          ]);
+          return redirect('Itinerario/'.$request->idItinerarioTour);
+    }
+
+    public function UpdateImagenItinerario(Request $request)
+    {
+        $data = Itinerarie::where('id',$request->idItinerarioImagen)->get();
+        foreach( $data as $itemp )
+        {
+            if(file_exists(public_path($itemp->photo)))
+               {
+                  unlink(public_path($itemp->photo));
+               }
+               else
+               {
+                  
+                }
+           
+          
+        }
+
+        $path = public_path().'/admin/uploads/itinerario/';
+             $files = $request->file('file');
+            
+                $fileName = time().'.'.$files->getClientOriginalName();
+                $size = $files->getClientSize();
+                $ruta = 'admin/uploads/itinerario/'.$fileName;
+                $files->move($path, $fileName);
+                                                                               
+             
+        $dataupdate = Itinerarie::find($request->idItinerarioImagen);
+        $dataupdate->update(
+            [
+              'photo'        => $ruta,
+       
+            ]);
+
+      
     }
 
 

@@ -1,0 +1,1 @@
+{!!Html::style('plantilla/assets/css/base.css')!!}

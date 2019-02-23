@@ -17,12 +17,7 @@
         
       <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">
-                 <button type="button" class="btn bg-navy btn-flat margin" onclick="crearFormularioItinerario();">
-                    <i class="fa fa-fw fa-plus-square"></i>
-                </button>
-            </h3>
-
+       
             <div class="box-tools pull-right">
 
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
@@ -35,7 +30,8 @@
         </div>
         
         <div class="box-body">
-          
+           <a href="{{ URL::route('createItinerario',$id)}}" type="button" class="btn bg-navy btn-flat margin">Nuevo</a>
+            <table id="example1" class="table table-bordered table-striped">
           <div class="col-md-12">
                          
                   <table class="table" id="tableImagenes">
@@ -47,7 +43,8 @@
                         <th>DESCRIPCIÓN</th>
                         <th>LUGAR</th>
                         <th>COORDENADAS</th>
-                        <th>ACCIÓN</th>
+                        <th></th>
+                        <th></th>
                       </tr>
                     </thead>
                     <tbody id="tablaItinerarioTour">
@@ -62,7 +59,7 @@
 
         </div>
         <div class="box-footer">
-          Itinerario
+          ITINERARIO
         </div>
       </div>
 
@@ -70,16 +67,28 @@
 
 
 
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
+
+  <div class="modal fade" id="myModalEditar" role="dialog">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Crear Itinerario</h4>
+          <h4 class="modal-title">Actualizar </h4>
         </div>
         <div class="modal-body">
-                
+                 <table class="table table-striped" id="tableImagenes">
+                    <thead>
+                      <tr>
+                        <th>Imagen</th>
+                        <th>Acción</th>
+                      </tr>
+                    </thead>
+                    <tbody id="sliderTabla">
+                     
+                     
+                    </tbody>
+                  </table>
+
                 <div class="box box-info">
                                           
 
@@ -89,12 +98,12 @@
                                     SUBIR IMAGENES
                                 </div>
                                 <div class="panel-body">
-                                    {!! Form::open(['route'=> ['CargarImagenItinerario'], 'method' => 'POST', 'files'=>'true', 'id' => 'my-dropzone' , 'class' => 'dropzone']) !!}
+                                    {!! Form::open(['route'=> ['UpdateImagenItinerario'], 'method' => 'POST', 'files'=>'true', 'id' => 'my-dropzone' , 'class' => 'dropzone']) !!}
 
                                             <div class="dz-message" style="height:100px;">
                                                 Drop your files here
                                             </div>
-                                             <input type="hidden" class="form-control" id="idToursItinerario" name="idToursItinerario" value="{{ $id}}">
+                                            <input type="hidden" class="form-control" id="idItinerarioImagen" name="idItinerarioImagen">
                                             <div class="dropzone-previews"></div>
                                             <button type="submit" class="btn btn-success" id="submit">Save</button>
                                     {!! Form::close() !!}
@@ -104,13 +113,15 @@
 
                       <div class="box-body">
                        
-                         {!! Form::open(["route" => ["insertarItinerario"] , "method" => "POST","id"=>"FormCrearItinerarie", "class" => "form-horizontal" ]) !!}
+                         {!! Form::open(["route" => ["updateItinerario"] , "method" => "POST","id"=>"updateItinerario", "class" => "form-horizontal" ]) !!}
 
                             <div class="form-group">
                                 <label for="inputPassword3" class="col-sm-2 control-label">Name</label>
                                 <div class="col-sm-10">
-                                         <input type="text" class="form-control" id="name" name="name" >
-                                          <input type="hidden" class="form-control" id="idTours" name="idTours" value="{{ $id}}">
+                                        <input type="text" class="form-control" id="Editarname" name="Editarname" >
+                                        <input type="hidden" class="form-control" id="idItinerarioTour" name="idItinerarioTour" value="{{ $id}}">
+                                        <input type="hidden" class="form-control" id="idItinerario" name="idItinerario">
+                                        
                                 </div>
                             </div>
 
@@ -118,7 +129,7 @@
                                 <label for="inputPassword3" class="col-sm-2 control-label">Descripción</label>
                                 <div class="col-sm-10">
                                         
-                                        <textarea id="descripcion" name="descripcion" class="form-control" rows="10" cols="80">
+                                        <textarea id="Editardescripcion" name="Editardescripcion" class="form-control" rows="10" cols="80">
 
                                         </textarea>
                                 </div>
@@ -127,15 +138,15 @@
                             <div class="form-group">
                                 <label for="inputPassword3" class="col-sm-2 control-label">Departamento</label>
                                 <div class="col-sm-2">
-                                         <input type="text" class="form-control" id="departamento" name="departamento" >
+                                         <input type="text" class="form-control" id="Editardepartamento" name="Editardepartamento" >
                                 </div>
                                 <label for="inputPassword3" class="col-sm-2 control-label">Provincia</label>
                                 <div class="col-sm-2">
-                                         <input type="text" class="form-control" id="provincia" name="provincia" >
+                                         <input type="text" class="form-control" id="Editarprovincia" name="Editarprovincia" >
                                 </div>
                                 <label for="inputPassword3" class="col-sm-2 control-label">Distrito</label>
                                 <div class="col-sm-2">
-                                         <input type="text" class="form-control" id="distrito" name="distrito" >
+                                         <input type="text" class="form-control" id="Editardistrito" name="Editardistrito" >
                                 </div>
                             </div>
 
@@ -143,20 +154,20 @@
                             <div class="form-group">
                                 <label for="inputPassword3" class="col-sm-2 control-label">Altitud</label>
                                <div class="col-sm-4">
-                                         <input type="text" class="form-control" id="altitud" name="altitud">
+                                         <input type="text" class="form-control" id="Editaraltitud" name="Editaraltitud">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="inputPassword3" class="col-sm-2 control-label">Longitud</label>
                                <div class="col-sm-4">
-                                         <input type="text" class="form-control" id="longitud" name="longitud">
+                                         <input type="text" class="form-control" id="Editarlongitud" name="Editarlongitud">
                                 </div>
                             </div>
 
                       </div>
                    
                       <div class="box-footer">
-                        <button type="submit" class="btn btn-info pull-right" name="btnInsertarItinerario">Guardar</button>
+                        <button type="submit" class="btn btn-info pull-right" name="submit">Guardar</button>
                       </div>
                 {!! Form::close() !!}
         </div>
@@ -168,6 +179,7 @@
       </div>
     </div>
   </div>
+
 
 @endsection
 
@@ -210,11 +222,14 @@
                                                                "<td> "+element.description+"  </td>"+
                                                                "<td> "+element.department+" : "+element.province+" :   "+element.district+"  </td>"+
                                                                "<td> "+element.altitud+" : "+element.latitud+"  </td>"+
-                                                             "<td> <a  onclick='eliminarItinerario("+element.id+",this)' class='btn btn-danger btn-ls'> <i class='fa fa-trash'></i></a>"+  
-                                                         "</td>"+
+                                                               "<td> <a  onclick='eliminarItinerario("+element.id+",this)' class='btn btn-danger btn-ls'> <i class='fa fa-trash'></i></a>"+  
+                                                               "</td>"+
+                                                               "<td> <a  onclick='editarItinerario("+element.id+")' class='btn btn-success btn-ls'> <i class='fa fa-fw fa-edit'></i></a>"+  
+                                                               "</td>"+
                                                          "<tr>";
 
                                 });
+
                                $("#tablaItinerarioTour").append(htmlTours);
 
                            }
@@ -235,12 +250,69 @@
                      }
                 });  
 
-      }        
+      }   
+
+        function editarItinerario(id)
+         {
+             ImagnesItinerario(id);
+             $("#sliderTabla").html('');
+
+             $.ajax({
+                     url:'{{ route('showItinerario') }}/'+id,
+                     type: 'GET',
+                     success: function(data) 
+                     {
+                        // var id=data.data.id;
+                        $("#Editardepartamento").val(data.data.department);
+                        $("#Editarprovincia").val(data.data.province);
+                        $("#Editardistrito").val(data.data.district);
+                        $("#Editaraltitud").val(data.data.altitud);
+                        $("#Editarlongitud").val(data.data.latitud);
+                        $("#Editardescripcion").val(data.data.description);
+                        $("#Editarname").val(data.data.name);
+                        $('#myModalEditar').modal('show'); 
+                        $("#idItinerarioTour").val(data.data.tour_id);
+                        $("#idItinerario").val(data.data.id);
+                        $("#idItinerarioImagen").val(data.data.id);
+
+                
+                     }
+                });  
+
+         }
+
+            function ImagnesItinerario(id)
+         {
+            
+             $("#sliderTabla").html('');
+             $("#sliderTabla").append('');
+
+             $.ajax({
+                     url:'{{ route('showItinerario') }}/'+id,
+                     type: 'GET',
+                     success: function(data) 
+                     {
+                        
+
+                       var htmlTours=htmlTours + "<tr>"+ 
+                                                             "<td>  <img  style='height: 50px;' src='/"+data.data.photo+"'> </td>"+
+                                                             "<td> <a  onclick='eliminarImagem("+data.data.id+",this)' class='btn btn-danger btn-ls'> <i class='fa fa-trash'></i></a>"+  
+                                                         "</td>"+
+                                                         "<tr>";
+
+                         $("#sliderTabla").append(htmlTours);
+                     }
+                });  
+
+         }
+
+
     
     
-      Dropzone.options.myDropzone = {
+      
+        Dropzone.options.myDropzone = {
             autoProcessQueue: false,
-            uploadMultiple: true,
+            uploadMultiple: false,
             maxFilezise: 10,
             maxFiles: 1,
             
@@ -252,6 +324,10 @@
                     e.preventDefault();
                     e.stopPropagation();
                     myDropzone.processQueue();
+
+                    var id=$("#idItinerario").val();
+                    ImagnesItinerario(id);     
+                
                 });
                 this.on("addedfile", function(file) {
                     
@@ -264,8 +340,13 @@
                 this.on("success", 
                     myDropzone.processQueue.bind(myDropzone)
                 );
+
+
             }
         };
+
+
+        
 
 
     

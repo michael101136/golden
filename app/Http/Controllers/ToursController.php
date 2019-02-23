@@ -58,6 +58,7 @@ class ToursController extends Controller
            $Tour->description_complete =$request->description_completa;
            $Tour->organization =$request->textOrganizacion;
            $Tour->status = $request->status;
+           $Tour->tipo_tour = 'varios_dias';
            $Tour->slug =str_replace(' ', '-', $request->name);
            $Tour->multimedia_id = $request->dataMultimedia;
            $Tour->save();
