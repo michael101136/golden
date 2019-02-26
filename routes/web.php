@@ -69,3 +69,37 @@ Route::get('{lang?}/testimonio/', [ 'uses' => 'PublicController@testimony' ])->n
 Route::post('toursOpcionPrecio/', [ 'uses' => 'PublicController@toursOpcionPrecio' ])->name('toursOpcionPrecio');
 Route::post('toursOpcion/', [ 'uses' => 'PublicController@toursOpcion' ])->name('toursOpcion');
 Route::get('{lang?}/categoria/{search?}', [ 'uses' => 'PublicController@tours' ])->name('paquetesCategoriaES');
+Route::get('{lang?}/tours/filtro/{precio?}/{departamento?}', [ 'uses' => 'PublicController@toursPrecioCiudad' ])->name('paquetesCategoriaPrecioCiudadES');
+
+/*_______________ Add carrito de compra_____________________________________________________________________________________________________________*/
+
+Route:: get('es/add-to-cart/{id}', [
+
+		'uses' => 'ProductController@getAddToCart',
+		'as' => 'product.addToCart'
+	
+]);
+
+Route:: get('es/detalle/shopping-cart/', [
+	
+		'uses' => 'ProductController@getCart',
+		'as' => 'product.shoppingCart'
+	
+]);
+
+Route:: get('es/datos/checkout', [
+	
+		'uses' => 'ProductController@getCheckout',
+		'as' => 'checkout'
+	
+]);
+
+Route:: POST('es/datos/checkout', [
+	
+		'uses' => 'ProductController@postCheckout',
+		'as' => 'checkoutPost'
+	
+]);
+
+
+/*_______________ Add carrito de compra_____________________________________________________________________________________________________________*/

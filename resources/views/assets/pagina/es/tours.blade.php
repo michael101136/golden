@@ -18,7 +18,7 @@
                         <div class="row">
                             <div class="col-md-3 hidden-sm thm-padding">
                                 <div class="region">
-                                    <h4 style="text-transform: uppercase;"> {{$ItempCategoria->description}} </h4>
+                                    <h4 style="text-transform: uppercase;"> {{$ItempCategoria}} </h4>
                                 </div>
                             </div>
                           
@@ -97,10 +97,12 @@
                                                 <i class="flaticon-weightlifting" data-toggle="tooltip" data-placement="top" title="" data-original-title="Fitness center"></i>
                                                 <i class="flaticon-lemonade" data-toggle="tooltip" data-placement="top" title="" data-original-title="Restaurant"></i>
                                             </div>
+                                                 <a class="thm-btn" href="{{route('product.addToCart',['id' => $item->id])}}">Add to Cart</a>
                                         </div>
-                                        <div class="hotel-right"> 
+                                         <div class="hotel-right"> 
                                             <div class="hotel-person">Desde <span class="color-blue">{{ $item->price}} %</span> </div>
                                             <a class="thm-btn" href="{{route('detalleEsTour',['es'=>'es','tour' => $item->slug])}}">MÁS DETALLE</a>
+                                           
                                         </div>
                                     </div>
                                 @endforeach 

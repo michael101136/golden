@@ -58,7 +58,7 @@
                                         <tr>
                                               <td> {{ $itemp->name}} </td>
                                               <td> <img style="height:60px;" src='{{$itemp->img}}'></td>
-                                              <td>{{ $itemp->description_short}}</td>
+                                              <td>{{ str_limit($itemp->description_short,75)}}</td>  
                                               <td>{{ $itemp->status}}</td>
                                               <td>{{ $itemp->price}}</td>
                                               <td>
@@ -141,7 +141,7 @@
                                         <tr>
                                               <td> {{ $itemp->name}} </td>
                                               <td> <img style="height:60px;" src='{{$itemp->img}}'></td>
-                                              <td>{{ $itemp->description_short}}</td>
+                                              <td>{{ str_limit($itemp->description_short,75)}}</td>  
                                               <td>{{ $itemp->status}}</td>
                                               <td>{{ $itemp->price}}</td>
                                               <td>

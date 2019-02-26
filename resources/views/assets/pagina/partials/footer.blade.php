@@ -1,24 +1,35 @@
 <!-- Footer Section -->
+<BR>
+<BR><BR><BR><BR><BR>
         <footer>
             <div class="container">
                 <div class="row">
                     <!-- Address -->
                     <div class="col-sm-4 col-md-3">
-                        <div class="footer-box address-inner">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                                been the.  </p>
+                        <div class="footer-box">
+                            <h4 class="footer-title">Contactos</h4>
                             <div class="address">
                                 <i class="flaticon-placeholder"></i>
-                                <p>PO Box 16122 Collins Street<br>
-                                    West Victoria 8007 Australia</p>
+                                <p> Av. 28 de Julio Mz. R-2<br>
+                                   Oficina 201 - Cusco</p>
                             </div>
                             <div class="address">
                                 <i class="flaticon-customer-service"></i>
-                                <p> +880153625892</p>
+                                <p> 0051 084 584 272</p>
                             </div>
                             <div class="address">
+                           
+                                <p> MOVISTAR :0051 084 584 272</p>
+                                <p> CLARO :0051 084 584 272</p>
+                                <p> ENTEL :0051 084 584 272</p>
+                            </div>
+                            
+
+                            <div class="address">
                                 <i class="flaticon-mail"></i>
-                                <p> admin@gmail.com</p>
+                                <p>reservas@machupicchugolden.com</p>
+                                <p>info@machupicchugolden.com</p>
+                                <p>ventas@machupicchugolden.com</p>
                             </div>
                         </div>
                     </div>
@@ -28,6 +39,7 @@
                                 <div class="footer-box">
                                     <h4 class="footer-title">Information</h4>
                                     <ul class="categoty">
+
                                         <li><a href="#">Pygmy miles</a></li>
                                         <li><a href="#">About us</a></li>
                                         <li><a href="#">Online Enquiry</a></li>

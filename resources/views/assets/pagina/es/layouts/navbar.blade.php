@@ -36,6 +36,12 @@
                         </ul>
                         <ul class="nav navbar-nav navbar-right hidden-sm">
                             <li>
+                                    <a class="nav-btn" href="{{route('product.shoppingCart')}}">
+                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart 
+                                            <span class="badge"> {{Session::has('cart') ? Session:: get('cart')->totalQty : ''}}    </span>
+                                    </a>
+                            </li>
+                            <li>
                                     <a class="nav-btn" href="#">
                                             <img src="/plantilla/assets/images/bandera/en.png">
                                     </a>

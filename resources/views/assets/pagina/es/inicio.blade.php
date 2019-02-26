@@ -16,7 +16,7 @@
                    { 
                         $tourRe.= '<div class="hotel-item">'.
                                         '<div class="hotel-image">'.
-                                            '<a href="#">'.
+                                            '<a href="es/tours/detalle/'.$item->slug.'">'.
                                                 '<div class="img"><img src="'.$item->img.'"  alt="" class="img-responsive"></div>'.
                                            ' </a>'.
                                         '</div>'.
@@ -40,7 +40,7 @@
                                         '</div>'.
                                           '<div class="hotel-right">'.
                                             '<div class="hotel-person">DESDE <span class="color-blue">$ '.$item->price.'</span> </div>'.
-                                            '<a class="thm-btn" href="#">DETALLES</a>'.
+                                            '<a class="thm-btn" href="es/tours/detalle/'.$item->slug.'">DETALLES</a>'.
                                         '</div>'.
                                     '</div>';
                              $varNumero ++;   
@@ -70,7 +70,7 @@
                    { 
                         $tourRe.= '<div class="hotel-item">'.
                                         '<div class="hotel-image">'.
-                                            '<a href="#">'.
+                                           '<a href="es/tours/detalle/'.$item->slug.'">'.
                                                 '<div class="img"><img src="'.$item->img.'"  alt="" class="img-responsive"></div>'.
                                            ' </a>'.
                                         '</div>'.
@@ -94,7 +94,7 @@
                                         '</div>'.
                                         '<div class="hotel-right">'.
                                             '<div class="hotel-person">DESDE <span class="color-blue">$ '.$item->price.'</span> </div>'.
-                                           '<a class="thm-btn" href="#">DETALLES</a>'.
+                                           '<a class="thm-btn" href="es/tours/detalle/'.$item->slug.'">DETALLES</a>'.
                                         '</div>'.
                                     '</div>';
                              
@@ -144,47 +144,40 @@
                                         <div class="tab-pane fade in active" id="tab1default">
                                             <div class="row">
                                                 <div class="col-xs-12 col-sm-9 col-md-10">
-                                                    <div class="row panel-margin">
-                                                        <div class="col-xs-6 col-sm-4 col-md-2 panel-padding">
-                                                            <label>Precios</label>
-                                                            <div class="icon-addon">
-                                                                <input type="text" placeholder="Precio" class="form-control" />
-                                                                <label class="glyphicon fa fa-dollar"  title="email"></label>
+
+                                                        <div class="row panel-margin">
+                                                            <div class="col-xs-6 col-sm-4 col-md-2 panel-padding">
+                                                                <label>Precios</label>
+                                                                <div class="icon-addon">
+                                                                    <input type="text" placeholder="Precio" id="precio" class="form-control" />
+                                                                    <label class="glyphicon fa fa-dollar"  title="email"></label>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-xs-6 col-sm-4 col-md-2 panel-padding">
-                                                            <label>Ciudad</label>
-                                                            <div class="icon-addon">
-                                                                <input type="text" placeholder="Ciudad" class="form-control" />
-                                                                <label class="glyphicon fa fa-suitcase"  title="email"></label>
+                                                            <div class="col-xs-6 col-sm-4 col-md-2 panel-padding">
+                                                                <label>Ciudad</label>
+                                                                <div class="icon-addon">
+                                                                    <input type="text" placeholder="Departamento" id="departamento" class="form-control" />
+                                                                    <label class="glyphicon fa fa-suitcase"  title="email"></label>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                         <div class="col-xs-6 col-sm-4 col-md-2 panel-padding">
-                                                            <label>Fecha</label>
-                                                            <div class="icon-addon">
-                                                                <input type="text" placeholder="Date" class="form-control" id="datepicker2"/>
-                                                                <label class="glyphicon fa fa-calendar"  title="email"></label>
+                                                             <div class="col-xs-6 col-sm-4 col-md-2 panel-padding">
+                                                                <label>Fecha</label>
+                                                                <div class="icon-addon">
+                                                                    <input type="text" placeholder="Date"  class="form-control" id="datepicker2"/>
+                                                                    <label class="glyphicon fa fa-calendar"  title="email"></label>
+                                                                </div>
                                                             </div>
+                                                           
                                                         </div>
-                                                        <div class="col-xs-6 col-sm-4 col-md-2 hidden-sm panel-padding">
-                                                            <label>Intinerarios</label>
-                                                            <!-- filters select -->
-                                                            <div class="select-filters">
-                                                                <select name="itinerarios" id="itinerarios">
-                                                                    <option value="" selected="">1</option>
-                                                                    <option value="2">2</option>
-                                                                    <option value="3">3</option>
-                                                                    <option value="4">4</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-   
-                                                    </div>
+
                                                 </div>
+
                                                 <div class="col-xs-12 col-sm-3 col-md-2">
-                                                    <button type="button" class="thm-btn">Buscar</button>
+                                                    <button type="button" class="thm-btn" id="filtradosTours">Buscar</button>
                                                 </div>
+
                                             </div>
+
                                         </div>
                                         
                                     </div>
@@ -199,7 +192,7 @@
                         <div class="row">
                             <div class="col-md-6 col-md-offset-3">
                                 <div class="title">
-                                    <h2>Tours populares</h2>
+                                    <h2>TOURS POPULARES</h2>
                                 </div>
                             </div>
                         </div>
@@ -247,7 +240,7 @@
                         <div class="row">
                             <div class="col-md-6 col-md-offset-3">
                                 <div class="title">
-                                    <h2>Destinos populares</h2>
+                                    <h2>DESTINOS POPULARES</h2>
                                     <p>Esta es la agencia de viajes increíble!</p>
                                 </div>
                             </div>
@@ -255,157 +248,164 @@
                         <div class="row thm-margin">
                             <div class="col-md-3 col-sm-4 thm-padding">
                                 <div class="destination-grid">
-                                    <a href="#"><img src="plantilla/assets/images/destinos/img_01.jpg" class="img-responsive" alt=""></a>
-                                    <div class="mask">
-                                        <h2>Cusco</h2>
-                                        <p>
-                                            Cusco​ es una ciudad del sureste del Perú ubicada en la vertiente oriental de la cordillera de los Andes.
-                                        </p>
-                                        <a href="#" class="thm-btn">Leer más</a>
-                                    </div>
-                                    <div class="dest-name">
-                                        <h4>CUSCO</h4>
-                                    </div>
-                                    <div class="dest-icon">
-                                        <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
-                                        <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
-                                        <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
-                                        <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
-                                    </div>
+                                    <a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'cusco'])}}"><img src="plantilla/assets/images/destinos/img_01.jpg" class="img-responsive" alt="">
+                                        <div class="mask">
+                                            <h2>Cusco</h2>
+                                            <p>
+                                                Cusco​ es una ciudad del sureste del Perú ubicada en la vertiente oriental de la cordillera de los Andes.
+                                            </p>
+                                            <a href="#" class="thm-btn">Leer más</a>
+                                        </div>
+                                        <div class="dest-name">
+                                            <h4>CUSCO</h4>
+                                        </div>
+                                        <div class="dest-icon">
+                                            <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
+                                            <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
+                                            <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
+                                            <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-4 thm-padding">
                                 <div class="destination-grid">
-                                    <a href="#"><img src="plantilla/assets/images/destinos/img_02.jpg" class="img-responsive" alt=""></a>
-                                    <div class="mask">
-                                        <h2>PUNO</h2>
-                                        <p>Puno es una ciudad del sur de Perú junto al lago Titicaca, uno de los más grandes de toda Sudamérica</p>
-                                        <a href="#" class="thm-btn">Leer más</a>
-                                    </div>
-                                    <div class="dest-name">
-                                        <h4>PUNO</h4>
-                                    </div>
-                                    <div class="dest-icon">
-                                        <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
-                                        <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
-                                        <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
-                                        <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
-                                    </div>
+                                    <a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'puno'])}}"><img src="plantilla/assets/images/destinos/img_02.jpg" class="img-responsive" alt="">
+                                        <div class="mask">
+                                            <h2>PUNO</h2>
+                                            <p>Puno es una ciudad del sur de Perú junto al lago Titicaca, uno de los más grandes de toda Sudamérica</p>
+                                            <a href="#" class="thm-btn">Leer más</a>
+                                        </div>
+                                        <div class="dest-name">
+                                            <h4>PUNO</h4>
+                                        </div>
+                                        <div class="dest-icon">
+                                            <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
+                                            <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
+                                            <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-4 thm-padding">
                                 <div class="destination-grid">
-                                    <a href="#"><img src="plantilla/assets/images/destinos/img_03.jpg" class="img-responsive" alt=""></a>
-                                    <div class="mask">
-                                        <h2>AREQUIPA</h2>
-                                        <p>Arequipa es una ciudad peruana ubicada en la provincia y el departamento homónimos </p>
-                                         <a href="#" class="thm-btn">Leer más</a>
-                                    </div>
-                                    <div class="dest-name">
-                                        <h4>AREQUIPA</h4>
-                                    </div>
-                                    <div class="dest-icon">
-                                        <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
-                                        <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
-                                        <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
-                                        <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
-                                    </div>
+                                    <a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'arequipa'])}}"><img src="plantilla/assets/images/destinos/img_03.jpg" class="img-responsive" alt="">
+                                        <div class="mask">
+                                            <h2>AREQUIPA</h2>
+                                            <p>Arequipa es una ciudad peruana ubicada en la provincia y el departamento homónimos </p>
+                                             <a href="#" class="thm-btn">Leer más</a>
+                                        </div>
+                                        <div class="dest-name">
+                                            <h4>AREQUIPA</h4>
+                                        </div>
+                                        <div class="dest-icon">
+                                            <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
+                                            <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
+                                            <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
+                                            <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-4 thm-padding">
                                 <div class="destination-grid">
-                                    <a href="#"><img src="plantilla/assets/images/destinos/img_04.jpg" class="img-responsive" alt=""></a>
-                                    <div class="mask">
-                                        <h2>LIMA</h2>
-                                        <p>Lima es la ciudad capital de la República del Perú.​ Se encuentra situada en la costa central del país.</p>
-                                        <a href="#" class="thm-btn">Read More</a>
-                                    </div>
-                                    <div class="dest-name">
+                                    <a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'lima'])}}"><img src="plantilla/assets/images/destinos/img_04.jpg" class="img-responsive" alt="">
+                                        <div class="mask">
+                                            <h2>LIMA</h2>
+                                            <p>Lima es la ciudad capital de la República del Perú.​ Se encuentra situada en la costa central del país.</p>
+                                            <a href="#" class="thm-btn">Read More</a>
+                                        </div>
+                                        <div class="dest-name">
 
-                                        <h4>LIMA</h4>
-                                    </div>
-                                    <div class="dest-icon">
-                                        <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
-                                        <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
-                                        <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
-                                        <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
-                                    </div>
+                                            <h4>LIMA</h4>
+                                        </div>
+                                        <div class="dest-icon">
+                                            <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
+                                            <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
+                                            <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
+                                            <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-4 thm-padding">
                                 <div class="destination-grid">
-                                    <a href="#"><img src="plantilla/assets/images/destinos/img_05.jpg" class="img-responsive" alt=""></a>
-                                    <div class="mask">
-                                        <h2>SELVA</h2>
-                                        <p>Se llama selva, jungla o bosque lluvioso tropical a los bosques densos con gran diversidad biológica</p>
-                                        <a href="#" class="thm-btn">Leer más</a>
-                                    </div>
-                                    <div class="dest-name">
-                                        <h4>SELVA</h4>
-                                    </div>
-                                    <div class="dest-icon">
-                                        <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
-                                        <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
-                                        <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
-                                        <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
-                                    </div>
+                                    <a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'selva'])}}"><img src="plantilla/assets/images/destinos/img_05.jpg" class="img-responsive" alt="">
+                                        <div class="mask">
+                                            <h2>SELVA</h2>
+                                            <p>Se llama selva, jungla o bosque lluvioso tropical a los bosques densos con gran diversidad biológica.</p>
+                                            <a href="#" class="thm-btn">Leer más</a>
+                                        </div>
+                                        <div class="dest-name">
+                                            <h4>SELVA</h4>
+                                        </div>
+                                        <div class="dest-icon">
+                                            <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
+                                            <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
+                                            <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
+                                            <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-4 thm-padding">
                                 <div class="destination-grid">
-                                    <a href="#"><img src="plantilla/assets/images/destinos/img_06.jpg" class="img-responsive" alt=""></a>
-                                    <div class="mask">
-                                        <h2>NAZCA</h2>
-                                        <p>Nazca​ es una ciudad peruana ubicada en la región centro-sur del Perú, capital de la homónima provincia de Nazca,</p>
-                                        <a href="#" class="thm-btn">Leer más</a>
-                                    </div>
-                                    <div class="dest-name">
-                                        <h4>NAZCA</h4>
-                                    </div>
-                                    <div class="dest-icon">
-                                        <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
-                                        <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
-                                        <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
-                                        <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
-                                    </div>
+                                    <a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'nazca'])}}"><img src="plantilla/assets/images/destinos/img_06.jpg" class="img-responsive" alt="">
+                                        <div class="mask">
+                                            <h2>NAZCA</h2>
+                                            <p>Nazca​ es una ciudad peruana ubicada en la región centro-sur del Perú, capital de la homónima provincia de Nazca.</p>
+                                            <a href="#" class="thm-btn">Leer más</a>
+                                        </div>
+                                        <div class="dest-name">
+                                            <h4>NAZCA</h4>
+                                        </div>
+                                        <div class="dest-icon">
+                                            <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
+                                            <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
+                                            <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
+                                            <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-4 hidden-sm thm-padding">
                                 <div class="destination-grid">
-                                    <a href="#"><img src="plantilla/assets/images/destinos/img_07.jpg" class="img-responsive" alt=""></a>
-                                    <div class="mask">
-                                        <h2>ICA</h2>
-                                        <p>Ica es una ciudad del centro sur del Perú, capital del Departamento de Ica, situada en el estrecho valle que forma el río Ica,</p>
-                                        <a href="#" class="thm-btn">Leer más</a>
-                                    </div>
-                                    <div class="dest-name">
-                                        <h4>ICA</h4>
-                                    </div>
-                                    <div class="dest-icon">
-                                        <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
-                                        <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
-                                        <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
-                                        <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
-                                    </div>
+                                    <a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'ica'])}}"><img src="plantilla/assets/images/destinos/img_07.jpg" class="img-responsive" alt="">
+                                        <div class="mask">
+                                            <h2>ICA</h2>
+                                            <p>Capital del Departamento de Ica, situada en el estrecho valle que forma el río Ica.</p>
+                                            <a href="#" class="thm-btn">Leer más</a>
+                                        </div>
+                                        <div class="dest-name">
+                                            <h4>ICA</h4>
+                                        </div>
+                                        <div class="dest-icon">
+                                            <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
+                                            <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
+                                            <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
+                                            <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-4 hidden-sm thm-padding">
                                 <div class="destination-grid">
-                                    <a href="#"><img src="plantilla/assets/images/destinos/img_08.jpg" class="img-responsive" alt=""></a>
-                                    <div class="mask">
-                                        <h2>BOLIVIA</h2>
-                                        <p>Bolivia, oficialmente Estado Plurinacional de Bolivia, ​​ es un país soberano situado en la región centro-occidental de América del Sur, </p>
-                                        <a href="#" class="thm-btn">Leer más</a>
-                                    </div>
-                                    <div class="dest-name">
-                                        <h4>BOLIVIA</h4>
-                                    </div>
-                                    <div class="dest-icon">
-                                        <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
-                                        <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
-                                        <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
-                                        <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
-                                    </div>
+                                    <a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'bolivia'])}}"><img src="plantilla/assets/images/destinos/img_08.jpg" class="img-responsive" alt="">
+                                        <div class="mask">
+                                            <h2>BOLIVIA</h2>
+                                            <p> Es un país soberano situado en la región centro-occidental de América del Sur, </p>
+                                            <a href="#" class="thm-btn">Leer más</a>
+                                        </div>
+                                        <div class="dest-name">
+                                            <h4>BOLIVIA</h4>
+                                        </div>
+                                        <div class="dest-icon">
+                                            <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
+                                            <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
+                                            <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
+                                            <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -980,4 +980,18 @@
             </div>
           </div>
 
+@endsection
+
+@section('script')
+  
+ <script type="text/javascript">
+        $(document).ready(function(){
+          $("#filtradosTours").click(function(){
+            var precio=$("#precio").val();
+            var departamento=$("#departamento").val();
+            var fecha=$("#datepicker2").val();
+            location.href='es/'+"tours/filtro/"+precio+"/"+departamento;
+          });
+        });
+ </script>
 @endsection

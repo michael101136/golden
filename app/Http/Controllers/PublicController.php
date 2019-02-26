@@ -29,29 +29,70 @@ class PublicController extends Controller
 
     }
 
-    public function tours($idioma,$categoria)
+    public function tours($idioma,$categoria,$precio='')
     {
         
-         $ItempCategoria = DB::table('categories')
-                ->select('categories.name','categories.description')
-                ->where('categories.name','=',$categoria)
-                ->get()[0];
+         if($categoria=='cusco' ||  $categoria=='puno' ||  $categoria=='arequipa' ||  $categoria=='lima' ||  $categoria=='selva' ||  $categoria=='nazca'||  $categoria=='ica' ||  $categoria=='bolivia' )
+         {
 
-         $categorias = DB::table('languages')
+             $categorias = DB::table('languages')
+                ->select('categories.name','categories.description','languages.abbr','categories.id')
+                ->join('categories', 'languages.id', '=', 'categories.language_id')
+                ->where('languages.abbr','=',$idioma)
+                ->get();
+
+            $todoTours=publicTours::searchToursPais($idioma,$categoria);
+          
+
+            return view("assets.pagina.".$idioma.".tours",['categoria' =>$categorias,'tours' => $todoTours,'ItempCategoria' => $categoria]);
+
+
+         }else
+         {
+            
+             // $ItempCategoria = DB::table('categories')
+             //    ->select('categories.name','categories.description')
+             //    ->where('categories.name','=',$categoria)
+             //    ->get()[0];
+
+            $categorias = DB::table('languages')
                 ->select('categories.name','categories.description','languages.abbr','categories.id')
                 ->join('categories', 'languages.id', '=', 'categories.language_id')
                 ->where('languages.abbr','=',$idioma)
                 ->get();
        
-       $todoTours=publicTours::searchTours($idioma,$categoria);
+            $todoTours=publicTours::searchTours($idioma,$categoria);
 
-       return view("assets.pagina.".$idioma.".tours",['categoria' =>$categorias,'tours' => $todoTours,'ItempCategoria' => $ItempCategoria]);
+         }
+        
+
+       return view("assets.pagina.".$idioma.".tours",['categoria' =>$categorias,'tours' => $todoTours,'ItempCategoria' => $categoria]);
+
+    }
+
+    public function toursPrecioCiudad($idioma='',$precio='',$departamento='')
+    {
+        
+             $categoria='Busqueda por precio';
+             $categorias = DB::table('languages')
+                ->select('categories.name','categories.description','languages.abbr','categories.id')
+                ->join('categories', 'languages.id', '=', 'categories.language_id')
+                ->where('languages.abbr','=',$idioma)
+                ->get();
+
+            $todoTours=publicTours::searchToursPrecio($idioma,$precio,$departamento);
+          
+
+            return view("assets.pagina.".$idioma.".tours",['categoria' =>$categorias,'tours' => $todoTours,'ItempCategoria' => $categoria]);
+
 
     }
 
     public function tour($idioma,$tourSlug){
 
-    	$tour = Tour::where('slug', '=',$tourSlug)->get()[0];
+    	
+
+        $tour = Tour::where('slug', '=',$tourSlug)->get()[0];
 
     	$multimediaTour = DB::table('tours')
                     ->select('images.path')
