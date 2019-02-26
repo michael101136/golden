@@ -95,7 +95,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-5">
-                            <p>Copyright Â© 2016. All rights reserved</p>
+                            <p>Developed by: machupicchu golden </p>
                         </div>
                         <div class="col-sm-7">
                             <div class="footer-menu">
