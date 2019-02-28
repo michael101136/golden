@@ -109,7 +109,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
-
+                          {{ $DataUno->links() }}
                         </div>
                         <div class="box-footer">
                           Tours
@@ -200,7 +200,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
-
+                       
                         </div>
                         <div class="box-footer">
                           Tours

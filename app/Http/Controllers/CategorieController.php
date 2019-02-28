@@ -39,7 +39,7 @@ class CategorieController extends Controller
                       ->whereNull('categories.deleted_at')
                       ->where('languages.id',$idLanguage)
                       ->orderBy('categories.id')
-                      ->get();
+                      ->paginate(6);
         }else{
          
          $Categorie = DB::table('categories')
@@ -47,7 +47,7 @@ class CategorieController extends Controller
                       ->select('categories.*', 'languages.name as idioma')
                       ->whereNull('categories.deleted_at')
                       ->orderBy('categories.id')
-                      ->get();
+                      ->paginate(6);
         }
 
         return view('assets.admin.categoria.index',['categorias' => $Categorie]);

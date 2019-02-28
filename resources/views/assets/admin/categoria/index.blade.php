@@ -71,7 +71,7 @@
                   @endforeach
                 </tbody>
             </table>
-
+          {{ $categorias->links() }}
         </div>
         <div class="box-footer">
           CATEGORIAS

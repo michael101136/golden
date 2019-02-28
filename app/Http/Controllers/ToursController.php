@@ -28,7 +28,7 @@ class ToursController extends Controller
     public function index()
     {
          
-        $DataUno= Tour::where('tipo_tour', '=', 'uno_dia')->get();
+        $DataUno= Tour::where('tipo_tour', '=', 'uno_dia')->paginate(6);
         $DataVarios= Tour::where('tipo_tour', '=', 'varios_dias')->get();
 
 
