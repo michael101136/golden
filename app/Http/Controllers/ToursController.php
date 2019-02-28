@@ -27,13 +27,37 @@ class ToursController extends Controller
 
     public function index()
     {
-         
-        $DataUno= Tour::where('tipo_tour', '=', 'uno_dia')->paginate(6);
-        $DataVarios= Tour::where('tipo_tour', '=', 'varios_dias')->get();
+         $DataUno = DB::table('languages')
+                    ->select('tours.*','languages.name as nameLenguage')
+                    ->join('categories', 'languages.id', '=', 'categories.language_id')
+                    ->join('categories_has_tours as cat_t', 'cat_t.categorie_id', '=', 'categories.id')
+                    ->join('tours', 'cat_t.tour_id', '=', 'tours.id')
+                    ->where('languages.id',languageUsers::idLanguage())
+                    ->where('tours.status','A')
+                    ->where('tours.tipo_tour','uno_dia')
+                   ->orderBy('tours.id', 'desc')
+                ->paginate(6);
+
+        $DataVarios = DB::table('languages')
+                    ->select('tours.*','languages.name as nameLenguage')
+                    ->join('categories', 'languages.id', '=', 'categories.language_id')
+                    ->join('categories_has_tours as cat_t', 'cat_t.categorie_id', '=', 'categories.id')
+                    ->join('tours', 'cat_t.tour_id', '=', 'tours.id')
+                    ->where('languages.id',languageUsers::idLanguage())
+                    ->where('tours.status','A')
+                    ->where('tours.tipo_tour','varios_dias')
+                   ->orderBy('tours.id', 'desc')
+                ->get();
+       
 
 
         $dataMultimedia=Multimedia::all();
-        $dataCategoria=Categorie::all();
+        // $dataCategoria=Categorie::all();
+        $dataCategoria = DB::table('languages')
+                    ->select('categories.name','categories.description','categories.id')
+                    ->join('categories', 'categories.language_id', '=', 'languages.id')
+                    ->where('languages.id',languageUsers::idLanguage() )
+                    ->get();
 
         return view("assets.admin.tours.index",['DataUno' => $DataUno,'DataVarios'=>$DataVarios,'dataMultimedia' => $dataMultimedia,'dataCategoria' => $dataCategoria]);
     }

@@ -46,6 +46,7 @@
                                 <thead>
                                     <tr>
                                       <th>NOMBRE</th>
+                                      <th>IDIOMA</th>>
                                       <th>IMAGEN</th>
                                       <th>DESCRIPCIÓN</th>
                                       <th>LUGAR</th>
@@ -59,6 +60,7 @@
                                      @foreach($DataUno as $itemp)   
                                         <tr>
                                               <td> {{ $itemp->name}} </td>
+                                              <td  style="text-transform: uppercase;text-shadow: 0px 0px 1px #040404;"> {{ $itemp->nameLenguage}} </td>
                                               <td> <img style="height:60px;" src='{{$itemp->img}}'></td>
                                               <td>{{ str_limit($itemp->description_short,75)}}</td>  
                                               <td style="text-transform: uppercase;text-shadow: 0px 0px 1px #040404;">{{ $itemp->lugar}}</td>
