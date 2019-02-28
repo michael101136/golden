@@ -184,11 +184,15 @@
 @endsection
 
 @section('script')
-
+{!!Html::script('public/assets/dist/js/ckeditor/ckeditor.js')!!}
 {!!Html::script('public/assets/dist/css/dropzone/dropzone.js')!!}
 
 <script>
-   
+   $(function () {
+    
+    CKEDITOR.replace('Editardescripcion')
+        $('.textarea').wysihtml5()
+      })
     var suma=1;
       
              function crearFormularioItinerario()
@@ -268,7 +272,8 @@
                         $("#Editardistrito").val(data.data.district);
                         $("#Editaraltitud").val(data.data.altitud);
                         $("#Editarlongitud").val(data.data.latitud);
-                        $("#Editardescripcion").val(data.data.description);
+                        CKEDITOR.instances['Editardescripcion'].setData(data.data.description);
+                        // $("#Editardescripcion").val(data.data.description);
                         $("#Editarname").val(data.data.name);
                         $('#myModalEditar').modal('show'); 
                         $("#idItinerarioTour").val(data.data.tour_id);
