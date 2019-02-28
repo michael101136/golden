@@ -5,7 +5,8 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use App\language;
-
+use App\Http\Requests\CreateUser;
+use App\Http\Requests\UpdateUser;
 class UsersController extends Controller
 {
     /**
@@ -16,7 +17,7 @@ class UsersController extends Controller
 
      function __construct()
     {
-         $this->middleware(['auth' ,'roles:normal,admin']);
+        //  $this->middleware(['auth' ,'roles:normal,admin']);
     }
     
     public function index()
@@ -45,7 +46,7 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateUser $request)
     {
         
         User::create([
@@ -92,7 +93,7 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateUser $request, $id)
     {
         if(is_null($request->password))
         {

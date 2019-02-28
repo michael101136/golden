@@ -41,6 +41,7 @@
 
                             <div class="col-sm-10">
                               <input type="text" class="form-control" id="name" name="name" value="{{$user->name}}">
+                              <p style="color:red;">{{ $errors->first('name') }}</p>
                             </div>
                           </div>
                           <div class="form-group">
@@ -48,13 +49,15 @@
 
                             <div class="col-sm-10">
                               <input type="email" class="form-control" id="email" name="email" value="{{$user->email}}">
+                              <p style="color:red;">{{ $errors->first('email') }}</p>
                             </div>
                           </div>
                           <div class="form-group">
                             <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
 
                             <div class="col-sm-10">
-                              <input type="password" class="form-control" id="password" name="password" value="">
+                              <input type="password" class="form-control" id="password" name="password"  value="{{ old('password')}}">
+                              <p style="color:red;">{{ $errors->first('password') }}</p>
                             </div>
                           </div>
 
