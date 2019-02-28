@@ -109,11 +109,13 @@
                                 </div>
                             </div>
 
+                         <div class="box-footer">
+                             <button type="submit" class="btn btn-info pull-right" name="btnInsertarItinerario">Guardar</button>
+                         </div>
+
                       </div>
                    
-                      <div class="box-footer">
-                        <button type="submit" class="btn btn-info pull-right" name="btnInsertarItinerario">Guardar</button>
-                      </div>
+                     
                 {!! Form::close() !!}
 
                  </div>
