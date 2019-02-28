@@ -41,6 +41,8 @@ Route::post('updateImagenTours' , ['as'=>'updateImagenTours','uses'=>'ToursContr
 
 Route::resource('users','UsersController');
 Route::resource('categories','CategorieController');
+Route::resource('testimonio','TestimonioController');
+
 
 Route::resource('Itinerario','ItinerarioController');
 Route::get('tour/createItinerario/{id?}', [ 'uses' => 'ItinerarioController@createItinerario' ])->name('createItinerario');

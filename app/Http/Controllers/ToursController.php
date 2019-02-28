@@ -48,7 +48,7 @@ class ToursController extends Controller
                     ->where('tours.tipo_tour','varios_dias')
                    ->orderBy('tours.id', 'desc')
                 ->get();
-       
+        
 
 
         $dataMultimedia=Multimedia::all();
