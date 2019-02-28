@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use App\language;
 use App\Http\Requests\CreateUser;
-
+use App\Http\Requests\UpdateUser;
 class UsersController extends Controller
 {
     /**
@@ -93,7 +93,7 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateUser $request, $id)
     {
         if(is_null($request->password))
         {
