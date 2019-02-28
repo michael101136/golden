@@ -246,7 +246,10 @@
                                             {
                                                     
                                                     var errors = data.responseJSON.errors;
-                                                  
+                                                      
+                                                    console.log(errors);
+                                                    console.log(errors.name);
+
                                                     $("#erroName").html(errors.name);
                                                     $("#errordescription_short").html(errors.description_short);
                                                     $("#errordescription_complete").html(errors.description_complete);

@@ -157,7 +157,6 @@
 <script src="{{ URL::asset('public/assets/dist/js/adminlte.min.js')}} "></script>
 <script src="{{ URL::asset('public/assets/dist/js/demo.js')}}"></script>
 <script src="{{ URL::asset('public/assets/dist/js/toastr.min.js')}}"></script>
-<script src="{{ URL::asset('/js/jquery.validate.min.js')}}"></script>
 
 @yield('script')
 <script>

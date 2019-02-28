@@ -66,12 +66,18 @@
 
                             <div class="form-group">
                                 <label for="inputPassword3" class="col-sm-2 control-label">Descripción</label>
-                                <div class="col-sm-10">
+                               {{--  <div class="col-sm-10">
                                         
                                         <textarea id="descripcion" name="descripcion" class="form-control" rows="10" cols="80">
 
                                         </textarea>
-                                </div>
+                                </div> --}}
+                                 <div class="col-sm-12">
+                                            <textarea id="editor1" name="editor1" rows="10" cols="80">
+
+                                            </textarea>
+                                      
+                                 </div>
                             </div>
 
                             <div class="form-group">
@@ -128,11 +134,16 @@
 @endsection
 
 @section('script')
-
+{!!Html::script('public/assets/dist/js/ckeditor/ckeditor.js')!!}
 {!!Html::script('public/assets/dist/css/dropzone/dropzone.js')!!}
 
 <script>
    
+$(function () {
+    
+    CKEDITOR.replace('editor1')
+        $('.textarea').wysihtml5()
+      })
 
     
         $('#divFormularioItinerario').hide();
