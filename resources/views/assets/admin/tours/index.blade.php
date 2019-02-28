@@ -297,14 +297,14 @@
                             </div>
                           </div>
                           <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-2 control-label">Precio</label>
+                            <label for="inputEmail3" class="col-sm-2 control-label" style="margin-top: 55px">Preciso</label>
 
-                            <div class="col-sm-2">
+                            <div class="col-sm-2" style="margin-top: 55px">
                                {!!Form::text('precio',null,['class'=>'form-control','required','id'=>'precioTours'])!!}
                                <p style="color:red;">{{ $errors->first('name') }}</p>
                             </div>
-                              <div class="col-sm-5">
-                              
+                              <div class="col-sm-5" > 
+                               <label for="inputEmail3" class="col-sm-2 control-label" style="margin-top: 27px">Multimedia</label>
                                     <select id="dataMultimedia" name="dataMultimedia" class='form-control'> 
                                         @foreach($dataMultimedia as $item)
                                               <option value="{{$item->id}}"> {{ $item->name}}</option>
@@ -313,7 +313,7 @@
                                <p style="color:red;">{{ $errors->first('name') }}</p>
                             </div>
                               <div class="col-sm-3">
-                                
+                                    <label for="inputEmail3" class="col-sm-2 control-label" style="margin-top: 27px">Categoria</label>
                                     <select id="dataCategoria" name="dataCategoria" class='form-control'> 
                                         @foreach($dataCategoria as $item)
                                               <option value="{{$item->id}}"> {{ $item->name}}</option>
@@ -338,11 +338,42 @@
                           </div>
                           <input type="hidden" name="idTourUpdate" id="idTourUpdate">
                           <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-2 control-label">Estado</label>
+                                <label for="inputPassword3" class="col-sm-2 control-label" style="margin-top: 27px">Estado</label>
 
-                                <div class="col-sm-5">
+                                <div class="col-sm-3" style="margin-top: 27px">
                                   {!!Form::select('status', ['A' => 'habilitado', 'D' => 'deshabilitado'], 'A',['class'=>'form-control','id' => 'status'])!!}
                                 </div>
+                                <div class="col-sm-3" >
+
+                                        <label for="inputEmail3" class="col-sm-4 control-label">Popular</label>
+                                        <select id="EditardataPopular" name="EditardataPopular" class='form-control'> 
+                                           
+                                              <option value="1">Popular</option>
+                                              <option value="0">No popular</option>
+                                           
+                                        </select>
+
+                                        <p style="color:red;">{{ $errors->first('name') }}</p>
+
+                                </div>
+                                <div class="col-sm-3">
+
+                                        <label for="inputEmail3" class="col-sm-4 control-label">Lugar</label>
+                                        <select id="editarLugar" name="editarLugar" class='form-control'> 
+                                           
+                                              <option value="cusco">Cusco</option>
+                                              <option value="lima">Lima</option>
+                                              <option value="puno">Puno</option>
+                                              <option value="arequipa">Arequipa</option>
+                                              <option value="selva">Selva</option>
+                                              <option value="selva">Nazca</option>
+                                              <option value="ica">Ica</option>
+                                              <option value="bolivia">Bolivia</option>
+                                        </select>
+
+                                        <p style="color:red;">{{ $errors->first('name') }}</p>
+
+                                </div>  
                           </div>
 
 
@@ -364,7 +395,6 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Guardar</button>
               </div>
             </div>
          
@@ -405,6 +435,7 @@
                          
                                helperNotificacion();
                                $('#sliderImagenes').modal('hide')
+                               location.href ="{{URL::route('tours.index')}}";
                          }
                     });
              });

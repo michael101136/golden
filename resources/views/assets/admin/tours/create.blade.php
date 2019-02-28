@@ -247,6 +247,7 @@
                                      },
                                      error: function(data) 
                                             {
+                                                    var errors = data.responseJSON.errors;
                                                     
                                                     $("#error1").html(errors.name);
                                                     $("#error2").html(errors.description_corta);  

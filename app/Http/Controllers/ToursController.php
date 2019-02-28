@@ -189,7 +189,7 @@ class ToursController extends Controller
     public function cargarImagens(Request $request)
     {
             
-           
+
              
              $path = public_path().'/admin/uploads/tour/';
              $files = $request->file('file');
@@ -223,6 +223,8 @@ class ToursController extends Controller
         $Tour->description_short =$request->description_corta;
         $Tour->description_complete =$request->description_completa;
         $Tour->organization =$request->textOrganizacion;
+        $Tour->principal =$request->EditardataPopular;
+        $Tour->lugar =$request->editarLugar;
         $Tour->status = $request->status;
         $Tour->slug =str_replace(' ', '-', $request->name);
         $Tour->multimedia_id = $request->dataMultimedia;
