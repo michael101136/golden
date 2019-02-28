@@ -97,6 +97,8 @@ class ItinerarioController extends Controller
     public function insertarItinerario(Request $request)
     {
            
+          
+
            $idMax=DB::table('itineraries')->max('id');
 
 
@@ -104,7 +106,7 @@ class ItinerarioController extends Controller
                 ->where('id', $idMax)
                 ->update([
                         'name'          => $request->name, 
-                        'description'   => $request->descripcion, 
+                        'description'   => $request->editor1, 
                         'department'    => $request->departamento,
                         'province'     => $request->provincia,  
                         'district'      => $request->distrito, 
