@@ -75,7 +75,7 @@
                   @endforeach
                 </tbody>
             </table>
-
+            {{ $multimedias->links() }}
         </div>
         <div class="box-footer">
           Multimedia
