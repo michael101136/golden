@@ -47,7 +47,7 @@
                             <input type="hidden" name="tipoTour" value="{{$tipoTour}}" > 
                             <div class="col-sm-10">
                                {!!Form::text('name',null,['class'=>'form-control','required'])!!}
-                               <p style="color:red;" id="erroName" name="erroName"></p>
+                               <p style="color:red;" id="error1" name="erroName"></p>
                             </div>
                           </div>
                         <div class="form-group">
@@ -55,7 +55,7 @@
 
                             <div class="col-sm-10">
                                {!!Form::text('description_corta',null,['class'=>'form-control','required'])!!}
-                                <p style="color:red;" id="errordescription_short" name="errordescription_short"></p>
+                                <p style="color:red;" id="error2" name="errordescription_short"></p>
                             </div>
                           </div>
                           <div class="form-group">
@@ -63,7 +63,7 @@
 
                             <div class="col-sm-10">
                                {!!Form::text('description_completa',null,['class'=>'form-control','required'])!!}
-                              <p style="color:red;" id="errordescription_complete" name="errordescription_complete"></p>
+                              <p style="color:red;" id="error3" name="errordescription_complete"></p>
                             </div>
                           </div>
                           <div class="form-group">
@@ -71,7 +71,7 @@
 
                             <div class="col-sm-2" style="margin-top: 27px;">
                                {!!Form::text('precio',null,['class'=>'form-control','required'])!!}
-                              <p style="color:red;" id="errorprice" name="errorprice"></p>
+                              <p style="color:red;" id="error4" name="errorprice"></p>
                             </div>
                               <div class="col-sm-3">
                                     <label for="inputEmail3" class="col-sm-2 control-label">Multimedia</label>
@@ -108,7 +108,7 @@
                                             </textarea>
                                       </form>
                                     </div>
-                                    <p style="color:red;" id="errororganization" name="errororganization"></p>
+                                    <p style="color:red;" id="error5" name="errororganization"></p>
                                     
                                 </div>
                                 <input type="hidden" name="textOrganizacion" id="textOrganizacion">
@@ -239,23 +239,26 @@
                                               helperNotificacionError('NO SE PUEDE INSERTAR DOBLE VEZ');
                                           }
 
-                                        
-                                          // $('#bannerSlider').hide(); //muestro mediante id
+                                        $("#error1").html('');
+                                        $("#error2").html('');  
+                                        $("#error3").html('');
+                                        $("#error4").html('');
+                                        $("#error5").html('');
                                      },
                                      error: function(data) 
                                             {
                                                     
-                                                    var errors = data.responseJSON.errors;
-                                                      
-                                                    console.log(errors);
-                                                    console.log(errors.name);
-
-                                                    $("#erroName").html(errors.name);
-                                                    $("#errordescription_short").html(errors.description_short);
-                                                    $("#errordescription_complete").html(errors.description_complete);
-                                                    $("#errororganization").html(errors.organization);
-                                                    $("#errorprice").html(errors.price);
-                                              
+                                                    $("#error1").html(errors.name);
+                                                    $("#error2").html(errors.description_corta);  
+                                                    $("#error3").html(errors.description_completa);
+                                                    $("#error4").html(errors.precio);
+                                                    $("#error5").html(errors.textOrganizacion);
+                                                   
+                                                   if(errors.name==undefined){ $("#error1").html('');}
+                                                   if(errors.description_corta==undefined){$("#error2").html(''); }
+                                                   if(errors.description_completa==undefined){ $("#error3").html('');}
+                                                   if(errors.precio==undefined){$("#error4").html('');}
+                                                   if(errors.textOrganizacion==undefined){$("#error5").html('');}
                                                 
                                            }
                                 });
@@ -276,6 +279,7 @@
                     e.preventDefault();
                     e.stopPropagation();
                     myDropzone.processQueue();
+                    location.href ="{{URL::route('tours.index')}}";
                 });
                 this.on("addedfile", function(file) {
                     

@@ -10,6 +10,7 @@ use App\Categorie;
 use App\Multimedia;
 use App\Helpers\languageUsers;
 use App\Http\Requests\StoreTours;
+use Validator, Input, Redirect; 
 use Illuminate\Support\Str as Str;
 class ToursController extends Controller
 {
@@ -74,7 +75,7 @@ class ToursController extends Controller
     public function store(StoreTours $request)
     {
            
-        
+      
 
         $slug = Str::slug($request['name']);
 
@@ -119,6 +120,7 @@ class ToursController extends Controller
         
         
     
+      
 
 
     }
@@ -186,8 +188,12 @@ class ToursController extends Controller
 
     public function cargarImagens(Request $request)
     {
-            $path = public_path().'/admin/uploads/tour/';
+            
+           
+             
+             $path = public_path().'/admin/uploads/tour/';
              $files = $request->file('file');
+
              foreach($files as $file)
              {
                 $fileName = time().'.'.$file->getClientOriginalName();
