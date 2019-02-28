@@ -138,5 +138,6 @@
         {!!Html::script('plantilla/assets/js/jquery.easing.min.js')!!}
         <!-- custom -->
         {!!Html::script('plantilla/assets/js/custom.js')!!}
+        
     </body>
 </html>

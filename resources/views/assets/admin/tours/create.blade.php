@@ -44,10 +44,10 @@
                             
                           <div class="form-group">
                             <label for="inputEmail3" class="col-sm-2 control-label">Nombre</label>
-
+                            <input type="hidden" name="tipoTour" value="{{$tipoTour}}" > 
                             <div class="col-sm-10">
                                {!!Form::text('name',null,['class'=>'form-control','required'])!!}
-                               <p style="color:red;">{{ $errors->first('name') }}</p>
+                               <p style="color:red;" id="erroName" name="erroName"></p>
                             </div>
                           </div>
                         <div class="form-group">
@@ -55,7 +55,7 @@
 
                             <div class="col-sm-10">
                                {!!Form::text('description_corta',null,['class'=>'form-control','required'])!!}
-                               <p style="color:red;">{{ $errors->first('name') }}</p>
+                                <p style="color:red;" id="errordescription_short" name="errordescription_short"></p>
                             </div>
                           </div>
                           <div class="form-group">
@@ -63,18 +63,18 @@
 
                             <div class="col-sm-10">
                                {!!Form::text('description_completa',null,['class'=>'form-control','required'])!!}
-                               <p style="color:red;">{{ $errors->first('name') }}</p>
+                              <p style="color:red;" id="errordescription_complete" name="errordescription_complete"></p>
                             </div>
                           </div>
                           <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-2 control-label">Precio</label>
+                            <label for="inputEmail3" class="col-sm-2 control-label" style="margin-top: 27px;">Precio</label>
 
-                            <div class="col-sm-2">
+                            <div class="col-sm-2" style="margin-top: 27px;">
                                {!!Form::text('precio',null,['class'=>'form-control','required'])!!}
-                               <p style="color:red;">{{ $errors->first('name') }}</p>
+                              <p style="color:red;" id="errorprice" name="errorprice"></p>
                             </div>
                               <div class="col-sm-3">
-                              
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Multimedia</label>
                                     <select id="dataMultimedia" name="dataMultimedia" class='form-control'> 
                                         @foreach($dataMultimedia as $item)
                                           <option value="{{$item->id}}"> {{ $item->name}}</option>
@@ -84,16 +84,17 @@
                             </div>
                               <div class="col-sm-2">
 
-                                  
+                                   <label for="inputEmail3" class="col-sm-2 control-label">Categoria</label>
                                     <select id="dataCategoria" name="dataCategoria" class='form-control'> 
                                         @foreach($dataCategoria as $item)
-                                          <option value="{{$item->id}}"> {{ $item->name}}</option>
+                                          <option value="{{$item->id}}"> {{ $item->description}}</option>
                                         @endforeach
                                     </select>
 
                                     <p style="color:red;">{{ $errors->first('name') }}</p>
 
                             </div>
+                           
                           </div>
                           <div class="form-group">
                                 <label for="inputPassword3" class="col-sm-2 control-label">Organización</label>
@@ -107,15 +108,48 @@
                                             </textarea>
                                       </form>
                                     </div>
+                                    <p style="color:red;" id="errororganization" name="errororganization"></p>
+                                    
                                 </div>
                                 <input type="hidden" name="textOrganizacion" id="textOrganizacion">
                           </div>
 
                           <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-2 control-label">Estado</label>
+                                <label for="inputPassword3" class="col-sm-2 control-label" style="margin-top: 27px">Estado</label>
 
-                                <div class="col-sm-5">
+                                <div class="col-sm-2" style="margin-top: 27px">
                                   {!!Form::select('status', ['A' => 'habilitado', 'D' => 'deshabilitado'], 'A',['class'=>'form-control'])!!}
+                                </div>
+                                 <div class="col-sm-2" >
+
+                                        <label for="inputEmail3" class="col-sm-4 control-label">Popular</label>
+                                        <select id="dataPopular" name="dataPopular" class='form-control'> 
+                                           
+                                              <option value="1">Popular</option>
+                                              <option value="0">No popular</option>
+                                           
+                                        </select>
+
+                                        <p style="color:red;">{{ $errors->first('name') }}</p>
+
+                                </div>
+                                <div class="col-sm-2">
+
+                                        <label for="inputEmail3" class="col-sm-4 control-label">Lugar</label>
+                                        <select id="lugar" name="lugar" class='form-control'> 
+                                           
+                                              <option value="cusco">Cusco</option>
+                                              <option value="lima">Lima</option>
+                                              <option value="puno">Puno</option>
+                                              <option value="arequipa">Arequipa</option>
+                                              <option value="selva">Selva</option>
+                                              <option value="selva">Nazca</option>
+                                              <option value="ica">Ica</option>
+                                              <option value="bolivia">Bolivia</option>
+                                        </select>
+
+                                        <p style="color:red;">{{ $errors->first('name') }}</p>
+
                                 </div>
                           </div>
 
@@ -194,10 +228,33 @@
                                          data:data,
                                      success: function(data) 
                                      {
-                                          $("#idTour").val(data.id);
-                                          $('#slider').show();
+                                          
+                                          if(data.opcion=='correcta')
+                                          {
+                                              $("#idTour").val(data.id);
+                                              $('#slider').show();
+                                              helperNotificacionCorecto('SE INSERTO CORRECTAMENTE');
+                                          }else
+                                          {
+                                              helperNotificacionError('NO SE PUEDE INSERTAR DOBLE VEZ');
+                                          }
+
+                                        
                                           // $('#bannerSlider').hide(); //muestro mediante id
-                                     }
+                                     },
+                                     error: function(data) 
+                                            {
+                                                    
+                                                    var errors = data.responseJSON.errors;
+                                                  
+                                                    $("#erroName").html(errors.name);
+                                                    $("#errordescription_short").html(errors.description_short);
+                                                    $("#errordescription_complete").html(errors.description_complete);
+                                                    $("#errororganization").html(errors.organization);
+                                                    $("#errorprice").html(errors.price);
+                                              
+                                                
+                                           }
                                 });
                          });
 
@@ -231,7 +288,18 @@
             }
         };
 
-    
+    function helperNotificacionError(valor)
+    {
+
+           toastr.error(valor);
+           
+    }
+     function helperNotificacionCorecto(valor)
+    {
+
+           toastr.success(valor);
+           
+    }
 </script>
 
 

@@ -27,6 +27,12 @@ Route::get('logout',['as' =>'logout','uses' => 'Auth\LoginController@logout']);
 
 
 Route::resource('tours','ToursController');
+Route:: get('create/tours/{tourOpcion?}', [
+
+		'uses' => 'ToursController@createTour',
+		'as' => 'tours.create'
+	
+]);
 Route::post('tours/cargar/', [ 'uses' => 'ToursController@cargarImagens' ])->name('CargarImagenTour');
 Route::post('tours/updateTours/', [ 'uses' => 'ToursController@updateTourCampos' ])->name('updateTours');
 Route::post('tours/categoria/TourUpdateCategoria', [ 'uses' => 'ToursController@TourUpdateCategoria' ])->name('TourUpdateCategoria');

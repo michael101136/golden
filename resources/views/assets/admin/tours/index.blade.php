@@ -20,8 +20,8 @@
          
           <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
-              <li class="active"><a href="#tab_1" data-toggle="tab">Tour horas</a></li>
-              <li><a href="#tab_2" data-toggle="tab">Tour Días</a></li>
+              <li class="active"><a href="#tab_1" data-toggle="tab">TOURS HORAS</a></li>
+              <li><a href="#tab_2" data-toggle="tab">TOURS DÍAS</a></li>
               
             </ul>
             <div class="tab-content">
@@ -29,7 +29,7 @@
                         
                     <div class="box">
                         <div class="box-header with-border">
-                          <h3 class="box-title">Listado </h3>
+                          <h3 class="box-title">LISTADO </h3>
 
                           <div class="box-tools pull-right">
 
@@ -41,16 +41,18 @@
                           </div>
                         </div>
                         <div class="box-body">
-                             <a href="{{ URL::route('tours.create')}}" type="button" class="btn bg-olive margin">Nuevo</a>
+                             <a href="{{ route('tours.create')}}/uno_dia" type="button" class="btn bg-olive margin">Nuevo</a>
                              <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                      <th>Nombre</th>
-                                      <th>Imagen</th>
-                                      <th>Descripcion</th>
-                                      <th>Status</th>
-                                      <th>Precio</th>
-                                      <th>Acción</th>
+                                      <th>NOMBRE</th>
+                                      <th>IMAGEN</th>
+                                      <th>DESCRIPCIÓN</th>
+                                      <th>LUGAR</th>
+                                      <th>POPULAR</th>
+                                      <th>STATUS</th>
+                                      <th>PRECIO</th>
+                                      <th>ACCIÓN</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -59,6 +61,14 @@
                                               <td> {{ $itemp->name}} </td>
                                               <td> <img style="height:60px;" src='{{$itemp->img}}'></td>
                                               <td>{{ str_limit($itemp->description_short,75)}}</td>  
+                                              <td style="text-transform: uppercase;text-shadow: 0px 0px 1px #040404;">{{ $itemp->lugar}}</td>
+                                              <td>
+                                                  @if($itemp->principal=='1')
+
+                                                    <small class="label label-success"><i class="fa fa-clock-o"></i> POPULAR</small>
+                                                  
+                                                  @endif
+                                              </td>
                                               <td>{{ $itemp->status}}</td>
                                               <td>{{ $itemp->price}}</td>
                                               <td>
@@ -124,16 +134,18 @@
                           </div>
                         </div>
                         <div class="box-body">
-                             <a href="{{ URL::route('tours.create')}}" type="button" class="btn bg-olive margin">Nuevo</a>
+                             <a href="{{ route('tours.create')}}/varios_dias" type="button" class="btn bg-olive margin">Nuevo</a>
                              <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                      <th>Nombre</th>
-                                      <th>Imagen</th>
-                                      <th>Descripcion</th>
-                                      <th>Status</th>
-                                      <th>Precio</th>
-                                      <th>Acción</th>
+                                      <th>NOMBRE</th>
+                                      <th>IMAGEN</th>
+                                      <th>DESCRIPCIÓN</th>
+                                      <th>LUGAR</th>
+                                      <th>POPULAR</th>
+                                      <th>STATUS</th>
+                                      <th>PRECIO</th>
+                                      <th>ACCIÓN</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -142,6 +154,14 @@
                                               <td> {{ $itemp->name}} </td>
                                               <td> <img style="height:60px;" src='{{$itemp->img}}'></td>
                                               <td>{{ str_limit($itemp->description_short,75)}}</td>  
+                                              <td style="text-transform: uppercase;text-shadow: 0px 0px 1px #040404;">{{ $itemp->lugar}}</td>
+                                              <td>
+                                                  @if($itemp->principal=='1')
+
+                                                    <small class="label label-success"><i class="fa fa-clock-o"></i> POPULAR</small>
+                                                  
+                                                  @endif
+                                              </td>
                                               <td>{{ $itemp->status}}</td>
                                               <td>{{ $itemp->price}}</td>
                                               <td>
@@ -380,6 +400,7 @@
                              data:data,
                          success: function(data) 
                          {
+                              
                               $("#idTour").val(data.id);
                          
                                helperNotificacion();

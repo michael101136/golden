@@ -8,7 +8,9 @@ use DB;
 use App\language;
 use App\Categorie;
 use App\Multimedia;
-
+use App\Helpers\languageUsers;
+use App\Http\Requests\StoreTours;
+use Illuminate\Support\Str as Str;
 class ToursController extends Controller
 {
     /**
@@ -16,6 +18,12 @@ class ToursController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    function __construct()
+    {
+         $this->middleware(['auth' ,'roles:normal,admin']);
+    }
+
     public function index()
     {
          
@@ -34,12 +42,27 @@ class ToursController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($TipoTour)
     {
 
+       
+    }
+
+    public function createTour($TipoTour)
+    {
+        
+        // return languageUsers::idLanguage();
+
         $dataMultimedia=Multimedia::all();
-        $dataCategoria=Categorie::all();
-        return view("assets.admin.tours.create",['dataMultimedia' =>$dataMultimedia ,'dataCategoria' =>$dataCategoria]);
+        // $dataCategoria=Categorie::all();
+
+        $dataCategoria = DB::table('languages')
+                    ->select('categories.description','categories.id')
+                    ->join('categories', 'categories.language_id', '=', 'languages.id')
+                    ->where('languages.id',languageUsers::idLanguage() )
+                    ->get();
+
+        return view("assets.admin.tours.create",['dataMultimedia' =>$dataMultimedia ,'dataCategoria' =>$dataCategoria,'tipoTour'=> $TipoTour]);
     }
 
     /**
@@ -48,9 +71,19 @@ class ToursController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreTours $request)
     {
            
+        
+
+        $slug = Str::slug($request['name']);
+
+        
+        $data = Tour::where('tours.slug',$slug )->get()->count();
+        
+        if($data=='0')
+        {
+
            $Tour = new Tour;
            $Tour->name = $request->name;
            $Tour->price = $request->precio;
@@ -58,8 +91,10 @@ class ToursController extends Controller
            $Tour->description_complete =$request->description_completa;
            $Tour->organization =$request->textOrganizacion;
            $Tour->status = $request->status;
-           $Tour->tipo_tour = 'varios_dias';
-           $Tour->slug =str_replace(' ', '-', $request->name);
+           $Tour->tipo_tour = $request->tipoTour;
+           $Tour->principal = $request->dataPopular;
+           $Tour->lugar = $request->lugar;
+           $Tour->slug =$slug;
            $Tour->multimedia_id = $request->dataMultimedia;
            $Tour->save();
 
@@ -71,11 +106,19 @@ class ToursController extends Controller
                             'tour_id' =>$id
                         ]); 
 
+           return response()->json(['id'=> $id,'opcion'=> 'correcta']);
 
 
-           return response()->json(['id'=> $id]);
+        }else
+        {
 
+            
+           return response()->json(['id'=> '1','opcion'=> 'erros']);
 
+        }
+        
+        
+    
 
 
     }
