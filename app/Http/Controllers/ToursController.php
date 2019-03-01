@@ -262,6 +262,10 @@ class ToursController extends Controller
 
      public function updateTourCampos(Request $request)
     {
+        
+
+        $slug = Str::slug($request['name']);
+
         $Tour = Tour::find($request->idTourUpdate);
         $Tour->name = $request->name;
         $Tour->price = $request->precio;
@@ -271,7 +275,7 @@ class ToursController extends Controller
         $Tour->principal =$request->EditardataPopular;
         $Tour->lugar =$request->editarLugar;
         $Tour->status = $request->status;
-        $Tour->slug =str_replace(' ', '-', $request->name);
+        $Tour->slug =$slug;
         $Tour->multimedia_id = $request->dataMultimedia;
         $Tour->save();
 

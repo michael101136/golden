@@ -478,10 +478,11 @@ function helperNotificacion()
                                type: 'GET',
                            success: function(data) 
                            {
-
+                              console.log(data);
                              
                              $.each(data.data,function(index,element)
                                 { 
+                                      
                                        htmlTours=htmlTours + "<tr>"+ 
                                                                  "<td>  <img  style='height: 50px;' src='/"+element.img+"'> </td>"+
                                                                  "<td> <a  onclick='eliminarImagem("+element.id+",this)' class='btn btn-danger btn-ls'> <i class='fa fa-trash'></i></a>"+  
@@ -496,6 +497,8 @@ function helperNotificacion()
 
                                       $("#dataMultimedia option[value="+ element.multimedia_id +"]").attr("selected",true);
                                       $("#status option[value="+ element.status +"]").attr("selected",true);
+                                      $("#editarLugar option[value="+ element.lugar +"]").attr("selected",true);
+                                      $("#EditardataPopular option[value="+ element.principal +"]").attr("selected",true);
 
 
                                 });
