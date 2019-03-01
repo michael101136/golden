@@ -42,6 +42,12 @@ Route::post('updateImagenTours' , ['as'=>'updateImagenTours','uses'=>'ToursContr
 Route::resource('users','UsersController');
 Route::resource('categories','CategorieController');
 Route::resource('testimonio','TestimonioController');
+Route:: get('testimonio/cambioestado/{id}', [
+
+	'uses' => 'TestimonioController@cambioEstado',
+	'as' => 'testimonio.estado'
+
+]);
 
 
 Route::resource('Itinerario','ItinerarioController');
