@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Testimonial;
+use Carbon\Carbon;
+use Image;
+use Illuminate\Support\Str as Str;
+use DB;
 class TestimonioController extends Controller
 {
     /**
@@ -26,7 +30,7 @@ class TestimonioController extends Controller
      */
     public function create()
     {
-        //
+        return view('assets.admin.testimonios.create');
     }
 
     /**
@@ -37,7 +41,43 @@ class TestimonioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        // return $request->all();
+        
+        $date = Carbon::now('America/Lima');
+        $fechaSistema=$date->format('Y-m-d');
+
+
+        $img = $request->file('img');
+        $url = $img->getClientOriginalExtension();
+
+        
+
+        $Testimonial= new Testimonial;
+        $Testimonial->name = $request->name;
+        $Testimonial->email = $request->email;
+        $Testimonial->date=Carbon::parse($fechaSistema);
+        $Testimonial->photo = $url;
+        $Testimonial->nationality = $request->nationality;
+        $Testimonial->testimonial = $request->testimonial;
+        $Testimonial->status='0';
+        $Testimonial->language = $request->language;
+        $Testimonial->save();
+
+
+        $id=DB::table('testimonials')->max('id');
+           $nombreImgen = $id.'.'.$img->getClientOriginalExtension();
+
+           $destinationPath = public_path().'/public/admin/testimonio';
+           
+           if (!file_exists($destinationPath)) {
+              mkdir($destinationPath, 666, true);
+             }
+           $thumb_img = Image::make($img->getRealPath())->resize(600,300);
+           $thumb_img->save($destinationPath.'/'.$nombreImgen,50);
+
+
+        return redirect()->route('testimonio.index');
     }
 
     /**
