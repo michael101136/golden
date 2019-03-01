@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Image;
 use Illuminate\Support\Str as Str;
 use DB;
+use App\Helpers\languageUsers;
 class TestimonioController extends Controller
 {
     /**
@@ -17,7 +18,12 @@ class TestimonioController extends Controller
      */
     public function index()
     {
-        $data=Testimonial::all();
+        
+        
+        $dato=languageUsers::languageTestimonioEncuesta();
+        
+        $data=Testimonial::where('language','=',$dato->abbr)->paginate(8);
+        
 
         return view('assets.admin.testimonios.index',['data' => $data]);
 

@@ -44,7 +44,7 @@
                         <td>{{$itemp->email}}</td>
                         <td>{{$itemp->date}}</td>
                         <td>{{$itemp->nationality}}</td>
-                        <td>{{$itemp->photo}}</td>
+                        <td> <img  style="height: 50px; width: 70px;" src="/public/admin/testimonio/{{$itemp->id}}.{{$itemp->photo}}"></td>
                         <td>
 
                                 @if($itemp->status=='1')
@@ -74,7 +74,8 @@
                   @endforeach
                 </tbody>
             </table>
-        
+                                  {{ $data->links() }}
+
         </div>
         <div class="box-footer">
           TESTIMONIOS

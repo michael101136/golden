@@ -21,6 +21,7 @@ class languageUsers
 		return ($idLanguage);
 
 	}
+	
 
 	public static function languageTestimonioEncuesta()
 	{
