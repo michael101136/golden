@@ -8,10 +8,13 @@ use DB;
 use App\language;
 use App\Categorie;
 use App\Multimedia;
+use App\CategorieTour;
+use App\Itinerarie;
 use App\Helpers\languageUsers;
 use App\Http\Requests\StoreTours;
 use Validator, Input, Redirect; 
 use Illuminate\Support\Str as Str;
+
 class ToursController extends Controller
 {
     /**
@@ -191,8 +194,22 @@ class ToursController extends Controller
      */
     public function destroy($id)
     {
+        
+        if(CategorieTour::where('tour_id', '=',$id)->count()>0)
+        {
+            $EliminarCaTour=CategorieTour::where('tour_id', '=',$id)->first();
+            $EliminarCaTour->delete();
+        }
+
+        if(Itinerarie::where('tour_id', '=',$id)->count()>0)
+        {
+           $EliminarI=Itinerarie::where('tour_id', '=',$id)->first();
+           $EliminarI->delete();
+        }
+        
+        
         $itemCategoria = Tour::where('id', '=',$id)->get()[0];
-        Tour::destroy($id);
+
 
         $destinationPath = '/'.$itemCategoria->img;
 
@@ -204,6 +221,10 @@ class ToursController extends Controller
             }else{
 
             }
+
+        $EliminarTour=Tour::where('id', '=',$id)->first();
+        $EliminarTour->delete();
+
 
         return redirect()->route('tours.index')
                         ->with('success','Member deleted successfully');

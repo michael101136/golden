@@ -33,11 +33,12 @@
 
                           <div class="box-tools pull-right">
 
-                            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
-                                    title="Collapse">
-                              <i class="fa fa-minus"></i></button>
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                              <i class="fa fa-minus"></i>
+                            </button>
                             <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                              <i class="fa fa-times"></i></button>
+                              <i class="fa fa-times"></i>
+                            </button>
                           </div>
                         </div>
                         <div class="box-body">
@@ -46,7 +47,7 @@
                                 <thead>
                                     <tr>
                                       <th>NOMBRE</th>
-                                      <th>IDIOMA</th>>
+                                      <th>IDIOMA</th>
                                       <th>IMAGEN</th>
                                       <th>DESCRIPCIÓN</th>
                                       <th>LUGAR</th>
@@ -81,7 +82,7 @@
                                                       <span class="sr-only">Toggle Dropdown</span>
                                                     </button>
                                                     <ul class="dropdown-menu" role="menu">
-                                                      <li style="text-align: center;">
+                                                      <li style="text-align: center;" onclick=" return confirm('Esta seguro de eliminar')">
 
                                                           {!! Form::open(['method' => 'DELETE','route' => ['tours.destroy', $itemp->id]]) !!}
                                                                {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-ls'] )  }}
