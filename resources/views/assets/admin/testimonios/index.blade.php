@@ -57,14 +57,14 @@
                         <td>
                             @if($itemp->status=='1')
 
-                                <a  href="{{ URL::route('Itinerario.show',$itemp->id)}}" type="button"  class="btn bg-olive margin btn-xs">
-                                         <span class="glyphicon glyphicon-remove"></span>                           
+                                <a  href="{{ route('testimonio.estado',['id'=> $itemp->id])}}" type="button"  class="btn bg-olive margin btn-xs">
+                                         <span class="glyphicon glyphicon-ok"></span>                           
                                 </a>
                                                   
                             @else
 
-                                <a  href="{{ URL::route('Itinerario.show',$itemp->id)}}" type="button"  class="btn bg-olive margin btn-xs">
-                                         <span class="glyphicon glyphicon-ok"></span>                           
+                                <a  href="{{ route('testimonio.estado',['id'=> $itemp->id])}}" type="button"  class="btn bg-danger margin btn-xs">
+                                         <span class="glyphicon glyphicon-remove"></span>                           
                                 </a>
 
                             @endif

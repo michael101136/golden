@@ -42,7 +42,7 @@ class TestimonioController extends Controller
     public function store(Request $request)
     {
 
-        // return $request->all();
+  
         
         $date = Carbon::now('America/Lima');
         $fechaSistema=$date->format('Y-m-d');
@@ -123,5 +123,21 @@ class TestimonioController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function cambioEstado($id)
+    {
+        $data=Testimonial::where('id',$id)->get()[0];
+   
+        if( $data->status==0)
+        {
+            $data=Testimonial::where('id',$id)->update(['status'=>'1']);
+       
+        }else{
+            $data=Testimonial::where('id',$id)->update(['status'=>'0']);
+       
+        }
+        return redirect()->route('testimonio.index');
+
     }
 }
