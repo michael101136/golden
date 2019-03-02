@@ -8,16 +8,10 @@
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2">
                             <div class="header-content">
-                                <div class="header-content-inner">
-                                    <h1>About Us</h1>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-                                        standard dummy text ever since </p>
-                                    <div class="ui breadcrumb">
-                                        <a href="index.html" class="section">Home</a>
-                                        <div class="divider"> / </div>
-                                        <div class="active section">Gallery</div>
-                                    </div>
-                                </div>
+                                {{-- <div class="header-content-inner">
+                                    <h1>SOBRE NOSOTROS</h1>
+                                    
+                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -31,22 +25,16 @@
                         <div class="row">
                             <div class="col-md-offset-2 col-md-8">
                                 <div class="section-title text-center">
-                                    <i class="flaticon-care-about-water"></i>
-                                    <h2>About Us</h2>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                                    <h2>Quienes somos</h2>
                                 </div>
                             </div>
                             <div class="col-sm-12">
                                 <div class="about-title">
-                                    <h2>Our Story</h2>
-                                    <h3> One day, one jump and two years of passion</h3>
+                                  
 
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                        when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap 
-                                        into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum 
-                                        passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                        when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five .</p>
+                                    <p style="text-align: justify;">Machupicchu Golden es una Agencia de viajes y turismo integrada por un equipo de profesionales con amplia trayectoria, conocimiento y experiencia en el mundo del turismo.
+                                        Contamos con el personal  adecuado para que podamos responder de manera ágil la exigencia de nuestros clientes; asumiendo el compromiso de brindar todo nuestro conocimiento profesional. Tanto nuestro staff como nosotros amamos viajar, por lo que la pasión y el compromiso es una característica que nos destaca. Ponemos nuestro mejor empeño para que aquellos que decidan realizar un viaje con nosotros se lleven un recuerdo para toda la vida.</p>
+                                   
                                 </div>
                                 <div class="middle-content">
                                     <div class="row">
@@ -82,82 +70,15 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="about-title">
-                                    <h2>Our Travelers</h2>
-                                    <h3> Benefits our traveler's Enjoy</h3>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                        when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap 
-                                        into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum 
-                                        passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                        when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap 
-                                        into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum 
-                                        passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                </div>
+                               
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- testimonial section --> 
-                <div class="reference">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-offset-2 col-md-8">
-                                <div class="section-title text-center">
-                                    <i class="flaticon-customer"></i>
-                                    <h2>References</h2>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="testimonials">
-                                <div class="carousel" data-ride="carousel" id="quote-carousel">
-                                    <div class="carousel-inner">
-                                        <!-- Quote 1 -->  
-                                        <div class="item col-sm-10 col-sm-offset-1">
-                                            <blockquote>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
-                                                aliquam architecto beatae dolorem, enim error eveniet harum iste molestias
-                                                neque nisi placeat possimus quaerat quam repudiandae sint soluta unde vero.
-                                                <span class="author">- Andrew Adams, Google Inc</span>
-                                            </blockquote>
-                                        </div>
-                                        <!-- Quote 2 -->  
-                                        <div class="item col-sm-10 col-sm-offset-1">
-                                            <blockquote>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
-                                                aliquam architecto beatae doloremaliquam architecto beatae dolorem, enim error
-                                                eveniet harum iste molestias neque nisi placeat.
-                                                <span class="author">- Jhon Smith, Facebook Inc</span>
-                                            </blockquote>
-                                        </div>
-                                        <!-- Quote 3 -->
-                                        <div class="item col-sm-10 col-sm-offset-1 active">
-                                            <blockquote>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
-                                                aliquam architecto beatae dolorem, enim error eveniet harum iste molestias
-                                                neque nisi placeat possimus quaerat quam repudiandae sint.
-                                                <span class="author">- Bob Smith, Fitbit</span>
-                                            </blockquote>
-                                        </div>
-                                    </div>
-                                    <!-- Bottom Carousel Indicators --> 
-                                    <ol class="carousel-indicators">
-                                        <li data-target="#quote-carousel" data-slide-to="0" class=""><img class="img-responsive " src="/plantilla/assets/images/hotel-7.jpg" alt="">
-                                        </li>
-                                        <li data-target="#quote-carousel" data-slide-to="1" class=""><img class="img-responsive" src="/plantilla/assets/images/hotel-7.jpg" alt="">
-                                        </li>
-                                        <li data-target="#quote-carousel" data-slide-to="2" class="active"><img class="img-responsive" src="/plantilla/assets/images/hotel-7.jpg" alt="">
-                                        </li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
                 <!-- team member -->
-                <div class="team-inner">
+                <div class="team-inner" style="margin-top: -100px;">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-offset-2 col-md-8">
@@ -249,54 +170,7 @@
                     </div>
                 </div>
                 <!-- client -->
-                <div class="client-inner">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-offset-2 col-md-8">
-                                <div class="section-title text-center">
-                                    <i class="flaticon-arrows"></i>
-                                    <h2>Our Clients</h2>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="clients">
-                                <div class="col-xs-4 col-sm-2">
-                                    <div class="clients-thumb">
-                                        <img src="/plantilla/assets/images/hotel-7.jpg" class="img-responsive" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-xs-4 col-sm-2">
-                                    <div class="clients-thumb">
-                                        <img src="/plantilla/assets/images/hotel-7.jpg" class="img-responsive" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-xs-4 col-sm-2">
-                                    <div class="clients-thumb">
-                                        <img src="/plantilla/assets/images/hotel-7.jpg" class="img-responsive" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-xs-4 col-sm-2">
-                                    <div class="clients-thumb">
-                                        <img src="/plantilla/assets/images/hotel-7.jpg" class="img-responsive" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-xs-4 col-sm-2">
-                                    <div class="clients-thumb">
-                                        <img src="/plantilla/assets/images/hotel-7.jpg" class="img-responsive" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-xs-4 col-sm-2">
-                                    <div class="clients-thumb">
-                                        <img src="/plantilla/assets/images/hotel-7.jpg" class="img-responsive" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             </section>
             <!-- Newsletter -->
             <section class="get-offer">

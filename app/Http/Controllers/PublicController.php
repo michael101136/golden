@@ -62,6 +62,7 @@ class PublicController extends Controller
                 ->get();
        
             $todoTours=publicTours::searchTours($idioma,$categoria);
+     
 
          }
         

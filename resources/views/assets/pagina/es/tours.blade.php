@@ -117,14 +117,15 @@
                                 </ul>
                                 <!-- pagination -->
                                 <ul class="pagination">
-                                    <li><a href="#">1</a></li>
-                                    <li class="active"><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">...</a></li>
-                                    <li><a href="#">15</a></li>
+                                    <li><a  class="active" href="es/categoria/aventura?page=1">1</a></li>
+                                    <li><a href="es/categoria/aventura?page=2">2</a></li>
+                                    <li><a href="es/categoria/aventura?page=3">3</a></li>
+                                    <li><a href="es/categoria/aventura?page=4">4</a></li>
+                                    <li><a href="es/categoria/aventura?page=2">...</a></li>
+                                    <li><a href="es/categoria/aventura?page=15">15</a></li>
                                 </ul>
                             </div>
+                        {{--     {{ $tours->links() }} --}}
                         </div>
                     </div>
                 </div>
@@ -309,6 +310,16 @@
         
          });
     }
+
+    $(document).on('click','.pagination a', function(event){
+
+           event.preventDefault();
+
+           var page = $(this).attr('href');
+           console.log(page);
+
+
+    });
 
 
  </script>

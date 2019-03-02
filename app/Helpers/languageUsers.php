@@ -17,7 +17,7 @@ class languageUsers
 		
         $user = Auth::user();
         $idLanguage=$user->language_id;
-
+        
 		return ($idLanguage);
 
 	}

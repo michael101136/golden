@@ -122,7 +122,7 @@ class publicTours
 			        ->join('tours', 'cat_t.tour_id', '=', 'tours.id')
 			        ->where("languages.abbr","=",$abbr)
 			        ->where("categories.name","=",$search)
-			        ->paginate(12);    
+			        ->paginate(20);    
 
 				return $toursPublic;
 
