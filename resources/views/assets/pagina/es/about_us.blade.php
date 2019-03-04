@@ -39,7 +39,7 @@
                                 <div class="middle-content">
                                     <div class="row">
                                         <div class="col-sm-12 col-md-6">
-                                            <img src="/plantilla/assets/images/hotel-7.jpg" class="img-responsive" alt="">
+                                            <img src="/public/img/machupicchu.jpg" class="img-responsive" alt="">
                                         </div>
                                         <div class="col-md-6">
                                             <div class="content-left">

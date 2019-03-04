@@ -32,6 +32,8 @@ class PublicController extends Controller
     public function tours($idioma,$categoria,$precio='')
     {
         
+        
+
          if($categoria=='cusco' ||  $categoria=='puno' ||  $categoria=='arequipa' ||  $categoria=='lima' ||  $categoria=='selva' ||  $categoria=='nazca'||  $categoria=='ica' ||  $categoria=='bolivia' )
          {
 
@@ -93,7 +95,7 @@ class PublicController extends Controller
 
     	
 
-        $tour = Tour::where('slug', '=',$tourSlug)->get()[0];
+      $tour = Tour::where('slug', '=',$tourSlug)->get()[0];
 
     	$multimediaTour = DB::table('tours')
                     ->select('images.path')
