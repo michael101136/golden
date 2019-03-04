@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-03-2019 a las 15:23:45
--- Versión del servidor: 10.1.37-MariaDB
--- Versión de PHP: 7.3.1
+-- Tiempo de generación: 02-03-2019 a las 16:31:06
+-- Versión del servidor: 10.1.38-MariaDB
+-- Versión de PHP: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -70,29 +70,6 @@ CREATE TABLE `categories_has_tours` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Volcado de datos para la tabla `categories_has_tours`
---
-
-INSERT INTO `categories_has_tours` (`id`, `categorie_id`, `tour_id`, `created_at`, `updated_at`) VALUES
-(10, 14, 36, NULL, NULL),
-(30, 14, 35, NULL, NULL),
-(31, 15, 38, NULL, NULL),
-(34, 15, 41, NULL, NULL),
-(36, 14, 37, NULL, NULL),
-(40, 20, 45, NULL, NULL),
-(41, 19, 46, NULL, NULL),
-(42, 18, 47, NULL, NULL),
-(43, 18, 48, NULL, NULL),
-(46, 14, 39, NULL, NULL),
-(47, 14, 40, NULL, NULL),
-(48, 14, 42, NULL, NULL),
-(49, 14, 50, NULL, NULL),
-(50, 14, 44, NULL, NULL),
-(51, 14, 43, NULL, NULL),
-(52, 18, 49, NULL, NULL),
-(53, 18, 51, NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -141,23 +118,6 @@ CREATE TABLE `images` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Volcado de datos para la tabla `images`
---
-
-INSERT INTO `images` (`id`, `multimedia_id`, `name`, `path`, `size`, `created_at`, `updated_at`) VALUES
-(142, 40, '1549989657.maras-moray.jpg', 'admin/uploads/1549989657.maras-moray.jpg', '167271', '2019-02-12 21:40:57', '2019-02-12 21:40:57'),
-(143, 40, '1549989657.marasmoray-cusco.jpg', 'admin/uploads/1549989657.marasmoray-cusco.jpg', '166168', '2019-02-12 21:40:57', '2019-02-12 21:40:57'),
-(144, 40, '1549989657.tour-bicicleta-maras-moray.jpg', 'admin/uploads/1549989657.tour-bicicleta-maras-moray.jpg', '170896', '2019-02-12 21:40:57', '2019-02-12 21:40:57'),
-(145, 41, '1550499209.bungee-cusco.jpg', 'admin/uploads/1550499209.bungee-cusco.jpg', '102289', '2019-02-18 19:13:29', '2019-02-18 19:13:29'),
-(146, 41, '1550499209.bungee-jump.jpg', 'admin/uploads/1550499209.bungee-jump.jpg', '183457', '2019-02-18 19:13:29', '2019-02-18 19:13:29'),
-(147, 41, '1550499209.jumping-cusco.jpg', 'admin/uploads/1550499209.jumping-cusco.jpg', '289292', '2019-02-18 19:13:29', '2019-02-18 19:13:29'),
-(148, 40, '1550527680.maras-moray.jpg', 'admin/uploads/1550527680.maras-moray.jpg', '167271', '2019-02-19 03:08:00', '2019-02-19 03:08:00'),
-(149, 40, '1550527686.maras-moray.jpg', 'admin/uploads/1550527686.maras-moray.jpg', '167271', '2019-02-19 03:08:06', '2019-02-19 03:08:06'),
-(150, 42, '1551364583.tour-370x370-6.jpg', 'admin/uploads/1551364583.tour-370x370-6.jpg', '43330', '2019-02-28 19:36:23', '2019-02-28 19:36:23'),
-(151, 42, '1551364583.tour-370x370-7.jpg', 'admin/uploads/1551364583.tour-370x370-7.jpg', '34506', '2019-02-28 19:36:23', '2019-02-28 19:36:23'),
-(152, 42, '1551364583.tour-370x370-8.jpg', 'admin/uploads/1551364583.tour-370x370-8.jpg', '191421', '2019-02-28 19:36:23', '2019-02-28 19:36:23');
-
 -- --------------------------------------------------------
 
 --
@@ -194,35 +154,6 @@ CREATE TABLE `itineraries` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `itineraries`
---
-
-INSERT INTO `itineraries` (`id`, `tour_id`, `name`, `description`, `day`, `department`, `province`, `district`, `altitud`, `latitud`, `longitud`, `icono`, `photo`, `created_at`, `updated_at`) VALUES
-(50, 35, 'qwe michael', '<p>asdasd asdas dasd asd</p>', 1, 'cusco', 'wqe', 'wqe', 'wqe', 'ewqewe', NULL, NULL, 'admin/uploads/itinerario/1550507982.tour-maras-bicicleta-1.jpg', NULL, '2019-02-28 21:51:27'),
-(51, 35, 'qweasdas sad sadas mi9chael', NULL, 2, 'qwe', 'qwe', 'qwe', 'qwe', 'wqe', NULL, NULL, 'admin/uploads/itinerario/1550507951.marasmoray-cusco.jpg', NULL, '2019-02-28 21:49:41'),
-(52, 35, 'asd', 'asd', 3, 'asd', 'asd', 'asd', 'asd', 'asddas asd asd', NULL, NULL, 'admin/uploads/itinerario/1550527501.tour-maras-bicicleta-1.jpg', NULL, '2019-02-19 03:05:01'),
-(53, 35, 'asd', 'asd', 4, 'asd', 'asd', 'asd', 'asd', 'asd', NULL, NULL, 'admin/uploads/itinerario/1550509538.tour-bicicleta-maras-moray.jpg', NULL, NULL),
-(55, 35, 'asd', 'asd', 5, 'asd', 'asd', 'asd', 'asd', 'asdasd', NULL, NULL, 'admin/uploads/itinerario/1550524952.marasmoray-cusco.jpg', NULL, NULL),
-(63, 36, 'ad', 'asd', 1, 'asd', 'asd', 'asd', 'asd', 'asd', NULL, NULL, 'admin/uploads/itinerario/1550526117.maras-moray.jpg', NULL, NULL),
-(65, 36, 'ASDasd', 'asdfasd', 2, 'sdf', 'sdf', 'sdf', 'sdff', 'sdf', NULL, NULL, 'admin/uploads/itinerario/1550526409.maras-moray.jpg', NULL, NULL),
-(66, 36, 'sad', 'asd', 3, 'asd', 'sad', 'asd', 'sad', 'sad', NULL, NULL, 'admin/uploads/itinerario/1550526462.maras-moray.jpg', NULL, NULL),
-(67, 35, 'ASDasd', 'asd', 6, 'asd', 'sad', 'asd', 'sad', 'asdsad', NULL, NULL, 'admin/uploads/itinerario/1550526520.maras-moray.jpg', NULL, NULL),
-(68, 35, NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'admin/uploads/itinerario/1550527312.maras-moray.jpg', NULL, NULL),
-(69, 35, 'ASD', 'asd', 8, 'asd', 'asd', 'asd', 'asd', 'asd', NULL, NULL, 'admin/uploads/itinerario/1550527346.maras-moray.jpg', NULL, NULL),
-(70, 35, 'zxc', 'zxc', 9, 'zxc', 'zxc', 'zxc', 'zxc', 'zxc', NULL, NULL, 'admin/uploads/itinerario/1550587863.maras-moray.jpg', NULL, NULL),
-(71, 35, NULL, NULL, 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'admin/uploads/itinerario/1550780503.tour-bicicleta-maras-moray.jpg', NULL, NULL),
-(74, 46, 'qad', 'asd', 2, 'asd', 'asd', 'asd', 'asd', 'asd', NULL, NULL, 'admin/uploads/itinerario/1551365171.tour-370x370-4.jpg', NULL, NULL),
-(75, 37, 'asda', '<p>asd asdasd</p>', 1, 'sad', 'asd', 'sad', 'asdas', 'sad', NULL, NULL, 'admin/uploads/itinerario/1551365487.tour-370x370-1.jpg', NULL, '2019-03-01 01:57:21'),
-(76, 36, NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'admin/uploads/itinerario/1551365765.tour-370x370-7.jpg', NULL, NULL),
-(77, 35, 'asf', 'sdf', 11, 'sdf', 'sdf', 'sdf', 'sdf', 'sdf', NULL, NULL, 'admin/uploads/itinerario/1551369632.tour-370x370-4.jpg', NULL, NULL),
-(78, 35, NULL, NULL, 12, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'admin/uploads/itinerario/1551369919.tour-370x370-4.jpg', NULL, NULL),
-(79, 35, 'hola prueba', '<ul>\r\n	<li><em><strong>ckedit</strong>os</em></li>\r\n</ul>', 13, 'peru', 'nuevo', 'nuevo', 'asd', 'asda', NULL, NULL, 'admin/uploads/itinerario/1551370225.tour-370x370-1.jpg', NULL, NULL),
-(80, 35, NULL, NULL, 14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'admin/uploads/itinerario/1551370301.tour-370x370-5.jpg', NULL, NULL),
-(81, 35, NULL, NULL, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'admin/uploads/itinerario/1551387143.tour-370x370-1.jpg', NULL, NULL),
-(82, 35, NULL, NULL, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'admin/uploads/itinerario/1551387159.tour-370x370-9.jpg', NULL, NULL),
-(83, 49, 'pimentel palominio michael alexander', '<p>s</p>', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'admin/uploads/itinerario/1551450027.tour-370x370-4.jpg', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -298,15 +229,6 @@ CREATE TABLE `multimedia` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `multimedia`
---
-
-INSERT INTO `multimedia` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
-(40, 'Tour en Bicicleta Maras Moray', 'Para iniciar el tour en Bicicleta Maras Moray primeramente le recogeremos de su hotel, a las 09:00 hrs. aproximadamente  para dirigirnos a Chancadora (Chinchero) en nuestra movilidad.', '2019-02-12 21:39:18', '2019-02-12 21:39:18'),
-(41, 'Tours a Machu Picchu, Tours en Cusco, Paquetes Machupicchu', 'Tours a Machu Picchu, Tours en Cusco, Paquetes Machupicchu', '2019-02-18 19:13:23', '2019-02-18 19:13:23'),
-(42, 'nuevo', 'nuevo', '2019-02-28 19:36:15', '2019-02-28 19:36:15');
 
 -- --------------------------------------------------------
 
@@ -403,7 +325,7 @@ CREATE TABLE `testimonials` (
   `date` date NOT NULL,
   `nationality` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `testimonial` varchar(1050) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `language` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tipo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -416,7 +338,14 @@ CREATE TABLE `testimonials` (
 --
 
 INSERT INTO `testimonials` (`id`, `name`, `email`, `date`, `nationality`, `testimonial`, `photo`, `status`, `language`, `tipo`, `created_at`, `updated_at`) VALUES
-(1, 'michael', 'michael101136@gmail.com', '2019-02-01', 'abancay', 'me gusta mucho ', '', '1', 'es', 'testimonio', NULL, NULL);
+(1, 'michael', 'michael101136@gmail.com', '2019-02-01', 'abancay', 'me gusta mucho ', '', '1', 'en', 'testimonio', NULL, '2019-03-01 21:59:27'),
+(2, 'a', 'admin@gmail.com', '2019-03-01', 'a', 'a', NULL, '0', 'es', NULL, '2019-03-01 20:51:51', '2019-03-01 20:51:51'),
+(3, 'b', 'b@gmail.com', '2019-03-01', 'b', 'afafasfsaf', NULL, '0', 'es', NULL, '2019-03-01 20:53:46', '2019-03-01 20:53:46'),
+(4, 'c', 'c@gmail.com', '2019-03-01', 'c', 'cafasfdasff', NULL, '0', 'es', NULL, '2019-03-01 21:06:47', '2019-03-01 21:06:47'),
+(5, 'd', 'd', '2019-03-01', 'd', 'd', NULL, '0', 'es', NULL, '2019-03-01 21:07:50', '2019-03-01 21:07:50'),
+(6, 'd', 'd', '2019-03-01', 'd', 'd', 'jpg', '1', 'es', NULL, '2019-03-01 21:11:53', '2019-03-01 21:58:12'),
+(7, 'a', 'a', '2019-03-02', 'a', 'a', 'jpg', '0', 'es', NULL, '2019-03-02 19:49:19', '2019-03-02 19:49:19'),
+(8, 'z', 'z', '2019-03-02', 'z', 'z', 'jpg', '0', 'es', NULL, '2019-03-02 20:04:35', '2019-03-02 20:04:35');
 
 -- --------------------------------------------------------
 
@@ -444,29 +373,6 @@ CREATE TABLE `tours` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Volcado de datos para la tabla `tours`
---
-
-INSERT INTO `tours` (`id`, `name`, `img`, `description_short`, `description_complete`, `organization`, `meta_description`, `meta_keywords`, `status`, `principal`, `price`, `slug`, `tipo_tour`, `multimedia_id`, `lugar`, `created_at`, `updated_at`) VALUES
-(35, 'Tour en Bicicleta Maras Moray', 'admin/uploads/tour/1550869852.tour-370x370-1.jpg', 'En el tour en Bicicleta Maras Moray usted podrá disfrutar del hermoso paisaje de la zona', 'En el tour en Bicicleta Maras Moray usted podrá disfrutar del hermoso paisaje de la zona alto andina de la sierra del Cusco con vistas impresionantes de Nevados, valles.', '<p>&nbsp;</p>\r\n\r\n<ul class=\"list-ok\">\r\n	<li>Impermeable para lluvia</li>\r\n	<li>Bloqueador solar</li>\r\n	<li>Agua personal</li>\r\n	<li>Mochila peque&ntilde;+</li>\r\n	<li>rtf</li>\r\n</ul>', NULL, NULL, 'A', 1, 500.00, 'Tour-en-Bicicleta-Maras-Moray', 'uno_dia', 40, 'cusco', '2019-02-12 21:42:34', '2019-02-23 02:10:52'),
-(36, 'Bungee Jumping en Cusco', 'admin/uploads/tour/1550869865.tour-370x370-5.jpg', 'Si te gusta el deporte extremo y eres amante de las alturas entonces el Bungee Jumping en Cusco Poroy es para ti.', 'Si te gusta el deporte extremo y eres amante de las alturas entonces el Bungee Jumping en Cusco Poroy es para ti. ara realizar el Bungee Jumping en Cusco, debemos dirigirnos hasta Poroy ubicado a 15 minutos de Cusco, Perú a 3,600 mts sobre el nivel del mar siendo el más alto a nivel de Sudamérica, motivo por el cual experimentaran mucha adrenalina con este deporte de aventura.', '<h2>Itinerario Bungee Jumping en Cusco</h2>\r\n\r\n<ul>\r\n	<li>El personal encargado les recoger&aacute; del hotel para dirigirlos hasta Poroy unicado a 15 minutos de la ciudad de Cusco, aqui daremos inicio a la adrenalina pura.</li>\r\n	<li>Recibiremos una breve informaci&oacute;n sobre como realizar Bungee Jumping en Cusco Poroy y luego subiremos preparados.</li>\r\n	<li>Llegaremos hasta los 122 metros de altura, el personal le asegurar&aacute; con todos los implementos especiales que se usa en este deporte de aventura, arneses en tobillos, cuerda el&aacute;stica, arneses con cinta de seguridad sujetada a la liga.&nbsp;( la cinta de seguridad tiene una longitud de estiramiento m&aacute;ximo de 107 metros y una capacidad de resistencia de 2 toneladas de peso).</li>\r\n	<li>Habiendo llegado al l&iacute;mite de saltos desechamos la cuerda, cort&aacute;ndola en pedazos con la finalidad de asegurarnos de no volverlas a usar para garantizar al turista que los equipos empleados se encuentren en &oacute;ptimas condiciones.</li>\r\n	<li>Duraci&oacute;n del ascenso y descenso: El programa se ejecuta entre 12 y 16 minutos, Esta actividad de los cuales 4 minutos de subida de la caseta hasta los 122 metros y el restante es de salto y descenso.</li>\r\n</ul>\r\n\r\n<p><strong>FRECUENCIA DE SALIDA:</strong></p>\r\n\r\n<p>De Domingo a Viernes de 09:00hrs &ndash; 17:00 hrs.</p>\r\n\r\n<p><strong>COSTO DEL PROGRAMA:</strong></p>\r\n\r\n<p>USD 82 D&oacute;lares americanos por persona.</p>', NULL, NULL, 'A', 1, 1200.00, 'Bungee-Jumping-en-Cusco', 'uno_dia', 40, 'cusco', '2019-02-12 22:39:50', '2019-02-23 02:11:05'),
-(37, 'hjgh fghfg', 'admin/uploads/tour/1550869875.tour-370x370-7.jpg', 'Posteriormentes durante el Tour 4 dias 3 noches en Cusco y', 'fgh', '<p>Posteriormentes durante el Tour 4 dias 3 noches en Cusco y&nbsp;Posteriormentes durante el Tour 4 dias 3 noches en Cusco y</p>', NULL, NULL, 'A', 1, 3000.00, 'hjgh-fghfg', 'uno_dia', 40, 'puno', '2019-02-19 20:44:44', '2019-02-23 21:02:07'),
-(38, 'Tour Cusco 4 dias 3 noches Extranjeros By Car', 'admin/uploads/tour/1550869970.tour-370x370-6.jpg', 'machuPicchu Posteriormente en el Tour Cusco 4 dias 3 noches Extranjeros se realizara un viaje en bus hasta la población de Hidroeléctric', 'Posteriormente en el Tour Cusco 4 dias 3 noches Extranjeros se realizara un viaje en bus hasta la población de Hidroeléctrica y finalmente visitar la maravilla del Mundo Machu Picchu,', '<ul>\r\n	<li>Pasaporte original y tarjeta de migraci&oacute;n (TAM)</li>\r\n	<li>Ropa de abrigo (t&eacute;rmicas, guantes, bufandas, calcetines de algod&oacute;n, gorro de lana, camisetas, impermeable y/o poncho para lluvia)</li>\r\n	<li>C&aacute;mara y bater&iacute;a o pilas de repuesto</li>\r\n	<li>Protector solar, sombrero y gafas de sol</li>\r\n	<li>Kit m&eacute;dico personal</li>\r\n	<li>Papel higi&eacute;nico</li>\r\n	<li>Toalla peque&ntilde;a</li>\r\n	<li>Dinero extra para bebida propinas y recuerdos</li>\r\n	<li>Ropa de ba&ntilde;o (opcional)</li>\r\n	<li>Botella de agua</li>\r\n</ul>', NULL, NULL, 'A', 1, 232.00, 'Tour-Cusco-4-dias-3-noches-Extranjeros-By-Car', 'uno_dia', 41, 'arequipa', '2019-02-23 02:12:44', '2019-02-23 02:12:50'),
-(39, 'our 4 dias 3 noches Cusco y MachuPicchu en Tren', 'admin/uploads/tour/1550870037.tour-370x370-9.jpg', 'Posteriormentes durante el Tour 4 dias 3 noches en Cusco y MachuPicchu visitaremos el Valle Sagrado de los Incas', 'Posteriormentes durante el Tour 4 dias 3 noches en Cusco y MachuPicchu visitaremos el Valle Sagrado de los Incas y los centros arqueológicos de Pisaq y Ollantaytambo para Finalmente disfrutar de la maravilla del Mundo MachuPicchu.', '<ul>\r\n	<li>Pasaporte original y tarjeta de migraci&oacute;n (TAM)</li>\r\n	<li>Ropa de abrigo (t&eacute;rmicas, guantes, bufandas, calcetines de algod&oacute;n, gorro de lana, camisetas, impermeable y/o poncho para lluvia)</li>\r\n	<li>C&aacute;mara y bater&iacute;a o pilas de repuesto</li>\r\n	<li>Protector solar, sombrero y gafas de sol</li>\r\n	<li>Kit m&eacute;dico personal</li>\r\n	<li>Papel higi&eacute;nico</li>\r\n	<li>Toalla peque&ntilde;a</li>\r\n	<li>Dinero extra para bebida propinas y recuerdos</li>\r\n	<li>Ropa de ba&ntilde;o (opcional)</li>\r\n	<li>Botella de agua</li>\r\n</ul>', NULL, NULL, 'A', 1, 2000.00, 'our-4-dias-3-noches-Cusco-y-MachuPicchu-en-Tren', 'uno_dia', 40, 'cusco', '2019-02-23 02:13:53', '2019-03-01 01:46:44'),
-(40, 'Cusco Clasico 5 días 4 noches Extranjeros en Tren', 'admin/uploads/tour/1550870102.tour-370x370-8.jpg', 'En esta aventura de 05 días visitaremos la capital del Imperio de los Incas Cusco, El Qoricancha, Sacsayhuaman; disfrutaremos de Maras, Moray centro de investigación agrícola, las minas de sal en salineras.', 'En esta aventura de 05 días visitaremos la capital del Imperio de los Incas Cusco, El Qoricancha, Sacsayhuaman; disfrutaremos de Maras, Moray centro de investigación agrícola, las minas de sal en salineras.', '<ul>\r\n	<li>Pasaporte original y tarjeta de migraci&oacute;n (TAM)</li>\r\n	<li>Ropa de abrigo (t&eacute;rmicas, guantes, bufandas, calcetines de algod&oacute;n, gorro de lana, camisetas, impermeable y/o poncho para lluvia)</li>\r\n	<li>C&aacute;mara y bater&iacute;a o pilas de repuesto</li>\r\n	<li>Protector solar, sombrero y gafas de sol</li>\r\n	<li>Kit m&eacute;dico personal</li>\r\n	<li>Papel higi&eacute;nico</li>\r\n	<li>Toalla peque&ntilde;a</li>\r\n	<li>Dinero extra para bebida propinas y recuerdos</li>\r\n	<li>Ropa de ba&ntilde;o (opcional)</li>\r\n	<li>Botella de agua</li>\r\n</ul>', NULL, NULL, 'A', 1, 1000.00, 'Cusco-Clasico-5-días-4-noches-Extranjeros-en-Tren', 'uno_dia', 41, 'cusco', '2019-02-23 02:14:56', '2019-03-01 01:46:58'),
-(41, 'City Tour en Lima – Ciudad de Reyess', 'admin/uploads/tour/1550933854.tour-370x370-4.jpg', 'City Tour en Lima – Ciudad de Reyes', 'City Tour en Lima – Ciudad de Reyes', '<h1>City Tour en Lima &ndash; Ciudad de Reyes&nbsp;City Tour en Lima &ndash; Ciudad de ReyesCity Tour en Lima &ndash; Ciudad de ReyesCity Tour en Lima &ndash; Ciudad de ReyesCity Tour en Lima &ndash; Ciudad de ReyesCity Tour en Lima &ndash; Ciudad de ReyesCity Tour en Lima &ndash; Ciudad de Reyes</h1>', NULL, NULL, 'A', NULL, 1233.00, 'City-Tour-en-Lima-–-Ciudad-de-Reyess', 'varios_dias', 40, 'cusco', '2019-02-23 19:57:29', '2019-02-23 19:57:35'),
-(42, 'pimentel palominio michael alexander', 'admin/uploads/tour/1551287886.tour-370x370-4.jpg', 'asd', 'asd', '<p>asd</p>', NULL, NULL, 'A', 1, 23.00, 'pimentel-palominio-michael-alexander', 'uno_dia', 40, 'cusco', '2019-02-27 22:17:10', '2019-03-01 01:47:14'),
-(43, 'Cusco Cl', 'admin/uploads/tour/1551289074.tour-370x370-9.jpg', 'Pasaporte original y tarjeta de migración', 'Pasaporte original y tarjeta de migración (TAM) Ropa de abrigo', '<p>asd</p>', NULL, NULL, 'A', 1, 123.00, 'Cusco-Cl', 'uno_dia', 40, 'cusco', '2019-02-27 22:24:12', '2019-03-01 01:48:58'),
-(44, 'Cusco Clasico 5 dias 4 noches Extranjeros en Trenn', 'admin/uploads/tour/1551289088.tour-370x370-8.jpg', 'Pasaporte original y tarjeta de migración', 'Pasaporte original y tarjeta de migración (TAM) Ropa de abrigo', '<p>asd</p>', NULL, NULL, 'A', 1, 123.00, 'Cusco-Clasico-5-dias-4-noches-Extranjeros-en-Trenn', 'uno_dia', 40, 'cusco', '2019-02-27 22:24:32', '2019-03-01 01:48:52'),
-(45, 'Cusco Clasico 5 días 4 noches Extranjeros en Trenxx', 'admin/uploads/tour/1551288992.tour-370x370-8.jpg', 'En esta aventura de 05 días visitaremos la capital del Imperio de los Incas Cusco, El Qoricancha, Sacsayhuaman; disfrutaremos de Maras, Moray centro de investigación agrícola, las minas de sal en salineras.', 'En esta aventura de 05 días visitaremos la capital del Imperio de los Incas Cusco, El Qoricancha, Sacsayhuaman; disfrutaremos de Maras, Moray centro de investigación agrícola, las minas de sal en salineras.', '<ul>\r\n	<li>Pasaporte original y tarjeta de migraci&oacute;n (TAM)</li>\r\n	<li>Ropa de abrigo (t&eacute;rmicas, guantes, bufandas, calcetines de algod&oacute;n, gorro de lana, camisetas, impermeable y/o poncho para lluvia)</li>\r\n	<li>C&aacute;mara y bater&iacute;a o pilas de repuesto</li>\r\n	<li>Protector solar, sombrero y gafas de sol</li>\r\n	<li>Kit m&eacute;dico personal</li>\r\n	<li>Papel higi&eacute;nico</li>\r\n	<li>Toalla peque&ntilde;a</li>\r\n	<li>Dinero extra para bebida propinas y recuerdos</li>\r\n	<li>Ropa de ba&ntilde;o (opcional)</li>\r\n	<li>Botella de agua</li>\r\n</ul>', NULL, NULL, 'A', 1, 23.00, 'cusco-clasico-5-dias-4-noches-extranjeros-en-trenxx', 'uno_dia', 41, 'puno', '2019-02-27 22:36:27', '2019-02-27 22:36:32'),
-(46, 'pimentel palominio michael alexander ere', 'admin/uploads/tour/1551364640.tour-370x370-6.jpg', 'asdasd', 'asdasdfsdf', '<p>sadfdsf</p>', NULL, NULL, 'A', 1, 12.00, 'pimentel-palominio-michael-alexander-ere', 'uno_dia', 42, 'cusco', '2019-02-28 19:37:02', '2019-02-28 19:37:20'),
-(47, 'SADFS', 'admin/uploads/tour/1551384233.tour-370x370-1.jpg', 'SDF', 'DFSD', '<p>SDFSDF</p>', NULL, NULL, 'A', 1, 34.00, 'sadfs', 'uno_dia', 40, 'cusco', '2019-03-01 01:03:47', '2019-03-01 01:03:53'),
-(48, 'werff', NULL, 'dsf', 'dsf', '<p>sdf</p>', NULL, NULL, 'A', 1, 234.00, 'werff', 'uno_dia', 40, 'cusco', '2019-03-01 01:12:06', '2019-03-01 01:12:06'),
-(49, 'fdsf', 'admin/uploads/tour/1551384911.tour-370x370-1.jpg', 'sdf', 'sdf', '<p>asd</p>', NULL, NULL, 'A', 1, 23.00, 'fdsf', 'uno_dia', 40, 'cusco', '2019-03-01 01:15:07', '2019-03-01 01:15:11'),
-(50, 'pimentel palominio michael alexander S', 'admin/uploads/tour/1551385032.tour-370x370-4.jpg', 'ASD', 'SAD', '<p>ASD</p>', NULL, NULL, 'A', 1, 234.00, 'pimentel-palominio-michael-alexander-S', 'uno_dia', 40, 'cusco', '2019-03-01 01:17:07', '2019-03-01 01:48:09'),
-(51, 'sd', 'admin/uploads/tour/1551450069.tour-370x370-9.jpg', 'dsf', 'sdf', '<p>sdf</p>', NULL, NULL, 'A', 1, 123.00, 'sd', 'uno_dia', 40, 'cusco', '2019-03-01 19:21:04', '2019-03-01 19:21:09');
-
 -- --------------------------------------------------------
 
 --
@@ -491,8 +397,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `privilege`, `name`, `email`, `language_id`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(8, 'admin', 'admin', 'admin@gmail.com', 2, NULL, '$2y$10$dtjJ9QYBhdLk49kjRiYLiOA/2L6hPVQas.S0P7PuROjGrcF1DZhGa', 'M28tXFcrlL3ED3hvsAG5c7TyQNquyMbDEAitsnegFwTdAAI3OEy7rzTUgwiY', '2019-02-06 03:15:26', '2019-02-07 00:38:31'),
-(9, 'admin', 'pimentel', 'michael101136@gmail.com', 1, NULL, '$2y$10$aEBF8z0aLQU8MPQrwqGLw.Dw7S54lyMFQ1boy.Yr7qVX7nGqVZGaK', 'o9MfqhNsV7sOy9IVQ1Ikcr7B8NjdifwYF5BZ1aukIMO7iJhtEOf0Xg3Qzfn1', '2019-02-18 22:11:56', '2019-03-01 02:26:26');
+(8, 'admin', 'admin', 'admin@gmail.com', 2, NULL, '$2y$10$dtjJ9QYBhdLk49kjRiYLiOA/2L6hPVQas.S0P7PuROjGrcF1DZhGa', 'M28tXFcrlL3ED3hvsAG5c7TyQNquyMbDEAitsnegFwTdAAI3OEy7rzTUgwiY', '2019-02-06 03:15:26', '2019-02-07 00:38:31');
 
 -- --------------------------------------------------------
 
@@ -673,7 +578,7 @@ ALTER TABLE `icons`
 -- AUTO_INCREMENT de la tabla `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `img`
@@ -685,7 +590,7 @@ ALTER TABLE `img`
 -- AUTO_INCREMENT de la tabla `itineraries`
 --
 ALTER TABLE `itineraries`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `languages`
@@ -703,7 +608,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT de la tabla `multimedia`
 --
 ALTER TABLE `multimedia`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `paises`
@@ -733,13 +638,13 @@ ALTER TABLE `series`
 -- AUTO_INCREMENT de la tabla `testimonials`
 --
 ALTER TABLE `testimonials`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `tours`
 --
 ALTER TABLE `tours`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `users`

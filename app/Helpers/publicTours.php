@@ -42,7 +42,7 @@ class publicTours
 		return $toursPublic;
 
 	}
-		public static function toursRecomendadosUnDia($idioma,$estadoPublicado)
+	public static function toursRecomendadosUnDia($idioma,$estadoPublicado)
 	{
 		
 
@@ -87,7 +87,7 @@ class publicTours
 			        ->leftJoin('itineraries', 'itineraries.tour_id', '=', 'tours.id')
 			        ->where("categories.id","=",$catagoriaId)
 			        ->where("languages.abbr","=",$abbr)
-			        ->groupBy('tours.name')
+			        ->groupBy('tours.name','tours.id','tours.tipo_tour','tours.description_short','tours.img','tours.price','tours.slug','categories.name','itineraries.department')
 			        ->paginate(5);
 
 		return $toursPublic;

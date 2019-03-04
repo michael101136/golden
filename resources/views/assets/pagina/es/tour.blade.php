@@ -1,7 +1,9 @@
 @extends('assets.pagina.es.layouts.master')
 
 @section('content')
+ <style>
  
+ </style>
    <section class="header header-bg-5">
                 <div class="container">
                     <div class="row">
@@ -108,6 +110,7 @@
                                                                                      @endforeach
                                                                                 </ul>
                                                                                 <div class="tab-content col-md-10">
+                                                        
                                                                                        @foreach($itinerarioTour as $item)
                                                                                             @if($item->day=='1')   
                                                                                                  <div class="tab-pane active" id="tab_{{$item->day}}">
@@ -121,8 +124,8 @@
                                                                                                                 <i class="fa fa-star-half-o"></i>
                                                                                                                 <i class="fa fa-star-o"></i>
                                                                                                             </div>
-                                                                                                            <h4>Belmond Charleston Place</h4>
-                                                                                                            <h5>{{$item->description}}</h5>
+                                                                                                            <h4></h4>
+                                                                                                            <h5><div class="themeUl" style=" text-align:justify;">{!!$item->description!!}</div></h5>
                                                                                                         </div>
                                                                                                      </h4>
                                                                                                     <p>
@@ -140,16 +143,16 @@
                                                                                                                 <i class="fa fa-star-half-o"></i>
                                                                                                                 <i class="fa fa-star-o"></i>
                                                                                                             </div>
-                                                                                                            <h4>Belmond Charleston Place</h4>
-                                                                                                            <h5>{{$item->description}}</h5>
+                                                                                                            <h4></h4>
+                                                                                                            <h5><div class="themeUl" style=" text-align:justify;">{!!$item->description!!}</div></h5>
                                                                                                         </div>
                                                                                                  </div>
 
                                                                                             @endif
                                                                                                
 
-
                                                                                          @endforeach  
+                                                                 
                                                                                 </div>
                                                                               
                                                                                 {{-- @foreach($itinerarioTour as $item)
@@ -210,9 +213,17 @@
                                                 </div>
                                                 <div class="tab-pane fade" id="tab2default">
                                                     <div class="row">
-                                                        <div class="col-xs-12 col-sm-9 col-md-10">
-                                                            <div class="row panel-margin">
-                                                                {!! $tour->organization !!}
+                                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                                            <div class="row panel-margin" >
+                                                            <div class="table-responsive" >
+                                                                    <div id="tabledisenio">
+                                                                         {!! $tour->organization !!}
+                                                                    </div>
+                                                                     
+                                                            </div>
+                                                       
+                                                                 
+                                                                        
                                                             </div>
                                                         </div>
                                                        
@@ -231,16 +242,16 @@
                 <div class="col-sm-4">
                             <div class="sidber-box booking_price">
                                 <div class="price">
-                                    <strong>$39</strong><small>per person</small>
+                                <small>Desde </small> <strong>$ {{$tour->price}}</strong>
                                 </div>
 
-                                <ul class="list-ok">
+                                <!-- <ul class="list-ok">
                                     <li>Lorem ipsum dolor sit amet,</li>
                                     <li>There are many variations</li>
                                     <li>In pellentesque arcu at diam</li>
                                     <li>Quisque nec ex quis </li>
-                                </ul>
-                                <div class="offer">*Free for childs under 8 years old</div>
+                                </ul> -->
+                                <!-- <div class="offer">*Free for childs under 8 years old</div> -->
                             </div>
                             <!-- booking -->
                             <div class="sidber-box tags-widget">
@@ -310,116 +321,32 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="separator"></div>
-                            <h3>Related Tours</h3>
+                            <h3>Tours relacionados</h3>
                         </div>
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="grid-item-inner">
-                                <div class="grid-img-thumb">
-                                    <!-- ribbon -->
-                                    <div class="ribbon"><span>Popular</span></div>
-                                    <a href="#"><img src="/plantilla/assets/images/tour-370x370-1.jpg" alt="1" class="img-responsive" /></a>
+                        @foreach($toursRelacionados as $item)
+                        <div class="col-md-4 col-sm-4 thm-padding">
+                            <div class="destination-grid">
+                                <a href="{{route('detalleEsTour',['es'=>'es','tour' => $item->slug])}}"><img src="/{{ $item->img}}" class="img-responsive" alt=""></a>
+                                <div class="mask">
+                                    <h2>PAQUETE</h2>
+                                    <p>{{$item->name}}</p>
+                                    <a href="#" class="thm-btn">Más detalle</a>
                                 </div>
-                                <div class="grid-content">
-                                    <div class="grid-price text-right">
-                                        Only <span><sub>$</sub>785</span>
-                                    </div>
-                                    <div class="grid-text">
-                                        <div class="place-name">City sightseeing</div>
-                                        <div class="travel-times">
-                                            <h4 class="pull-left">3 days 2 nights </h4>
-                                            <span class="pull-right">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </span>
-                                        </div>
-                                    </div>
+                                <div class="dest-name">
+                                    <h5>{{$item->dias}} DÍAS</h5>
+                                    <h4 style="text-transform: uppercase;">{{$item->categoriesName}} </h4>
+                                </div>
+                                <div class="dest-icon">
+                                    <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
+                                    <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
+                                    <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
+                                    <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
                                 </div>
                             </div>
-                        </div> <!-- ../grid item -->
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="grid-item-inner">
-                                <div class="grid-img-thumb">
-                                    <!-- ribbon -->
-                                    <div class="ribbon"><span>Popular</span></div>
-                                    <a href="#"><img src="/plantilla/assets/images/tour-370x370-1.jpg" alt="1" class="img-responsive" /></a>
-                                </div>
-                                <div class="grid-content">
-                                    <div class="grid-price text-right">
-                                        Only <span><sub>$</sub>785</span>
-                                    </div>
-                                    <div class="grid-text">
-                                        <div class="place-name">Historic Buildings</div>
-                                        <div class="travel-times">
-                                            <h4 class="pull-left">3 days 2 nights </h4>
-                                            <span class="pull-right">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> <!-- ../grid item -->
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="grid-item-inner">
-                                <div class="grid-img-thumb">
-                                    <!-- ribbon -->
-                                    <div class="ribbon"><span>Popular</span></div>
-                                    <a href="#"><img src="/plantilla/assets/images/tour-370x370-1.jpg" alt="1" class="img-responsive" /></a>
-                                </div>
-                                <div class="grid-content">
-                                    <div class="grid-price text-right">
-                                        Only <span><sub>$</sub>785</span>
-                                    </div>
-                                    <div class="grid-text">
-                                        <div class="place-name">Museums</div>
-                                        <div class="travel-times">
-                                            <h4 class="pull-left">3 days 2 nights </h4>
-                                            <span class="pull-right">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> <!-- ../grid item -->
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="grid-item-inner">
-                                <div class="grid-img-thumb">
-                                    <!-- ribbon -->
-                                    <div class="ribbon"><span>Popular</span></div>
-                                    <a href="#"><img src="/plantilla/assets/images/tour-370x370-1.jpg" alt="1" class="img-responsive" /></a>
-                                </div>
-                                <div class="grid-content">
-                                    <div class="grid-price text-right">
-                                        Only <span><sub>$</sub>785</span>
-                                    </div>
-                                    <div class="grid-text">
-                                        <div class="place-name">Mariott Hotel</div>
-                                        <div class="travel-times">
-                                            <h4 class="pull-left">3 days 2 nights </h4>
-                                            <span class="pull-right">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> <!-- ../grid item -->
+                        </div>
+                        @endforeach
+                        
+                        
                     </div>
                 </div>
             </section>
@@ -451,6 +378,9 @@
 @section('script')
   
  <script type="text/javascript">
-       
+//AGREGAR  EL ESTILO DE UNA CLASE
+    $( ".themeUl ul" ).addClass( "list-ok" );
+    $( "#tabledisenio table" ).addClass( "table" );
+//FIN    
  </script>
 @endsection

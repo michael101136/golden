@@ -94,8 +94,21 @@ class PublicController extends Controller
     public function tour($idioma,$tourSlug){
 
     	
+        // $toursRelacionados=publicTours::toursRelacionado($idioma);
+
 
       $tour = Tour::where('slug', '=',$tourSlug)->get()[0];
+
+
+        $tour = Tour::where('slug', '=',$tourSlug)->get()[0];
+        $tourCategoria = DB::table('tours')
+			        ->select('categories.id')
+			        ->join('categories_has_tours', 'tours.id', '=', 'categories_has_tours.tour_id')
+			        ->join('categories', 'categories.id', '=', 'categories_has_tours.categorie_id')
+			        ->where("tours.id","=",$tour->id)
+			        ->get()[0];//traaes el ide relacionado con tours
+        
+        $toursRelacionados=publicTours::toursRelacionados($idioma,$tourCategoria->id);
 
     	$multimediaTour = DB::table('tours')
                     ->select('images.path')
@@ -110,8 +123,9 @@ class PublicController extends Controller
                     ->where("tours.id","=",$tour->id)
                     ->get();
 
+               
 
-       return view("assets.pagina.".$idioma.".tour",['tour' => $tour,'multimediaTour' => $multimediaTour,'itinerarioTour' => $itinerarioTour]); 
+       return view("assets.pagina.".$idioma.".tour",['tour' => $tour,'multimediaTour' => $multimediaTour,'itinerarioTour' => $itinerarioTour, 'toursRelacionados'=>$toursRelacionados]); 
 
 
 
