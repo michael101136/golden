@@ -213,9 +213,17 @@
                                                 </div>
                                                 <div class="tab-pane fade" id="tab2default">
                                                     <div class="row">
-                                                        <div class="col-xs-12 col-sm-9 col-md-10">
-                                                            <div class="row panel-margin">
-                                                                {!! $tour->organization !!}
+                                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                                            <div class="row panel-margin" >
+                                                            <div class="table-responsive" >
+                                                                    <div id="tabledisenio">
+                                                                         {!! $tour->organization !!}
+                                                                    </div>
+                                                                     
+                                                            </div>
+                                                       
+                                                                 
+                                                                        
                                                             </div>
                                                         </div>
                                                        
@@ -316,35 +324,29 @@
                             <h3>Tours relacionados</h3>
                         </div>
                         @foreach($toursRelacionados as $item)
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="grid-item-inner">
-                                <div class="grid-img-thumb">
-                                    <!-- ribbon -->
-                                    <!-- <div class="ribbon"><span>Popular</span></div> -->
-                                    <a href="{{route('detalleEsTour',['es'=>'es','tour' => $item->slug])}}">
-                                    <img src="/{{ $item->img}}" alt="1" class="img-responsive" /></a>
+                        <div class="col-md-4 col-sm-4 thm-padding">
+                            <div class="destination-grid">
+                                <a href="{{route('detalleEsTour',['es'=>'es','tour' => $item->slug])}}"><img src="/{{ $item->img}}" class="img-responsive" alt=""></a>
+                                <div class="mask">
+                                    <h2>PAQUETE</h2>
+                                    <p>{{$item->name}}</p>
+                                    <a href="#" class="thm-btn">Más detalle</a>
                                 </div>
-                                <div class="grid-content">
-                                    <div class="grid-price text-right">
-                                        Only <span><sub>$</sub>{{$item->price}}</span>
-                                    </div>
-                                    <div class="grid-text">
-                                        <div class="place-name">{{$item->name}}</div>
-                                        <div class="travel-times">
-                                            <h4 class="pull-left">{{$item->dias}} días</h4>
-                                            <span class="pull-right">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </span>
-                                        </div>
-                                    </div>
+                                <div class="dest-name">
+                                    <h5>{{$item->dias}} DÍAS</h5>
+                                    <h4 style="text-transform: uppercase;">{{$item->categoriesName}} </h4>
+                                </div>
+                                <div class="dest-icon">
+                                    <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
+                                    <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
+                                    <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
+                                    <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
                                 </div>
                             </div>
-                        </div> <!-- ../grid item -->
+                        </div>
                         @endforeach
+                        
+                        
                     </div>
                 </div>
             </section>
@@ -378,6 +380,7 @@
  <script type="text/javascript">
 //AGREGAR  EL ESTILO DE UNA CLASE
     $( ".themeUl ul" ).addClass( "list-ok" );
+    $( "#tabledisenio table" ).addClass( "table" );
 //FIN    
  </script>
 @endsection
