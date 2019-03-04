@@ -313,23 +313,25 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="separator"></div>
-                            <h3>Related Tours</h3>
+                            <h3>Tours relacionados</h3>
                         </div>
+                        @foreach($toursRelacionados as $item)
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="grid-item-inner">
                                 <div class="grid-img-thumb">
                                     <!-- ribbon -->
-                                    <div class="ribbon"><span>Popular</span></div>
-                                    <a href="#"><img src="/plantilla/assets/images/tour-370x370-1.jpg" alt="1" class="img-responsive" /></a>
+                                    <!-- <div class="ribbon"><span>Popular</span></div> -->
+                                    <a href="{{route('detalleEsTour',['es'=>'es','tour' => $item->slug])}}">
+                                    <img src="/{{ $item->img}}" alt="1" class="img-responsive" /></a>
                                 </div>
                                 <div class="grid-content">
                                     <div class="grid-price text-right">
-                                        Only <span><sub>$</sub>785</span>
+                                        Only <span><sub>$</sub>{{$item->price}}</span>
                                     </div>
                                     <div class="grid-text">
-                                        <div class="place-name">City sightseeing</div>
+                                        <div class="place-name">{{$item->name}}</div>
                                         <div class="travel-times">
-                                            <h4 class="pull-left">3 days 2 nights </h4>
+                                            <h4 class="pull-left">{{$item->dias}} días</h4>
                                             <span class="pull-right">
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
@@ -342,87 +344,7 @@
                                 </div>
                             </div>
                         </div> <!-- ../grid item -->
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="grid-item-inner">
-                                <div class="grid-img-thumb">
-                                    <!-- ribbon -->
-                                    <div class="ribbon"><span>Popular</span></div>
-                                    <a href="#"><img src="/plantilla/assets/images/tour-370x370-1.jpg" alt="1" class="img-responsive" /></a>
-                                </div>
-                                <div class="grid-content">
-                                    <div class="grid-price text-right">
-                                        Only <span><sub>$</sub>785</span>
-                                    </div>
-                                    <div class="grid-text">
-                                        <div class="place-name">Historic Buildings</div>
-                                        <div class="travel-times">
-                                            <h4 class="pull-left">3 days 2 nights </h4>
-                                            <span class="pull-right">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> <!-- ../grid item -->
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="grid-item-inner">
-                                <div class="grid-img-thumb">
-                                    <!-- ribbon -->
-                                    <div class="ribbon"><span>Popular</span></div>
-                                    <a href="#"><img src="/plantilla/assets/images/tour-370x370-1.jpg" alt="1" class="img-responsive" /></a>
-                                </div>
-                                <div class="grid-content">
-                                    <div class="grid-price text-right">
-                                        Only <span><sub>$</sub>785</span>
-                                    </div>
-                                    <div class="grid-text">
-                                        <div class="place-name">Museums</div>
-                                        <div class="travel-times">
-                                            <h4 class="pull-left">3 days 2 nights </h4>
-                                            <span class="pull-right">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> <!-- ../grid item -->
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="grid-item-inner">
-                                <div class="grid-img-thumb">
-                                    <!-- ribbon -->
-                                    <div class="ribbon"><span>Popular</span></div>
-                                    <a href="#"><img src="/plantilla/assets/images/tour-370x370-1.jpg" alt="1" class="img-responsive" /></a>
-                                </div>
-                                <div class="grid-content">
-                                    <div class="grid-price text-right">
-                                        Only <span><sub>$</sub>785</span>
-                                    </div>
-                                    <div class="grid-text">
-                                        <div class="place-name">Mariott Hotel</div>
-                                        <div class="travel-times">
-                                            <h4 class="pull-left">3 days 2 nights </h4>
-                                            <span class="pull-right">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> <!-- ../grid item -->
+                        @endforeach
                     </div>
                 </div>
             </section>
