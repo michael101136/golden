@@ -32,5 +32,5 @@
 @endcomponent
 @endslot
 
-[logo]: https://www.cantturperu.org/public/images/socios/terandes.png
+[logo]: https://www.machupicchugolden.com/wp-content/themes/machupicchugolden/images/machupicchu-golden.jpg
 @endcomponent
