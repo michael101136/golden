@@ -62,7 +62,7 @@
                         </div>
                         <div class="col-sm-8">
                             <div class="contact-form">
-                                <form>
+                                {!! Form::open(['route' => ['contacto-reserva.store'] , 'method' => 'POST']) !!}
                                     <h2>Let's Talk!</h2>
                                     <div class="row">
                                         <div class="col-sm-6">
@@ -94,8 +94,8 @@
                                         <label></label>
                                         <textarea class="form-control" id="message" name="message" placeholder="Your Comment" rows="5"></textarea>
                                     </div>
-                                    <a href="#" class="thm-btn">Submit</a>
-                                </form>
+                                    <button type="submit" class="thm-btn" > enviar </button> 
+                                {!! Form::close() !!}
                             </div>
                         </div>
                         <div class="col-sm-4">

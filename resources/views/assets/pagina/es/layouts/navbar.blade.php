@@ -18,7 +18,7 @@
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="/es">Inicio</a></li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">Paquetes<span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" class="active" >Paquetes<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'aventura'])}}">AVENTURA</a>
@@ -38,7 +38,13 @@
                             <li>
                                     <a class="nav-btn" href="{{route('product.shoppingCart')}}">
                                             <i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart 
-                                            <span class="badge"> {{Session::has('cart') ? Session:: get('cart')->totalQty : ''}}    </span>
+                                            
+                                            @if (Session::has('cart'))
+                                                <span class="badge"> 
+                                                {{Session::has('cart') ? Session:: get('cart')->totalQty : ''}}    
+                                                 </span>
+                                            @endif
+                                            
                                     </a>
                             </li>
                             <li>

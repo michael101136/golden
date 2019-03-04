@@ -115,5 +115,6 @@ Route:: POST('es/datos/checkout', [
 	
 ]);
 
+Route::resource('contacto-reserva','ContactController');
 
 /*_______________ Add carrito de compra_____________________________________________________________________________________________________________*/
