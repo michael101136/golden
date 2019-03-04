@@ -37,32 +37,7 @@
                             <p>
                                 {{$tour->description_short}}
                             </p>
-                            <div class="row">
-                                <div class="col-md-4 col-sm-4">
-                                    <ul class="list-ok">
-                                        <li>Coffee machine</li>
-                                        <li>Wifi</li>
-                                        <li> Microwave</li>
-                                        <li>Oven</li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-4 col-sm-4">
-                                    <ul class="list-ok">
-                                        <li>Fridge</li>
-                                        <li>Hairdryer</li>
-                                        <li>Towels</li>
-                                        <li>Toiletries</li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-4 col-sm-4">
-                                    <ul class="list-ok">
-                                        <li>DVD player</li>
-                                        <li>Air-conditioning</li>
-                                        <li>Tv</li>
-                                        <li>Freezer</li>
-                                    </ul>
-                                </div>
-                            </div>
+                         
 
                               <div class="row">
                                 <div class="col-md-12 col-sm-4">
@@ -318,35 +293,60 @@
                         </div>
                     </div>
 
+               
+                </div>
+            </section>
+
+             <section class="package">
+                <div class="container">
                     <div class="row">
-                        <div class="col-sm-12">
-                            <div class="separator"></div>
-                            <h3>Tours relacionados</h3>
-                        </div>
-                        @foreach($toursRelacionados as $item)
-                        <div class="col-md-4 col-sm-4 thm-padding">
-                            <div class="destination-grid">
-                                <a href="{{route('detalleEsTour',['es'=>'es','tour' => $item->slug])}}"><img src="/{{ $item->img}}" class="img-responsive" alt=""></a>
-                                <div class="mask">
-                                    <h2>PAQUETE</h2>
-                                    <p>{{$item->name}}</p>
-                                    <a href="#" class="thm-btn">Más detalle</a>
-                                </div>
-                                <div class="dest-name">
-                                    <h5>{{$item->dias}} DÍAS</h5>
-                                    <h4 style="text-transform: uppercase;">{{$item->categoriesName}} </h4>
-                                </div>
-                                <div class="dest-icon">
-                                    <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
-                                    <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
-                                    <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
-                                    <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
-                                </div>
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="title">
+                                <h2>TOURS RELACIONADOS</h2>
+
                             </div>
                         </div>
-                        @endforeach
-                        
-                        
+                    </div>
+                    <div class="row">
+                          @foreach($toursRelacionados as $item)
+                          
+                                <div class="col-xs-12 col-sm-4 col-md-3">
+                                    
+                                    <div class="package-wiget">
+                                        <div class="grid">
+                                            <figure class="effect-milo">
+                                                <img src="/{{ $item->img}}" class="img-responsive" alt="">
+                                                <figcaption>
+                                                    <div class="effect-block">
+                                                        <h3 style="text-transform: uppercase;">{{$item->categoriesName}}</h3>
+                                                        <div class="package-ratting">
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star-half-o"></i>
+                                                            <i class="fa fa-star-o"></i>
+                                                        </div>
+                                                        <a href="{{route('detalleEsTour',['es'=>'es','tour' => $item->slug])}} type="button" class="thm-btn" alt="" style="margin-top: 100px;height: 40px;"> MÁS DETALLE</a>
+                                                    </div>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                        <div class="package-content">
+                                            <h5 style="text-align: center;">{{$item->name}}</h5>
+                                            <div class="package-price">DESDE
+                                                <span class="price">
+                                                    <span class="amount">$ {{$item->price}}.00</span>
+                                                </span>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                          
+                         @endforeach
+                     
+                      
                     </div>
                 </div>
             </section>
