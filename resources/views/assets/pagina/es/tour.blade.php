@@ -1,7 +1,9 @@
 @extends('assets.pagina.es.layouts.master')
 
 @section('content')
+ <style>
  
+ </style>
    <section class="header header-bg-5">
                 <div class="container">
                     <div class="row">
@@ -108,6 +110,7 @@
                                                                                      @endforeach
                                                                                 </ul>
                                                                                 <div class="tab-content col-md-10">
+                                                        
                                                                                        @foreach($itinerarioTour as $item)
                                                                                             @if($item->day=='1')   
                                                                                                  <div class="tab-pane active" id="tab_{{$item->day}}">
@@ -121,8 +124,8 @@
                                                                                                                 <i class="fa fa-star-half-o"></i>
                                                                                                                 <i class="fa fa-star-o"></i>
                                                                                                             </div>
-                                                                                                            <h4>Belmond Charleston Place</h4>
-                                                                                                            <h5>{{$item->description}}</h5>
+                                                                                                            <h4></h4>
+                                                                                                            <h5><div class="themeUl" style=" text-align:justify;">{!!$item->description!!}</div></h5>
                                                                                                         </div>
                                                                                                      </h4>
                                                                                                     <p>
@@ -140,16 +143,16 @@
                                                                                                                 <i class="fa fa-star-half-o"></i>
                                                                                                                 <i class="fa fa-star-o"></i>
                                                                                                             </div>
-                                                                                                            <h4>Belmond Charleston Place</h4>
-                                                                                                            <h5>{{$item->description}}</h5>
+                                                                                                            <h4></h4>
+                                                                                                            <h5><div class="themeUl" style=" text-align:justify;">{!!$item->description!!}</div></h5>
                                                                                                         </div>
                                                                                                  </div>
 
                                                                                             @endif
                                                                                                
 
-
                                                                                          @endforeach  
+                                                                 
                                                                                 </div>
                                                                               
                                                                                 {{-- @foreach($itinerarioTour as $item)
@@ -231,16 +234,16 @@
                 <div class="col-sm-4">
                             <div class="sidber-box booking_price">
                                 <div class="price">
-                                    <strong>$39</strong><small>per person</small>
+                                <small>Desde </small> <strong>$ {{$tour->price}}</strong>
                                 </div>
 
-                                <ul class="list-ok">
+                                <!-- <ul class="list-ok">
                                     <li>Lorem ipsum dolor sit amet,</li>
                                     <li>There are many variations</li>
                                     <li>In pellentesque arcu at diam</li>
                                     <li>Quisque nec ex quis </li>
-                                </ul>
-                                <div class="offer">*Free for childs under 8 years old</div>
+                                </ul> -->
+                                <!-- <div class="offer">*Free for childs under 8 years old</div> -->
                             </div>
                             <!-- booking -->
                             <div class="sidber-box tags-widget">
@@ -451,6 +454,8 @@
 @section('script')
   
  <script type="text/javascript">
-       
+//AGREGAR  EL ESTILO DE UNA CLASE
+    $( ".themeUl ul" ).addClass( "list-ok" );
+//FIN    
  </script>
 @endsection
