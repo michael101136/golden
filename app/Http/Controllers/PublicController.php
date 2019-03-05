@@ -17,16 +17,19 @@ class PublicController extends Controller
     
     public function index($idioma)
     {
-
-       
         $toursRecomendadosUnDia=publicTours::toursRecomendadosUnDia($idioma,'1');
 
         $toursPrincipal=publicTours::toursPrincipal($idioma,'1');
 
+        $testimonio= DB::table('testimonials')
+        ->select('id','testimonial','photo','name','nationality','date')
+        ->where('language','=',$idioma)
+        ->where('status','=','1')
+        ->paginate(10);
 
+        // dd($testimonio);
 
-        return view('assets.pagina.es.inicio',['tourPrincipal' => $toursPrincipal,'toursRecomendadosUnDia' => $toursRecomendadosUnDia]);
-
+        return view('assets.pagina.es.inicio',['tourPrincipal' => $toursPrincipal,'toursRecomendadosUnDia' => $toursRecomendadosUnDia,'testimonio' => $testimonio]);
     }
 
     public function tours($idioma,$categoria,$precio='')

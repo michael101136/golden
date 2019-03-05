@@ -819,57 +819,20 @@
                         <div class="row thm-margin">
                             <div id="blog-slide" class="owl-carousel">
                                 <!-- blog post item -->
+                                @foreach($testimonio as $item)
                                 <div class="item">
                                     <div class="blog-content">
                                         <div class="blog-img image-hover">
-                                            <a href="#"><img src="plantilla/assets/images/blog-800x250-1.jpg" class="img-responsive" alt=""></a>
-                                            <span class="post-date">14 November 2016</span>
+                                            <a href="#"><img src="/public/admin/testimonio/{{$item->id}}.{{$item->photo}}" class="img-responsive" alt=""></a>
+                                            <span class="post-date">{{$item->date}}</span>
                                         </div>
-                                        <h4><a href="#">It is a long established fact that</a></h4>
+                                        <h4><a href="#">{{$item->name}}</a></h4>
                                       
                                     </div>
                                 </div>
+                                @endforeach
                                 <!-- blog post item -->
-                                <div class="item">
-                                    <div class="blog-content">
-                                        <div class="blog-img image-hover">
-                                            <a href="#"><img src="plantilla/assets/images/blog-800x250-2.jpg" class="img-responsive" alt=""></a>
-                                            <span class="post-date">14 November 2016</span>
-                                        </div>
-                                        <h4><a href="#">It is a long established fact that</a></h4>
-                                    </div>
-                                </div>
-                                <!-- blog post item -->
-                                <div class="item">
-                                    <div class="blog-content">
-                                        <div class="blog-img image-hover">
-                                            <a href="#"><img src="plantilla/assets/images/blog-800x250-3.jpg" class="img-responsive" alt=""></a>
-                                            <span class="post-date">14 November 2016</span>
-                                        </div>
-                                        <h4><a href="#">It is a long established fact that</a></h4>
-                                    </div>
-                                </div>
-                                <!-- blog post item -->
-                                <div class="item">
-                                    <div class="blog-content">
-                                        <div class="blog-img image-hover">
-                                            <a href="#"><img src="plantilla/assets/images/blog-800x250-4.jpg" class="img-responsive" alt=""></a>
-                                            <span class="post-date">14 November 2016</span>
-                                        </div>
-                                        <h4><a href="#">It is a long established fact that</a></h4>
-                                    </div>
-                                </div>
-                                <!-- blog post item -->
-                                <div class="item">
-                                    <div class="blog-content">
-                                        <div class="blog-img image-hover">
-                                            <a href="#"><img src="plantilla/assets/images/blog-800x250-5.jpg" class="img-responsive" alt=""></a>
-                                            <span class="post-date">14 November 2016</span>
-                                        </div>
-                                        <h4><a href="#">It is a long established fact that</a></h4>
-                                    </div>
-                                </div>
-
+                            
                             </div>
 
                                

@@ -18,8 +18,7 @@ class TestimonioController extends Controller
      */
     public function index()
     {
-        
-        
+         
         $dato=languageUsers::languageTestimonioEncuesta();
         $data=Testimonial::where('language','=',$dato->abbr)->paginate(8);
         return view('assets.admin.testimonios.index',['data' => $data]);
