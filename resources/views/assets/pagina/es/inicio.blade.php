@@ -441,8 +441,8 @@
                         <div class="row">
                             <div class="col-md-6 col-md-offset-3">
                                 <div class="title">
-                                    <h2>References</h2>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                                    <h2>NOSOTROS</h2>
+                                    <p>MACHUPICCHU GOLDEN </p>
                                 </div>
                             </div>
                         </div>
@@ -453,28 +453,29 @@
                                         <!-- Quote 1 -->  
                                         <div class="item col-sm-10 col-sm-offset-1">
                                             <blockquote>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
-                                                aliquam architecto beatae dolorem, enim error eveniet harum iste molestias
-                                                neque nisi placeat possimus quaerat quam repudiandae sint soluta unde vero.
-                                                <span class="author">- Andrew Adams, Google Inc</span>
+                                            Somos una Agencia de Viajes con personal altamente calificado y con el primordial
+                                            objetivo de brindarle un servicio personalizado y un asesoramiento objetivo
+                                            durante todas las etapas de planificación de su viaje desde el momento que
+                                            realice el primer contacto con nosotros.
+                                                <span class="author">- Macchupichu Golden</span>
                                             </blockquote>
                                         </div>
                                         <!-- Quote 2 -->  
                                         <div class="item col-sm-10 col-sm-offset-1">
                                             <blockquote>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
-                                                aliquam architecto beatae doloremaliquam architecto beatae dolorem, enim error
-                                                eveniet harum iste molestias neque nisi placeat.
-                                                <span class="author">- Jhon Smith, Facebook Inc</span>
+                                            Contamos con personal con más de 15 años de experiencia en el sector turismo que está 
+                                            en condiciones de brindarle un servicio diferenciado de óptima calidad.
+                                                <span class="author">- Macchupichu Golden</span>
                                             </blockquote>
                                         </div>
                                         <!-- Quote 3 -->
                                         <div class="item col-sm-10 col-sm-offset-1 active">
                                             <blockquote>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
-                                                aliquam architecto beatae dolorem, enim error eveniet harum iste molestias
-                                                neque nisi placeat possimus quaerat quam repudiandae sint.
-                                                <span class="author">- Bob Smith, Fitbit</span>
+                                            Nuestro compromiso es brindarle nuestro mejor esfuerzo durante
+                                            todo su viaje para lo cual nos encargaremos de realizar un seguimiento rápido y
+                                            eficiente durante su estadía que convierta sus expectativas en realidad y que
+                                            perduren como un recuerdo inolvidable.
+                                                <span class="author">- Macchupichu Golden</span>
                                             </blockquote>
                                         </div>
                                     </div>
@@ -495,20 +496,21 @@
                         <div class="row">
                             <div class="col-md-6 col-md-offset-3">
                                 <div class="title">
-                                    <h2>Latest Tour Package</h2>
-                                    <p>A great Collection of our Tour Packages</p>
+                                    <h2>PAQUETES TURÍSTICOS</h2>
+                                    <p>Disfruta con nosotros de nuestros paquetes turísticos.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
+                            @foreach($toursPorCategoria as $item)
                             <div class="col-xs-12 col-sm-4 col-md-3">
                                 <div class="package-wiget">
                                     <div class="grid">
                                         <figure class="effect-milo">
-                                            <img src="plantilla/assets/images/Package-800x500-2.jpg" class="img-responsive" alt="">
+                                            <img src="/{{$item->img}}" class="img-responsive" alt="">
                                             <figcaption>
                                                 <div class="effect-block">
-                                                    <h3>Hilton Molino Stucky</h3>
+                                                    <h3>{{$item->namecategorie}}</h3>
                                                     <div class="package-ratting">
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
@@ -516,241 +518,23 @@
                                                         <i class="fa fa-star-half-o"></i>
                                                         <i class="fa fa-star-o"></i>
                                                     </div>
-                                                    <button type="button" class="thm-btn">Explore Now</button>
+                                                    <button type="button" class="thm-btn">Detalle</button>
                                                 </div>
                                             </figcaption>
                                         </figure>
                                     </div>
                                     <div class="package-content">
-                                        <h5>Hilton Molino Stucky</h5>
-                                        <div class="package-price">from
+                                        <h5>{{$item->nametour}}</h5>
+                                        <div class="package-price">Desde
                                             <span class="price">
-                                                <span class="amount">$200.00</span>
+                                                <span class="amount">$ {{$item->price}}</span>
                                             </span>
-                                            /night
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-sm-4 col-md-3">
-                                <div class="package-wiget">
-                                    <div class="grid">
-                                        <figure class="effect-milo">
-                                            <img src="plantilla/assets/images/Package-800x500-2.jpg" class="img-responsive" alt="">
-                                            <figcaption>
-                                                <div class="effect-block">
-                                                    <h3>Palolem, India</h3>
-                                                    <div class="package-ratting">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-half-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                    </div>
-                                                    <button type="button" class="thm-btn">Explore Now</button>
-                                                </div>
-                                            </figcaption>
-                                        </figure>
-                                    </div>
-                                    <div class="package-content">
-                                        <h5>Palolem, India</h5>
-                                        <div class="package-price">from
-                                            <span class="price">
-                                                <span class="amount">$150.00</span>
-                                            </span>
-                                            /night
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-4 col-md-3">
-                                <div class="package-wiget">
-                                    <div class="grid">
-                                        <figure class="effect-milo">
-                                            <div class="ribbon"><span>Popular</span></div>
-                                            <img src="plantilla/assets/images/Package-800x500-3.jpg" class="img-responsive" alt="">
-                                            <figcaption>
-                                                <div class="effect-block">
-                                                    <h3>IEiffel Tower, Paris</h3>
-                                                    <div class="package-ratting">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-half-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                    </div>
-                                                    <button type="button" class="thm-btn">Explore Now</button>
-                                                </div>
-                                            </figcaption>
-                                        </figure>
-                                    </div>
-                                    <div class="package-content">
-                                        <h5>IEiffel Tower, Paris</h5>
-                                        <div class="package-price">from
-                                            <span class="price">
-                                                <span class="amount">$290.00</span>
-                                            </span>
-                                            /night
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-4 col-md-3">
-                                <div class="package-wiget">
-                                    <div class="grid">
-                                        <figure class="effect-milo">
-                                            <img src="plantilla/assets/images/Package-800x500-4.jpg" class="img-responsive" alt="">
-                                            <figcaption>
-                                                <div class="effect-block">
-                                                    <h3>Canals of Venice, Italy</h3>
-                                                    <div class="package-ratting">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-half-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                    </div>
-                                                    <button type="button" class="thm-btn">Explore Now</button>
-                                                </div>
-                                            </figcaption>
-                                        </figure>
-                                    </div>
-                                    <div class="package-content">
-                                        <h5>Canals of Venice, Italy</h5>
-                                        <div class="package-price">from
-                                            <span class="price">
-                                                <span class="amount">$189.00</span>
-                                            </span>
-                                            /night
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-4 col-md-3">
-                                <div class="package-wiget">
-                                    <div class="grid">
-                                        <figure class="effect-milo">
-                                            <img src="plantilla/assets/images/Package-800x500-5.jpg" class="img-responsive" alt="">
-                                            <figcaption>
-                                                <div class="effect-block">
-                                                    <h3>Itali, Pisa</h3>
-                                                    <div class="package-ratting">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-half-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                    </div>
-                                                    <button type="button" class="thm-btn">Explore Now</button>
-                                                </div>
-                                            </figcaption>
-                                        </figure>
-                                    </div>
-                                    <div class="package-content">
-                                        <h5>Itali, Pisa</h5>
-                                        <div class="package-price">from
-                                            <span class="price">
-                                                <span class="amount">$139.00</span>
-                                            </span>
-                                            /night
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-4 col-md-3">
-                                <div class="package-wiget">
-                                    <div class="grid">
-                                        <figure class="effect-milo">
-                                            <div class="ribbon"><span>New</span></div>
-                                            <img src="plantilla/assets/images/Package-800x500-6.jpg" class="img-responsive" alt="">
-                                            <figcaption>
-                                                <div class="effect-block">
-                                                    <h3>St Paul's Cathedral, London</h3>
-                                                    <div class="package-ratting">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-half-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                    </div>
-                                                    <button type="button" class="thm-btn">Explore Now</button>
-                                                </div>
-                                            </figcaption>
-                                        </figure>
-                                    </div>
-                                    <div class="package-content">
-                                        <h5>St Paul's Cathedral, London</h5>
-                                        <div class="package-price">from
-                                            <span class="price">
-                                                <span class="amount">$180.00</span>
-                                            </span>
-                                            /night
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-4 col-md-3 hidden-sm">
-                                <div class="package-wiget">
-                                    <div class="grid">
-                                        <figure class="effect-milo">
-                                            <img src="plantilla/assets/images/Package-800x500-6.jpg" class="img-responsive" alt="">
-                                            <figcaption>
-                                                <div class="effect-block">
-                                                    <h3>Castel Sant'Angelo. Rome</h3>
-                                                    <div class="package-ratting">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-half-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                    </div>
-                                                    <button type="button" class="thm-btn">Explore Now</button>
-                                                </div>
-                                            </figcaption>
-                                        </figure>
-                                    </div>
-                                    <div class="package-content">
-                                        <h5>Castel Sant'Angelo. Rome</h5>
-                                        <div class="package-price">from
-                                            <span class="price">
-                                                <span class="amount">$170.00</span>
-                                            </span>
-                                            /night
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-4 col-md-3 hidden-sm">
-                                <div class="package-wiget">
-                                    <div class="grid">
-                                        <figure class="effect-milo">
-                                            <img src="plantilla/assets/images/Package-800x500-6.jpg" class="img-responsive" alt="">
-                                            <figcaption>
-                                                <div class="effect-block">
-                                                    <h3>Giza Necropolis, Egypt</h3>
-                                                    <div class="package-ratting">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-half-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                    </div>
-                                                    <button type="button" class="thm-btn">Explore Now</button>
-                                                </div>
-                                            </figcaption>
-                                        </figure>
-                                    </div>
-                                    <div class="package-content">
-                                        <h5>Giza Necropolis, Egypt</h5>
-                                        <div class="package-price">from
-                                            <span class="price">
-                                                <span class="amount">$200.00</span>
-                                            </span>
-                                            /night
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
+                           
                         </div>
                     </div>
                 </section>

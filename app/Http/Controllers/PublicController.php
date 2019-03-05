@@ -27,16 +27,19 @@ class PublicController extends Controller
         ->where('status','=','1')
         ->paginate(10);
 
-        // dd($testimonio);
-
-        return view('assets.pagina.es.inicio',['tourPrincipal' => $toursPrincipal,'toursRecomendadosUnDia' => $toursRecomendadosUnDia,'testimonio' => $testimonio]);
+        $toursPorCategoria=DB::table('tours')
+        ->select('tours.id','tours.name as nametour','tours.img','tours.price','categories.name as namecategorie')
+        ->join('categories_has_tours','categories_has_tours.tour_id','=','tours.id')
+        ->join('categories','categories.id','=','categories_has_tours.categorie_id')
+        ->join('languages','languages.id','=','categories.language_id')
+        ->where('languages.abbr','=',$idioma)
+        ->paginate(8);
+        // dd($toursPorCategoria);
+        return view('assets.pagina.es.inicio',['tourPrincipal' => $toursPrincipal,'toursRecomendadosUnDia' => $toursRecomendadosUnDia,'testimonio' => $testimonio,'toursPorCategoria' => $toursPorCategoria]);
     }
 
     public function tours($idioma,$categoria,$precio='')
     {
-        
-        
-
          if($categoria=='cusco' ||  $categoria=='puno' ||  $categoria=='arequipa' ||  $categoria=='lima' ||  $categoria=='selva' ||  $categoria=='nazca'||  $categoria=='ica' ||  $categoria=='bolivia' )
          {
 
