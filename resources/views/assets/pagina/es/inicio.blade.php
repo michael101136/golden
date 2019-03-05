@@ -607,7 +607,7 @@
                                 <div class="item">
                                     <div class="blog-content">
                                         <div class="blog-img image-hover">
-                                            <a href="#"><img src="/public/admin/testimonio/{{$item->id}}.{{$item->photo}}" class="img-responsive" alt=""></a>
+                                            <a href="{{route('testimonioEs','es')}}"><img src="/public/admin/testimonio/{{$item->id}}.{{$item->photo}}" class="img-responsive" alt=""></a>
                                             <span class="post-date">{{$item->date}}</span>
                                         </div>
                                         <h4><a href="#">{{$item->name}}</a></h4>
@@ -625,7 +625,6 @@
 
                             <a class="thm-btn" href="#" data-toggle="modal" data-target="#myModal">INGRESE</a>
                     </div>
-
                    
 
                 </section>

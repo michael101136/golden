@@ -192,7 +192,13 @@ class PublicController extends Controller
 
     public function testimony($idioma)
     {
-    	return view("assets.pagina.".$idioma.".testimony");
+        $testimonio= DB::table('testimonials')
+        ->select('id','testimonial','photo','name','nationality','date')
+        ->where('language','=',$idioma)
+        ->where('status','=','1')
+        ->paginate(10);
+
+        return view("assets.pagina.".$idioma.".testimony",['testimonio'=>$testimonio ]);
     }
 
      public function toursOpcionPrecio()

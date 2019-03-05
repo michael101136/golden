@@ -10,12 +10,7 @@
                             <div class="header-content">
                                 <div class="header-content-inner">
                                     <h1>Testimonios</h1>
-                                    
-                                    <div class="ui breadcrumb">
-                                        <a href="index.html" class="section">Home</a>
-                                        <div class="divider"> / </div>
-                                        <div class="active section">Blog Post</div>
-                                    </div>
+                      
                                 </div>
                             </div>
                         </div>
@@ -28,106 +23,21 @@
                     <div class="row">
                         <div class="col-md-12 col-sm-8">
                             <div class="row">
+
+                            @foreach($testimonio as $item)
                                 <div class="col-sm-4">
                                     <div class="blog-content">
                                         <div class="blog-img image-hover">
                                             <a href="#"><img src="/plantilla/assets/images/hotel-7.jpg" class="img-responsive" alt=""></a>
-                                            <span class="post-date">14 November 2016</span>
+                                            <span class="post-date">{{$item->date}}</span>
                                         </div>
-                                        <h4><a href="#">It is a long established fact that</a></h4>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                        <a class="thm-btn" href="#">Details</a>
+                                        <h4><a href="#">{{ $item->name}}</a></h4>
+                                        <p>{{ $item->testimonial}}</p>
+                                      
                                     </div>
                                 </div>
-                                <div class="col-sm-4">
-                                    <div class="blog-content">
-                                        <div class="blog-img image-hover">
-                                            <a href="#"><img src="/plantilla/assets/images/hotel-7.jpg" class="img-responsive" alt=""></a>
-                                            <span class="post-date">14 November 2016</span>
-                                        </div>
-                                        <h4><a href="#">It is a long established fact that</a></h4>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                        <a class="thm-btn" href="#">Details</a>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="blog-content">
-                                        <div class="blog-img image-hover">
-                                            <a href="#"><img src="/plantilla/assets/images/hotel-7.jpg" class="img-responsive" alt=""></a>
-                                            <span class="post-date">14 November 2016</span>
-                                        </div>
-                                        <h4><a href="#">It is a long established fact that</a></h4>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                        <a class="thm-btn" href="#">Details</a>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="blog-content">
-                                        <div class="blog-img image-hover">
-                                            <a href="#"><img src="/plantilla/assets/images/hotel-7.jpg" class="img-responsive" alt=""></a>
-                                            <span class="post-date">14 November 2016</span>
-                                        </div>
-                                        <h4><a href="#">It is a long established fact that</a></h4>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                        <a class="thm-btn" href="#">Details</a>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="blog-content">
-                                        <div class="blog-img image-hover">
-                                            <a href="#"><img src="/plantilla/assets/images/hotel-7.jpg" class="img-responsive" alt=""></a>
-                                            <span class="post-date">14 November 2016</span>
-                                        </div>
-                                        <h4><a href="#">It is a long established fact that</a></h4>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                        <a class="thm-btn" href="#">Details</a>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="blog-content">
-                                        <div class="blog-img image-hover">
-                                            <a href="#"><img src="/plantilla/assets/images/hotel-7.jpg" class="img-responsive" alt=""></a>
-                                            <span class="post-date">14 November 2016</span>
-                                        </div>
-                                        <h4><a href="#">It is a long established fact that</a></h4>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                        <a class="thm-btn" href="#">Details</a>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="blog-content">
-                                        <div class="blog-img image-hover">
-                                            <a href="#"><img src="/plantilla/assets/images/hotel-7.jpg" class="img-responsive" alt=""></a>
-                                            <span class="post-date">14 November 2016</span>
-                                        </div>
-                                        <h4><a href="#">It is a long established fact that</a></h4>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                        <a class="thm-btn" href="#">Details</a>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="blog-content">
-                                        <div class="blog-img image-hover">
-                                            <a href="#"><img src="/plantilla/assets/images/hotel-7.jpg" class="img-responsive" alt=""></a>
-                                            <span class="post-date">14 November 2016</span>
-                                        </div>
-                                        <h4><a href="#">It is a long established fact that</a></h4>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                        <a class="thm-btn" href="#">Details</a>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="blog-content">
-                                        <div class="blog-img image-hover">
-                                            <a href="#"><img src="/plantilla/assets/images/hotel-7.jpg" class="img-responsive" alt=""></a>
-                                            <span class="post-date">14 November 2016</span>
-                                        </div>
-                                        <h4><a href="#">It is a long established fact that</a></h4>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                        <a class="thm-btn" href="#">Details</a>
-                                    </div>
-                                </div>
-                                
+                            @endforeach    
+                              
                             </div>
                             <!-- pagination -->
                             <div class="pagination-inner">

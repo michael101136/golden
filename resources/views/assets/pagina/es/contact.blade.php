@@ -9,41 +9,8 @@
                         <div class="col-md-8 col-md-offset-2">
                             <div class="header-content">
                                 <div class="header-content-inner">
-                                    <h1>LET'S TALK !</h1>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-                                        standard dummy text ever since </p>
-                                    <div class="row">
-                                        <div class="col-xs-6 col-sm-4">
-                                            <div class="contact-icon">
-                                                <a href="#">
-                                                    <i class="flaticon-facebook"></i>
-                                                    <h5>Facebook</h5> 
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-6 col-sm-4">
-                                            <div class="contact-icon">
-                                                <a href="#">
-                                                    <i class="flaticon-smartphone"></i>
-                                                    <h5>001620214460</h5>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-4">
-                                            <div class="contact-icon">
-                                                <a href="#">
-                                                    <i class="flaticon-mail"></i>
-                                                    <h5>admin@hotmail.com</h5>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="ui breadcrumb">
-                                        <a href="index.html" class="section">Home</a>
-                                        <div class="divider"> / </div>
-                                        <div class="active section">Contact</div>
-                                    </div>
+                                    <h1>CONTACTO</h1>
+                                
                                 </div>
                             </div>
                         </div>
@@ -63,7 +30,7 @@
                         <div class="col-sm-8">
                             <div class="contact-form">
                                 {!! Form::open(['route' => ['contacto-reserva.store'] , 'method' => 'POST']) !!}
-                                    <h2>Let's Talk!</h2>
+                                    <h2>CONTÁCTENOS</h2>
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="form-group">
@@ -100,27 +67,34 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="contact-details">
-                                <h2>Contact Details</h2>
+                                <h2>UBIQUENOS</h2>
                                 <div class="contact-content">
-                                    <h4>Hours of Operation</h4>
+                                    <h4>DIRECCIÓN</h4>
                                     <p>
-                                        We’re in the studio brainstorming, designing, and working away to create the best product we can from 9-5pm EST.
+                                       
+                                        Av. 28 de Julio Mz. R-2
+                                        Oficina 201 - Cusco
                                     </p>
                                 </div>
                                 <div class="contact-content">
-                                    <h4>General Inquiries</h4>
+                                    <h4>CORREO ELECTRÓNICO</h4>
                                     <p>
-                                        Phone 718 369 0016 <br>
-                                        <a href="mailto:hello@gmail.com">hello@gmail.com</a>
+                                   
+                                        <a href="reservas@machupicchugolden.com">reservas@machupicchugolden.com</a>
+                                        <a href="info@machupicchugolden.com">info@machupicchugolden.com</a>
+                                        <a href="ventas@machupicchugolden.com">ventas@machupicchugolden.com </a>   
+
                                     </p>
                                 </div>
+                                
                                 <div class="contact-content">
-                                    <h4>Address</h4>
+                                    <h4>NÚMERO TELEFÓNICO</h4>
                                     <p>
-                                        67 35th St. <br>
-                                        Unit 22 / Suite B528 <br>
-                                        Brooklyn, NY <br>
-                                        11232
+                                    <SMALL> 0051 084 584 272</SMALL><br/>
+                                    <SMALL> <b>MOVISTAR : </b> 0051 084 584 272</SMALL><br/>
+                                    <SMALL> <b> CLARO : </b> 0051 084 584 272</SMALL><br/>
+                                    <SMALL> <b> ENTEL : </b> 0051 084 584 272</SMALL><br/>
+
                                     </p>
                                 </div>
                             </div>
