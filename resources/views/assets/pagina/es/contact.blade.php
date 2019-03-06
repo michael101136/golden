@@ -34,26 +34,26 @@
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label>First Name</label>
-                                                <input type="text" class="form-control" id="f_name" name="f_name" placeholder="Enter your First Name">
+                                                <label>Nombres</label>
+                                                <input type="text" class="form-control" id="f_name" name="f_name" placeholder="Ingrese su primer nombre">
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label>Last Name</label>
-                                                <input type="text" class="form-control" id="l_name" name="l_name" placeholder="Enter Your Last Name">
+                                                <label>Apellidos</label>
+                                                <input type="text" class="form-control" id="l_name" name="l_name" placeholder="Ingrese sus apellidos">
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Email</label>
-                                                <input type="text" class="form-control" id="email" name="email" placeholder="Enter Your Email">
+                                                <input type="text" class="form-control" id="email" name="email" placeholder="Ingrese su correo electrónico">
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label>Phone</label>
-                                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number">
+                                                <label>Número telefónico</label>
+                                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Numero telefonico">
                                             </div>
                                         </div>
                                     </div>
@@ -71,7 +71,6 @@
                                 <div class="contact-content">
                                     <h4>DIRECCIÓN</h4>
                                     <p>
-                                       
                                         Av. 28 de Julio Mz. R-2
                                         Oficina 201 - Cusco
                                     </p>
@@ -79,11 +78,9 @@
                                 <div class="contact-content">
                                     <h4>CORREO ELECTRÓNICO</h4>
                                     <p>
-                                   
                                         <a href="reservas@machupicchugolden.com">reservas@machupicchugolden.com</a>
                                         <a href="info@machupicchugolden.com">info@machupicchugolden.com</a>
                                         <a href="ventas@machupicchugolden.com">ventas@machupicchugolden.com </a>   
-
                                     </p>
                                 </div>
                                 
