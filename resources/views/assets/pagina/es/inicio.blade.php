@@ -663,60 +663,64 @@
                 </div>
                 <div class="modal-body">
                 
-                <div class="container">
-                    <div class="row">
-                     
-                        <div class="col-sm-6">
-                            <div class="contact-form">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label>Nombre</label>
-                                                <input type="text" class="form-control" id="f_name" name="f_name" placeholder="Nombre">
+                    <div class="container">
+                        <div class="row">
+                         
+                            <div class="col-sm-6">
+                                <div class="contact-form">
+                                     {!! Form::open(['route' => ['testimonials.store'] , 'method' => 'POST', 'class' => 'form-horizontal','enctype' => 'multipart/form-data' ]) !!}
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Nombre</label>
+                                                    <input type="text" class="form-control" id="f_name" name="f_name" placeholder="Nombre">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Apellido</label>
+                                                    <input type="text" class="form-control" id="l_name" name="l_name" placeholder="Apellido completo">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Email</label>
+                                                    <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Teléfono</label>
+                                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Teléfono">
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label>Apellido</label>
-                                                <input type="text" class="form-control" id="l_name" name="l_name" placeholder="Apellido completo">
-                                            </div>
+                                        <div class="form-group">
+                                            <label></label>
+                                            <textarea class="form-control" id="message" name="message" placeholder="Comentario" rows="5"></textarea>
+                                        </div>
+                                         <div class="form-group">
+                                            <label></label>
+                                              <input type="file" id="Imagen" name="Imagen"> 
+                                        </div>
+                                         
+                                             {{-- {!! NoCaptcha::renderJs() !!} --}}
+                                        <div class="col-sm-4">
+                                               
                                         </div>
                                         <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label>Email</label>
-                                                <input type="text" class="form-control" id="email" name="email" placeholder="Email">
-                                            </div>
+                                                <div class="form-group">
+                                                   <a href="#" class="thm-btn">Guardar</a>
+                                                </div>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label>Teléfono</label>
-                                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Teléfono">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label></label>
-                                        <textarea class="form-control" id="message" name="message" placeholder="Comentario" rows="5"></textarea>
-                                    </div>
-                                     <div class="col-sm-4">
-                                            <div class="form-group">
-                                                
-                                            </div>
-                                    </div>
-                                    {!! app('captcha')->display() !!}
-                                    <div class="col-sm-6">
-                                            <div class="form-group">
-                                               <a href="#" class="thm-btn">Guardar</a>
-                                            </div>
-                                    </div>
-                                    
-                                </form>
+                                        
+                                    {!! Form::close() !!}
+                                </div>
                             </div>
+                            
                         </div>
                         
                     </div>
-                </div>
          
                 </div>
                 

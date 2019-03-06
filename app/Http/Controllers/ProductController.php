@@ -15,7 +15,7 @@ class ProductController extends Controller
     	$oldCart = Session:: has('cart') ? Session::get('cart') : null;
 
     	$cart = new Cart($oldCart);
-          dd($cart);
+          
     	$cart->add($producto,$producto->id);
 
     	$request->session()->put('cart', $cart);
