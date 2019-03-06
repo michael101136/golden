@@ -675,32 +675,37 @@
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label>Nombre</label>
-                                                    <input type="text" class="form-control" id="name" name="name" placeholder="Nombre">
+                                                    <input type="text" class="form-control" id="name" name="name" value="{{ old('name')}}" placeholder="Nombre">
+                                                    <p style="color:red;">{{ $errors->first('name') }}</p>
                                                 </div>
                                             </div>
                                            
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label>Email</label>
-                                                    <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                                                    <input type="text" class="form-control" id="email" name="email" value="{{ old('email')}}" placeholder="Email">
+                                                    <p style="color:red;">{{ $errors->first('email') }}</p>
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label>Nacionalidad</label>
-                                                    <input type="text" class="form-control" id="nationality" name="nationality" placeholder="Nacionalidad">
-                                                    <input type="text" class="form-control" id="language" name="language" value="es">
+                                                    <input type="text" class="form-control" id="nationality" name="nationality" value="{{ old('nationality')}}" placeholder="Nacionalidad">
+                                                    <p style="color:red;">{{ $errors->first('nationality') }}</p>
+                                                    <input type="hidden" class="form-control" id="language" name="language" value="es">
                                                 </div>
                                             </div>
                                             
                                         </div>
                                         <div class="form-group">
                                             <label></label>
-                                            <textarea class="form-control" id="message" name="message" placeholder="Comentario" rows="5"></textarea>
+                                            <textarea class="form-control" id="message" name="message" value="{{ old('message')}}" placeholder="Comentario" rows="5"></textarea>
+                                            <p style="color:red;">{{ $errors->first('message') }}</p>
+
                                         </div>
                                          <div class="form-group">
                                               <label></label>
-                                               <input type="file" class="form-control" name="img" required>
+                                               <input type="file" class="form-control" name="img" >
                                         </div>
                                          
                                              {{-- {!! NoCaptcha::renderJs() !!} --}}
@@ -742,6 +747,16 @@
             var fecha=$("#datepicker2").val();
             location.href='es/'+"tours/filtro/"+precio+"/"+departamento;
           });
+
+            @if($errors->any())
+
+                $("#myModal").modal('show');
+
+             @endif
         });
+
+        
  </script>
 @endsection
+
+
