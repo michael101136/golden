@@ -7,7 +7,7 @@
                     <!-- Address -->
                     <div class="col-sm-4 col-md-3">
                         <div class="footer-box">
-                            <h4 class="footer-title">Contactos</h4>
+                            <h4 class="footer-title">CONTACTO</h4>
                             <div class="address">
                                 <i class="flaticon-placeholder"></i>
                                 <p> Av. 28 de Julio Mz. R-2<br>
@@ -31,16 +31,17 @@
                                 <p>info@machupicchugolden.com</p>
                                 <p>ventas@machupicchugolden.com</p>
                             </div>
+                            
                         </div>
                     </div>
                     <div class="col-sm-8 col-md-6">
                         <div class="row">
                             <div class="col-md-4 col-sm-4">
                                 <div class="footer-box">
-                                    <h4 class="footer-title">Information</h4>
+                                    <h4 class="footer-title">INFORMACIÓN </h4>
                                     <ul class="categoty">
 
-                                         <li><a href="{{ route('nosotrosEs','es') }}">A cerca de Cusco</a></li>
+                                         <li><a href="{{ route('nosotrosEs','es') }}">ACERCA DE CUSCO</a></li>
                                        
                                     </ul>
                                 </div>
@@ -49,7 +50,7 @@
                                 <div class="footer-box">
                                     <h4 class="footer-title">SOCIOS</h4>
                                     <ul class="categoty">
-                                        <li><a href="http://www.perumachupicchutravels.com/">Péru machupicchu travel</a></li>
+                                        <li><a href="http://www.perumachupicchutravels.com/">PERÚ MACHUPICCHU TRAVEL</a></li>
                                       
                                     </ul>
                                 </div>
