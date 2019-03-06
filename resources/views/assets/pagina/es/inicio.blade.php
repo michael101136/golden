@@ -668,7 +668,9 @@
                          
                             <div class="col-sm-6">
                                 <div class="contact-form">
-                                 
+
+                                   {!! Form::open(['route' => ['create.ingresarTestimonio'] , 'method' => 'POST']) !!}
+
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div class="form-group">
@@ -710,11 +712,12 @@
                                         </div>
                                         <div class="col-sm-6">
                                                 <div class="form-group">
-                                                   <a href="#" class="thm-btn">Guardar</a>
+                                                    <button type="submit" class="thm-btn">Guardar</button>
                                                 </div>
                                         </div>
                                         
-                            
+                                {!! Form::close() !!}
+
                                 </div>
                             </div>
                             

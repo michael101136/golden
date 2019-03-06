@@ -143,4 +143,12 @@ class TestimonioController extends Controller
 
     }
 
+    public function ingresarTestimonio(Request $request)
+    {
+
+        
+        return $request->all();
+
+    }
+
 }

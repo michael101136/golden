@@ -13,7 +13,9 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+
+        
+
     }
 
     /**
@@ -36,7 +38,7 @@ class ContactController extends Controller
     {
        
         
-        
+
         Mail::to('michael101136@gmail.com')->send(new contactEmail($request));
     }
 

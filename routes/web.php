@@ -115,6 +115,16 @@ Route:: POST('es/datos/checkout', [
 	
 ]);
 
+Route:: POST('es/testimonios/', 
+[
+
+	'uses' => 'TestimonioController@ingresarTestimonio',
+	'as' => 'create.ingresarTestimonio'
+
+]);
+
+
+
 Route::resource('contacto-reserva','ContactController');
 
 /*_______________ Add carrito de compra_____________________________________________________________________________________________________________*/
