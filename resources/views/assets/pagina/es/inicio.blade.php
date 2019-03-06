@@ -669,21 +669,16 @@
                             <div class="col-sm-6">
                                 <div class="contact-form">
 
-                                   {!! Form::open(['route' => ['create.ingresarTestimonio'] , 'method' => 'POST']) !!}
+                                   {!! Form::open(['route' => ['create.ingresarTestimonio'] , 'method' => 'POST','enctype' => 'multipart/form-data']) !!}
 
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label>Nombre</label>
-                                                    <input type="text" class="form-control" id="f_name" name="f_name" placeholder="Nombre">
+                                                    <input type="text" class="form-control" id="name" name="name" placeholder="Nombre">
                                                 </div>
                                             </div>
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label>Apellido</label>
-                                                    <input type="text" class="form-control" id="l_name" name="l_name" placeholder="Apellido completo">
-                                                </div>
-                                            </div>
+                                           
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label>Email</label>
@@ -692,24 +687,27 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group">
-                                                    <label>Teléfono</label>
-                                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Teléfono">
+                                                    <label>Nacionalidad</label>
+                                                    <input type="text" class="form-control" id="nationality" name="nationality" placeholder="Nacionalidad">
+                                                    <input type="text" class="form-control" id="language" name="language" value="es">
                                                 </div>
                                             </div>
+                                            
                                         </div>
                                         <div class="form-group">
                                             <label></label>
                                             <textarea class="form-control" id="message" name="message" placeholder="Comentario" rows="5"></textarea>
                                         </div>
                                          <div class="form-group">
-                                            <label></label>
-                                              <input type="file" id="Imagen" name="Imagen"> 
+                                              <label></label>
+                                               <input type="file" class="form-control" name="img" required>
                                         </div>
                                          
                                              {{-- {!! NoCaptcha::renderJs() !!} --}}
                                         <div class="col-sm-4">
                                                
                                         </div>
+
                                         <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <button type="submit" class="thm-btn">Guardar</button>
