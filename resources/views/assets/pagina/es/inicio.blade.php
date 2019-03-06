@@ -668,7 +668,7 @@
                          
                             <div class="col-sm-6">
                                 <div class="contact-form">
-                                     {!! Form::open(['route' => ['testimonials.store'] , 'method' => 'POST', 'class' => 'form-horizontal','enctype' => 'multipart/form-data' ]) !!}
+                                 
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div class="form-group">
@@ -714,7 +714,7 @@
                                                 </div>
                                         </div>
                                         
-                                    {!! Form::close() !!}
+                            
                                 </div>
                             </div>
                             
