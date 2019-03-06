@@ -9,6 +9,8 @@ use Image;
 use Illuminate\Support\Str as Str;
 use DB;
 use App\Helpers\languageUsers;
+use App\Http\Requests\CreateViewTestimonial;
+
 class TestimonioController extends Controller
 {
     /**
@@ -143,7 +145,7 @@ class TestimonioController extends Controller
 
     }
 
-    public function ingresarTestimonio(Request $request)
+    public function ingresarTestimonio(CreateViewTestimonial $request)
     {
 
 
