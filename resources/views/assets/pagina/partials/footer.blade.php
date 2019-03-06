@@ -40,37 +40,30 @@
                                     <h4 class="footer-title">Information</h4>
                                     <ul class="categoty">
 
-                                        <li><a href="#">Pygmy miles</a></li>
-                                        <li><a href="#">About us</a></li>
-                                        <li><a href="#">Online Enquiry</a></li>
-                                        <li><a href="#">Call us</a></li>
-                                        <li><a href="#">Terms and Conditions</a></li>
-                                        <li><a href="#">Privacy & Cookies Policy</a></li>
-                                        <li><a href="#">Become a partner</a></li>
+                                         <li><a href="{{ route('nosotrosEs','es') }}">A cerca de Cusco</a></li>
+                                       
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-4">
                                 <div class="footer-box">
-                                    <h4 class="footer-title">Experiences</h4>
+                                    <h4 class="footer-title">SOCIOS</h4>
                                     <ul class="categoty">
-                                        <li><a href="#">Epic journeys</a></li>
-                                        <li><a href="#">Hidden tribes</a></li>
-                                        <li><a href="#">Eco lodges & tours</a></li>
-                                        <li><a href="#">Endangered Wildlife</a></li>
+                                        <li><a href="http://www.perumachupicchutravels.com/">Péru machupicchu travel</a></li>
+                                      
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-4">
                                 <div class="footer-box">
-                                    <h4 class="footer-title">Destinations</h4>
+                                    <h4 class="footer-title">DESTINOS</h4>
                                     <ul class="categoty">
-                                        <li><a href="#">Europe</a></li>
-                                        <li><a href="#">Africa</a></li>
-                                        <li><a href="#">Asia</a></li>
-                                        <li><a href="#">Oceania</a></li>
-                                        <li><a href="#">North America</a></li>
-                                        <li><a href="#">South America</a></li>
+                                        <li><a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'cusco'])}}">CUSCO</a></li>
+                                        <li><a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'puno'])}}">PUNO</a></li>
+                                        <li><a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'arequipa'])}}">AREQUIPA</a></li>
+                                        <li><a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'lima'])}}">LIMA</a></li>
+                                        <li><a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'selva'])}}">SELVA</a></li>
+                                        <li><a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'nazca'])}}">NAZCA</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -78,14 +71,19 @@
                     </div>
                     <div class="col-md-3 col-sm-6 hidden-sm">
                         <div class="footer-box">
-                            <h4 class="footer-title">Flickr Gallery</h4>
+                            <h4 class="footer-title">MÉTODOS DE PAGO</h4>
                             <ul class="gallery-list">
-                                <li> <a href="#"><img src="assets/images/flickr-1.jpg" alt=""></a></li>
-                                <li> <a href="#"><img src="assets/images/flickr-2.jpg" alt=""></a></li>
-                                <li> <a href="#"><img src="assets/images/flickr-3.jpg" alt=""></a></li>
-                                <li> <a href="#"><img src="assets/images/flickr-4.jpg" alt=""></a></li>
-                                <li> <a href="#"><img src="assets/images/flickr-5.jpg" alt=""></a></li>
-                                <li> <a href="#"><img src="assets/images/flickr-6.jpg" alt=""></a></li>
+                                <li> 
+                                    <a href="https://www.visanetlink.pe/pagoseguro/MACHUPICCHUGOLDEN/33365" target="_blank">
+                                        <img src="https://www.machupicchugolden.com/wp-content/uploads/2017/07/visanet-peru.jpg" alt="" style="height: 60px;width: 150px;">
+                                    </a>
+                                     <a href="https://www.paypal.com/cgi-bin/webscr" target="_blank">
+                                        <img src="https://www.machupicchugolden.com/wp-content/uploads/2016/11/paypal-active-peru-treks.png" alt="" style="height: 60px;width: 150px;">
+                                    </a>
+                                     <a href="https://www.visanetlink.pe/pagoseguro/MACHUPICCHUGOLDEN/33365" target="_blank">
+                                        <img src="https://www.machupicchugolden.com/wp-content/uploads/2016/11/western-union-active-peru-treks.jpg" alt="" style="height: 60px;width: 150px;">
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -100,12 +98,10 @@
                         <div class="col-sm-7">
                             <div class="footer-menu">
                                 <ul>
-                                    <li><a href="">Home</a></li>
-                                    <li><a href="">About</a></li>
-                                    <li><a href="">Service</a></li>
-                                    <li><a href="">Blog</a></li>
-                                    <li><a href="">Shop</a></li>
-                                    <li><a href="">Forum</a></li>
+                                    <li><a href="/es">Inicio</a></li>
+                                    <li><a href="{{ route('nosotrosEs','es') }}">Nosotros</a></li>
+                                    <li><a href="{{route('testimonioEs','es')}}">Testimonios</a></li>
+                                    <li><a href="{{ route('contactoEs','es') }}">Contacto</a></li>
                                 </ul>
                             </div>
                         </div>

@@ -250,7 +250,7 @@
                                 <div class="destination-grid">
                                     <a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'cusco'])}}"><img src="plantilla/assets/images/destinos/img_01.jpg" class="img-responsive" alt="">
                                         <div class="mask">
-                                            <h2>Cusco</h2>
+                                            <h2>CUSCO</h2>
                                             <p>
                                                 Cusco​ es una ciudad del sureste del Perú ubicada en la vertiente oriental de la cordillera de los Andes.
                                             </p>
@@ -607,7 +607,7 @@
                                 <div class="item">
                                     <div class="blog-content">
                                         <div class="blog-img image-hover">
-                                            <a href="{{route('testimonioEs','es')}}"><img src="/public/admin/testimonio/{{$item->id}}.{{$item->photo}}" class="img-responsive" alt=""></a>
+                                            <a href="{{route('testimonioEs','es')}}"><img style="height: 190px;" src="/public/admin/testimonio/{{$item->id}}.{{$item->photo}}" class="img-responsive" alt=""></a>
                                             <span class="post-date">{{$item->date}}</span>
                                         </div>
                                         <h4><a href="#">{{$item->name}}</a></h4>
@@ -673,25 +673,25 @@
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Nombre</label>
-                                                <input type="text" class="form-control" id="f_name" name="f_name" placeholder="Enter your First Name">
+                                                <input type="text" class="form-control" id="f_name" name="f_name" placeholder="Nombre">
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Apellido</label>
-                                                <input type="text" class="form-control" id="l_name" name="l_name" placeholder="Enter Your Last Name">
+                                                <input type="text" class="form-control" id="l_name" name="l_name" placeholder="Apellido completo">
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Email</label>
-                                                <input type="text" class="form-control" id="email" name="email" placeholder="Enter Your Email">
+                                                <input type="text" class="form-control" id="email" name="email" placeholder="Email">
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Teléfono</label>
-                                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number">
+                                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Teléfono">
                                             </div>
                                         </div>
                                     </div>
@@ -704,6 +704,7 @@
                                                 
                                             </div>
                                     </div>
+                                    {!! app('captcha')->display() !!}
                                     <div class="col-sm-6">
                                             <div class="form-group">
                                                <a href="#" class="thm-btn">Guardar</a>
@@ -718,9 +719,7 @@
                 </div>
          
                 </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">CERRAR</button>
-                </div>
+                
               </div>
               
             </div>

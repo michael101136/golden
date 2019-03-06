@@ -13,7 +13,9 @@ class ProductController extends Controller
 
     	$producto =Tour::find($id);
     	$oldCart = Session:: has('cart') ? Session::get('cart') : null;
+
     	$cart = new Cart($oldCart);
+          dd($cart);
     	$cart->add($producto,$producto->id);
 
     	$request->session()->put('cart', $cart);
@@ -24,7 +26,7 @@ class ProductController extends Controller
     public function getCart()
     {
     	
-    	
+    
 		$idioma="es";
     	if(!Session:: has('cart')){
 
@@ -53,6 +55,8 @@ class ProductController extends Controller
     	$oldCart =Session::get('cart');
     	$cart = new Cart($oldCart);
     	$total = $cart->totalPrice;
+
+
 
     	return view("assets.pagina.".$idioma.".checkout",['total' => $total]);
 
