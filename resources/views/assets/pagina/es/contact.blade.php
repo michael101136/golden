@@ -66,6 +66,8 @@
                                         <textarea class="form-control" id="message" name="message"  value="{{old('message')}}"  placeholder="Ingrese su consulta" rows="5"></textarea>
                                         <p style="color:red;">{{ $errors->first('message') }}</p>
                                     </div>
+                                   {!!  NoCaptcha :: renderJs() !!}
+                                   {!!  NoCaptcha :: display() !!}<br>
                                     <button type="submit" class="thm-btn" > enviar </button> 
                                 {!! Form::close() !!}
                             </div>
