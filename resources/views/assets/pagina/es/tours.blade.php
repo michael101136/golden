@@ -131,7 +131,7 @@
                 </div>
             </section>
             <!-- Newsletter -->
-            <section class="get-offer">
+            <!-- <section class="get-offer">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-5">
@@ -148,7 +148,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
         </div>
          
 
