@@ -153,7 +153,7 @@ class TestimonioController extends Controller
 
         $img = $request->file('img');
         $url = $img->getClientOriginalExtension();
-
+        
         
 
         $Testimonial= new Testimonial;
