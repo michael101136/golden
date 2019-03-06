@@ -707,13 +707,19 @@
                                               <label></label>
                                                <input type="file" class="form-control" name="img" >
                                         </div>
-                                         
-                                             {{-- {!! NoCaptcha::renderJs() !!} --}}
+                                         <div class="col-sm-2">
+                                               
+                                        </div>
+                                        <div class="col-sm-10">
+                                                {!!  NoCaptcha :: renderJs() !!}
+                                                 {!!  NoCaptcha :: display() !!}
+                                        </div>
+                                                
                                         <div class="col-sm-4">
                                                
                                         </div>
 
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-6"><br>
                                                 <div class="form-group">
                                                     <button type="submit" class="thm-btn">Guardar</button>
                                                 </div>

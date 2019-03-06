@@ -67,7 +67,7 @@
                                         <p style="color:red;">{{ $errors->first('message') }}</p>
                                     </div>
                                    {!!  NoCaptcha :: renderJs() !!}
-                                   {!!  NoCaptcha :: display() !!}
+                                   {!!  NoCaptcha :: display() !!}<br>
                                     <button type="submit" class="thm-btn" > enviar </button> 
                                 {!! Form::close() !!}
                             </div>
