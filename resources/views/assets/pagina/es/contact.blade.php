@@ -35,31 +35,36 @@
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Nombres</label>
-                                                <input type="text" class="form-control" id="f_name" name="f_name" placeholder="Ingrese su primer nombre">
+                                                <input type="text" class="form-control" id="name" name="name" value="{{old('name')}}" placeholder="Ingrese su primer nombre">
+                                                <p style="color:red;">{{ $errors->first('name') }}</p>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Apellidos</label>
-                                                <input type="text" class="form-control" id="l_name" name="l_name" placeholder="Ingrese sus apellidos">
+                                                <input type="text" class="form-control" id="apellido" name="apellido" value="{{old('apellido')}}" placeholder="Ingrese sus apellidos">
+                                                <p style="color:red;">{{ $errors->first('apellido') }}</p>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Email</label>
-                                                <input type="text" class="form-control" id="email" name="email" placeholder="Ingrese su correo electrónico">
+                                                <input type="text" class="form-control" id="email" name="email" value="{{old('email')}}" placeholder="Ingrese su correo electrónico">
+                                                <p style="color:red;">{{ $errors->first('email') }}</p>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Número telefónico</label>
-                                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Numero telefonico">
+                                                <input type="text" class="form-control" id="phone" name="phone"   value="{{old('phone')}}" placeholder="Numero telefónico">
+                                                <p style="color:red;">{{ $errors->first('phone') }}</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label></label>
-                                        <textarea class="form-control" id="message" name="message" placeholder="Your Comment" rows="5"></textarea>
+                                        <textarea class="form-control" id="message" name="message"  value="{{old('message')}}"  placeholder="Ingrese su consulta" rows="5"></textarea>
+                                        <p style="color:red;">{{ $errors->first('message') }}</p>
                                     </div>
                                     <button type="submit" class="thm-btn" > enviar </button> 
                                 {!! Form::close() !!}

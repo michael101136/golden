@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\contactEmail;
+use App\Http\Requests\CreateContact;
+
 class ContactController extends Controller
 {
     /**
@@ -32,11 +34,9 @@ class ContactController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateContact $request)
     {
-       
-        
-        
+      
         Mail::to('michael101136@gmail.com')->send(new contactEmail($request));
     }
 

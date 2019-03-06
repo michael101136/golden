@@ -28,7 +28,8 @@ class contactEmail extends Mailable
      */
     public function build()
     {
-         return $this->markdown('emails.contacto.contacto')
+       
+        return $this->markdown('emails.contacto.contacto')
             ->with(['detalle' => $this->content,'tour'])->subject('INFORMACIÓN DE TOURS (Formulario de contacto)');
     }
 }
