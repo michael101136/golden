@@ -265,37 +265,43 @@
                                             <div class="col-sm-12">
                                                 <div class="form-group">
                                                     <label>Nombre completo</label>
-                                                    <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese su nombre completo">
+                                                    <input type="text" class="form-control" id="name" name="name" value="{{old('name')}}" placeholder="Ingrese su nombre completo">
+                                                    <p style="color:red;">{{ $errors->first('name') }}</p>
                                                 </div>
                                             </div>
                                             <div class="col-sm-12">
                                                 <div class="form-group">
                                                     <label>Email</label>
-                                                    <input type="text" class="form-control" id="email" name="email" placeholder="Ingrese su correo electrónico">
+                                                    <input type="text" class="form-control" id="email" name="email" value="{{old('email')}}" placeholder="Ingrese su correo electrónico">
+                                                    <p style="color:red;">{{ $errors->first('email') }}</p>
                                                 </div>
                                             </div>
                                             <div class="col-sm-12">
                                                 <div class="form-group">
                                                     <label>Nacionalidad</label>
-                                                    <input type="text" class="form-control" id="country" name="country" placeholder="Ingrese su nacionalidad">
+                                                    <input type="text" class="form-control" id="country" name="country" value="{{old('country')}}" placeholder="Ingrese su nacionalidad">
+                                                    <p style="color:red;">{{ $errors->first('country') }}</p>
                                                 </div>
                                             </div>
                                             <div class="col-sm-12">
                                                 <div class="form-group">
                                                     <label>Número telefónico</label>
-                                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Ingrese su número telefónico">
+                                                    <input type="text" class="form-control" id="phone" name="phone" value="{{old('phone')}}" placeholder="Ingrese su número telefónico">
+                                                    <p style="color:red;">{{ $errors->first('phone') }}</p>
                                                 </div>
                                             </div>
                                             <div class="col-sm-12">
                                                 <div class="form-group">
                                                     <label>Fecha de viaje</label>
                                                     <input type="date" class="form-control" id="date" name="date" >
+                                                    <p style="color:red;">{{ $errors->first('date') }}</p>
                                                 </div>
                                             </div>
                                             <div class="col-sm-12">
                                                 <div class="form-group">
                                                     <label>Descripción</label>
-                                                    <textarea class="form-control" id="message" name="message" rows="5" placeholder=""></textarea>
+                                                    <textarea class="form-control" id="message" name="message" rows="5" value="{{old('message')}}" placeholder=""></textarea>
+                                                    <p style="color:red;">{{ $errors->first('message') }}</p>
                                                 </div>
                                             </div>
                                              <div class="col-sm-10">
