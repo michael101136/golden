@@ -294,7 +294,7 @@
                                             </div>
                                             <div class="col-sm-12">
                                                 <div class="form-group">
-                                                    <label>Decripción</label>
+                                                    <label>Descripción</label>
                                                     <textarea class="form-control" id="message" name="message" rows="5" placeholder=""></textarea>
                                                 </div>
                                             </div>
