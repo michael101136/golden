@@ -230,6 +230,24 @@
                             </div>
                             <!-- booking -->
                             <div class="sidber-box tags-widget">
+                            
+                           
+                            @if($errors->any())
+
+                            <div class="alert alert-danger">
+                                        <strong>Error!</strong> No se registró la reserva.
+                                </div>
+
+                            @endif
+                            @if(Session::has('flash_message'))
+                                <div class="alert alert-success">
+                                        <strong>Correcto!</strong> Se registró adecuadamente la reserva.
+                                </div>
+                            @endif
+                                
+
+                            
+
                                 <div class="cats-title">RESERVA</div>
                                 <div class="booking-form tour_booking">
                                 {!! Form::open(['route' => ['reservations.store'] , 'method' => 'POST']) !!}

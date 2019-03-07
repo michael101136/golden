@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Reservation;
 use App\Http\Requests\CreateViewReservation;
-
+use Session;
 class ReservationController extends Controller
 {
     /**
@@ -51,6 +51,8 @@ class ReservationController extends Controller
         $reservation->tour_id =$request->idtour;
         $reservation->status ='pendiente';
         $reservation->save();
+
+        Session::flash('flash_message', '¡ Muchas gracias! Su reserva ha sido registrada.');
 
         return redirect()->back();
     }
