@@ -298,7 +298,11 @@
                                                     <textarea class="form-control" id="message" name="message" rows="5" placeholder=""></textarea>
                                                 </div>
                                             </div>
-                                        </div>
+                                             <div class="col-sm-10">
+                                                {!!  NoCaptcha :: renderJs() !!}
+                                                 {!!  NoCaptcha :: display() !!}
+                                            </div>
+                                        </div><br>
                                         <button class="thm-btn btn-block">Reservar</button>
           
                                     {!! Form::close() !!}    
