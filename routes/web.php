@@ -87,6 +87,11 @@ Route::get('{lang?}/tours/filtro/{precio?}/{departamento?}', [ 'uses' => 'Public
 
 /*_______________ Add carrito de compra_____________________________________________________________________________________________________________*/
 
+/*_______________ Reservacion_________________ */
+Route::resource('reservations','ReservationController');
+/*______________ Fin reservacion _____________________ */
+
+
 Route:: get('es/add-to-cart/{id}', [
 
 		'uses' => 'ProductController@getAddToCart',

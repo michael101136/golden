@@ -13,15 +13,15 @@ class Reservation extends Model
         'name',
         'email',
         'phone',
-        'skype',
         'country',
         'fecha',
         'travel_type',
-        'numberPersonas',
-        'room_type',
-        'guide_service',
+        'number_adults',
+        'number_children',
         'message',
-     	'tour_id',
+        'tour_id',
+        'status',
+        'lenguaje',
     ];
 }
 

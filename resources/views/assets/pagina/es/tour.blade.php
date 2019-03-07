@@ -230,30 +230,33 @@
                             </div>
                             <!-- booking -->
                             <div class="sidber-box tags-widget">
-                                <div class="cats-title">Booking</div>
+                                <div class="cats-title">RESERVA</div>
                                 <div class="booking-form tour_booking">
-                                    <form>
+                                {!! Form::open(['route' => ['reservations.store'] , 'method' => 'POST']) !!}
+
                                         <div class="row">
-                                            
                                             <div class="col-sm-6">
-                                                <label>Adults</label>
+                                                <label>Adultos</label>
                                                 <div class="input-group number-spinner">
                                                     <span class="input-group-btn">
                                                         <a class="btn btn-pm" data-dir="dwn"><span class="glyphicon glyphicon-minus"></span></a>
                                                     </span>
-                                                    <input type="text" class="form-control text-center" value="1">
+                                                    <input type="text" class="form-control text-center" name="cantidadAdultos" id="cantidadAdultos" value="1">
                                                     <span class="input-group-btn">
                                                         <a class="btn btn-pm" data-dir="up"><span class="glyphicon glyphicon-plus"></span></a>
                                                     </span>
+                                                  
                                                 </div>
                                             </div>
+                                            <input type="hidden" class="form-control" id="idtour" name="idtour"  value="{{$tour->id}}">
+                                            <input type="hidden" class="form-control" id="lenguaje" name="lenguaje"  value="es">
                                             <div class=" col-sm-6">
-                                                <label>Children</label>
+                                                <label>Niños</label>
                                                 <div class="input-group number-spinner">
                                                     <span class="input-group-btn">
                                                         <a class="btn btn-pm" data-dir="dwn"><span class="glyphicon glyphicon-minus"></span></a>
                                                     </span>
-                                                    <input type="text" class="form-control text-center" value="1">
+                                                    <input type="text" class="form-control text-center" name="cantidadNinios" id="cantidadNinios" value="1">
                                                     <span class="input-group-btn">
                                                         <a class="btn btn-pm" data-dir="up"><span class="glyphicon glyphicon-plus"></span></a>
                                                     </span>
@@ -261,26 +264,44 @@
                                             </div>
                                             <div class="col-sm-12">
                                                 <div class="form-group">
-                                                    <label>Name</label>
-                                                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your Name">
+                                                    <label>Nombre completo</label>
+                                                    <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese su nombre completo">
                                                 </div>
                                             </div>
                                             <div class="col-sm-12">
                                                 <div class="form-group">
                                                     <label>Email</label>
-                                                    <input type="text" class="form-control" id="email" name="email" placeholder="Enter Your Email">
+                                                    <input type="text" class="form-control" id="email" name="email" placeholder="Ingrese su correo electrónico">
                                                 </div>
                                             </div>
                                             <div class="col-sm-12">
                                                 <div class="form-group">
-                                                    <label>Phone</label>
-                                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number">
+                                                    <label>Nacionalidad</label>
+                                                    <input type="text" class="form-control" id="country" name="country" placeholder="Ingrese su nacionalidad">
                                                 </div>
                                             </div>
-                                            
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label>Número telefónico</label>
+                                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Ingrese su número telefónico">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label>Fecha de viaje</label>
+                                                    <input type="date" class="form-control" id="date" name="date" >
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label>Decripción</label>
+                                                    <textarea class="form-control" id="message" name="message" rows="5" placeholder=""></textarea>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <a href="#" class="thm-btn btn-block">Book now</a>
-                                    </form>
+                                        <button class="thm-btn btn-block">Reservar</button>
+          
+                                    {!! Form::close() !!}    
                                 </div>
                             </div>
                             <!-- help center -->
